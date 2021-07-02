@@ -1,0 +1,15 @@
+Test
+##
+Das ist ein Test!
+##
+ist die Lösung
+##
+1, 2, 3, 4
+##
+A, B
+##
+3
+##
+0f1, 0u1
+##
+3

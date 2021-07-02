@@ -43,6 +43,8 @@ public class Raetselinterpret {
     List<File> output = new ArrayList<File>();
     File path = null;
     switch (stufe) {
+      case 0: path = new File("Resources/Raetsel/Stufe 0");
+      break;
       case 1: path = new File("Resources/Raetsel/Stufe 1");
       break;
       case 2: path = new File("Resources/Raetsel/Stufe 2");
@@ -54,6 +56,7 @@ public class Raetselinterpret {
       default: path = null;
     }
     File[] files = path.listFiles();
+   
     if (files != null) { 
       for (int i = 0; i < files.length; i++) {
         if (files[i].isDirectory()) {
@@ -63,6 +66,7 @@ public class Raetselinterpret {
         }
       }
     }
+    
     return output;
   }
   
@@ -82,7 +86,8 @@ public class Raetselinterpret {
   }
   
   private File findeRaetsel(String titel) {
-    for (int i = 1; i < 5; i++) {
+    
+    for (int i = 0; i < 5; i++) {                       // Hier muss die Anzahl der Level angepasst werden!!!!!!!!!!!!
       List<File> ordner = gibRaetselausOrdner(i);
       for (File raetsel : ordner) {
         if (raetsel.getName().equals(titel)) {
@@ -100,9 +105,11 @@ public class Raetselinterpret {
    * @return Ein neues Raetselobjekt.
    */
   public Raetsel liesRaetsel(String input) {
+    
     String titel = input + ".txt";
     List<String> rows = null;
     File file = findeRaetsel(titel);
+    
     if (file != null) {
       try {
         rows = Files.readAllLines(
@@ -127,7 +134,6 @@ public class Raetselinterpret {
       for (int i = 0; i < antwortM.length; i++) {
         antwortM[i] = killSpace(antwortM[i]);
       }
-      
       return new Raetsel(
           input,                    //spaltenAnz
           Integer.parseInt(lines[7]), //stufe
@@ -137,7 +143,9 @@ public class Raetselinterpret {
           Integer.parseInt(lines[5]), //Wievielte Antwort die L�sung ist
           lines[2],                   //Antworttext
           formeln);                   //Formelliste  
-    } else {
+    } 
+    
+    else {
       new praesentation.FehlerDialog("Raetsel konnte nicht gefunden werden. "
           + "Starte Freies Raetsel"); 
       List<String> notfall = new ArrayList<String>();

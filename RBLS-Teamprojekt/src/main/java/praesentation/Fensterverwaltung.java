@@ -2,10 +2,12 @@ package praesentation;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import modell.Fassade;
@@ -24,7 +26,12 @@ public class Fensterverwaltung {
   private Fassade modell;
   private int[] fensterMass = new int[]{1280, 720};
   private int[] minimumMass = fensterMass;
-  ImageIcon img = new ImageIcon(getClass().getResource("/Icon/icon.png"));
+  ImageIcon img = new ImageIcon(getClass().getResource("/Icon/hintergrund.png"));
+  // ImageIcon img = new ImageIcon(getClass().getResource("/Icon/background.png"));
+  
+  Image image = img.getImage();
+  
+  
 
   public Fensterverwaltung(Hauptsteuerung strg, Fassade fsd) {
     this.strg = strg;
@@ -42,9 +49,10 @@ public class Fensterverwaltung {
     UIManager.put("TextArea.font", 
         new javax.swing.plaf.FontUIResource("Arial Unicode MS", Font.PLAIN, 18));
     UIManager.put("Table.font", new Font("Arial Unicode MS", Font.BOLD, 20));
+    
 
     aktivesFenster = new JFrame();
-    aktivesFenster.setContentPane(new Hauptmenue(this));
+    aktivesFenster.setContentPane(new Hauptmenue(this, image));
     aktivesFenster.setTitle("RBLS");
     aktivesFenster.setSize(fensterMass[0], fensterMass[1]);
     aktivesFenster.setMinimumSize(new Dimension(minimumMass[0], minimumMass[1]));
@@ -53,13 +61,14 @@ public class Fensterverwaltung {
     aktivesFenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     aktivesFenster.setVisible(true);
     aktivesFenster.setIconImage(img.getImage());
+
   }
 
   /**
    * Wechselt zum Hauptmenue.
    */
   public void oeffneMenue() {
-    wechseleFenster(new Hauptmenue(this), "RBLS");
+    wechseleFenster(new Hauptmenue(this, image), "RBLS");
   }
 
   /**
@@ -76,7 +85,7 @@ public class Fensterverwaltung {
    * Wechselt zum Abschlussfenster.
    */
   public void oeffneAbschlussFenster() {
-    wechseleFenster(new Abschlussfenster(this), "Abschlussfenster");
+    wechseleFenster(new Abschlussfenster(img.getImage(), this), "Abschlussfenster");
   }
 
   /**

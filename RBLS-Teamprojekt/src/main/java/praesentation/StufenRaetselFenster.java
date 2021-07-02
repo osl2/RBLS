@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -44,20 +45,24 @@ public class StufenRaetselFenster extends RaetselFenster {
    */
   public StufenRaetselFenster(Fensterverwaltung fensterverwaltung,
       Fassade modell, WahrheitstabellenSteuerungen wstrg) {
+    
     this.fv = fensterverwaltung;
     this.modell = modell;
     this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg);
     this.name = modell.gibAktivenRaetselnamen();
-    this.frage = modell.gibFragestellung().replaceAll("#", "\n");
+    // Ersetzt alle Vorkommnisse von § durch eine neue Zeile 
+    this.frage = (modell.gibFragestellung().replaceAll("§", "\n"));
     
     ansicht = new JPanel();
     ansicht.setLayout(new BoxLayout(ansicht, BoxLayout.Y_AXIS));
-    ansicht.setBackground(Color.WHITE);
+    ansicht.setBackground(FarbenUI.getStufenRaetselAnsichtBackground());
     
     //FragePanel//
     JPanel fragePanel = new JPanel();
     fragePanel.setLayout(new BorderLayout());
-    fragePanel.setBackground(Color.WHITE);
+    fragePanel.setBackground(FarbenUI.getStufenRaetselFensterFragePanelBackground());
+    
+    
     
     menueKnopf = new Schaltflaeche("Menü", 2);
     menueKnopf.addActionListener(new ActionListener() {
@@ -65,10 +70,13 @@ public class StufenRaetselFenster extends RaetselFenster {
           geheZuRaetselwahlMenue();
         }
       });
+    
     JPanel menuePanel = new JPanel();
     menuePanel.setLayout(new FlowLayout());
     menuePanel.add(menueKnopf);
-    menuePanel.setBackground(Color.WHITE);
+    menuePanel.setBackground(FarbenUI.getStufenRaetselMenuPanelBackground());
+   
+
     
     tipp = new Schaltflaeche("Tipp", 2);
     tipp.addActionListener(new ActionListener() {
@@ -76,10 +84,11 @@ public class StufenRaetselFenster extends RaetselFenster {
           zeigeTippAn();
         }
       });
+    
     JPanel tippPanel = new JPanel();
     tippPanel.setLayout(new FlowLayout());
     tippPanel.add(tipp);
-    tippPanel.setBackground(Color.WHITE);
+    tippPanel.setBackground(FarbenUI.getStufenRaetselTippPanelBackground());
     
     frageFeld = new JTextArea(frage);
     frageFeld.setEditable(false);
@@ -93,8 +102,9 @@ public class StufenRaetselFenster extends RaetselFenster {
     schiebeRegler.setBorder(BorderFactory.createEmptyBorder());
     schiebeRegler.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-          this.thumbColor = new Color(255, 102, 0);
-          this.trackColor = new Color(186, 185, 219);
+          // this.thumbColor = new Color(255, 102, 0);
+          this.thumbColor = FarbenUI.getStufenRaetselScrollBarThumb();
+          this.trackColor = FarbenUI.getStufenRaetselScrollBarTrack();
       }
     });
     frageFeldPanel.add(schiebeRegler, BorderLayout.CENTER);
@@ -114,7 +124,7 @@ public class StufenRaetselFenster extends RaetselFenster {
     //WahrheitstabellenPanel//
     JPanel tabellenPanel = new JPanel();
     tabellenPanel = tabelle.gibAnsicht();
-    tabellenPanel.setBackground(Color.WHITE);
+    tabellenPanel.setBackground(FarbenUI.getStufenRaetselTabellenPanelBackground());
     tabellenPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 1000));
     
     //AntwortfeldPanel//
@@ -126,7 +136,7 @@ public class StufenRaetselFenster extends RaetselFenster {
     antwortPanel.setLayout(new BorderLayout());
     Border antwortBorder = BorderFactory.createEmptyBorder(10, 50, 10, 50);
     antwortPanel.setBorder(antwortBorder);
-    antwortPanel.setBackground(Color.WHITE);
+    antwortPanel.setBackground(FarbenUI.getStufenRaetselAntwortPanelBackground());
     antwortPanel.add(antwortRahmen, BorderLayout.CENTER);
     
     weiter = new Schaltflaeche("WEITER");
@@ -150,7 +160,7 @@ public class StufenRaetselFenster extends RaetselFenster {
     Border border1 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
     panel1.setBorder(border1);
     panel1.add(innen);
-    panel1.setBackground(Color.WHITE);
+    panel1.setBackground(FarbenUI.getStufenRaetselPanel1Background());
     
     JPanel panel2 = new JPanel();
     panel2.setLayout(new BoxLayout(panel2, BoxLayout.X_AXIS));
@@ -158,13 +168,14 @@ public class StufenRaetselFenster extends RaetselFenster {
     border2 = BorderFactory.createTitledBorder(border2, titel);
     panel2.setBorder(border2);
     panel2.add(panel1);
-    panel2.setBackground(new Color(255, 102, 0));
+    // panel2.setBackground(new Color(255, 102, 0));
+    panel2.setBackground(FarbenUI.getStufenRaetselPanel2Background());
     JPanel panel3 = new JPanel();
     panel3.setLayout(new BoxLayout(panel3, BoxLayout.X_AXIS));
     Border border3 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
     panel3.setBorder(border3);
     panel3.add(panel2, BorderLayout.CENTER);
-    panel3.setBackground(Color.WHITE);
+    panel3.setBackground(FarbenUI.getStufenRaetselPanel3Background());
     
     return panel3;
   }

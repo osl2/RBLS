@@ -37,8 +37,7 @@ public class Raetsel {
    * @param antworttext Antowrttext
    * @param formeln Formeln
    */
-  public Raetsel(String name, int stufe, List<String> atom,
-      String raetselText, String[] antwortMoeglichkeiten,
+  public Raetsel(String name, int stufe, List<String> atom, String raetselText, String[] antwortMoeglichkeiten,
       int loesung, String antworttext, List<String> formeln) {
     this.spaltenAnz = atom.size();
     this.zeilenAnz = (int) Math.pow(2, atom.size());

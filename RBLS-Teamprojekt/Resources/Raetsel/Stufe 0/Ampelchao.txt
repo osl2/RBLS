@@ -1,6 +1,6 @@
-﻿Ampelchaos
+﻿Ampelchao
 ##
-Stelle dir eine Kreuzung vor, an der zwei Ampeln stehen. Die Ampeln können entweder grün oder rot sein.#
+Stelle dir eine ... vor, an der zwei ... stehen. Die Ampeln können entweder grün oder rot sein.#
  #
 In der Tabelle kannst du auf der linken Seite durch Klicken auf "wahr" oder "falsch" ändern, ob die Aussage, die in dieser Spalte steht, wahr oder falsch sein soll. Dabei bedeutet z.B. die Zeile [wahr, falsch], dass die Ampel A grün ist und die Ampel B rot. #
  #

@@ -1,0 +1,23 @@
+﻿Ampelchaos
+##
+Stell dir eine einfache Kreuzung mit zwei Ampelen vor. Die Ampeln können entweder grün oder rot sein.§§
+
+Wir möchten nun mit Hilfe einer Wahrheitstafel herausfinden, wann die Kreuzung unsicher ist.§§
+
+Dafür legen wir die Aussage „Die erste Ampel ist grün.“ als Aussage A und die Aussage „Die zweite Ampel ist grün.“ als Aussage B fest. Werten wir nun in der Tabelle die rechte aussagenlogische Formel (Frage: welchen Sachverhalt beschreibt sie?) für alle Kombinationen der Belegungen der beiden Aussagen A und B aus, so können wir festellen, bei welcher Belegung von A und B die Kreuzung unsicher ist.§§
+
+In der Tabelle kannst du in den ersten beiden linken Spalten durch Klicken auf „falsch“ (bzw. „wahr“) die Belegung der Aussage in der entsprechenden Zeile ändern.§§
+
+Stelle die Felder in der linken und mittleren Spalte der Tabelle so ein, dass du alle Kombinationen der Belegungen von A und B abdeckst. Klicke anschließend auf „Fülle Tabelle“, um herauszufinden für welche Belegung(en) von A und B die Formel auf der rechten Seite nicht erfüllt ist und die Kreuzung somit unsicher ist. 
+##
+
+##
+Wenn beide rot sind., Wenn eine rot & eine grün ist., Wenn beide grün sind.
+##
+Ampel A ist grün, Ampel B ist grün
+##
+3
+##
+n(0u1)
+##
+1

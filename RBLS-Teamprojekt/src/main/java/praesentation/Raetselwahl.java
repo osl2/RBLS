@@ -4,12 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -19,6 +21,8 @@ import javax.swing.JPanel;
  * @author Nick
  */
 public class Raetselwahl extends javax.swing.JPanel {
+
+
 
   /**
    * auto-generierte ID.
@@ -30,7 +34,9 @@ public class Raetselwahl extends javax.swing.JPanel {
   private List<String> raetsel;
   private List<String> geloest;
   private int stufe;
-  private String[] hinweise = new String[] { 
+  private String[] hinweise = new String[] {
+     "Dieser Hinweis muss noch geschrieben werden "
+          + " .",
     "Dies ist die erste Stufe. Decke in der Wahrheitstabelle alle Fälle für die atomaren "
       + "Aussagen ab und klicke auf 'Fülle Tabelle'.",
     "Dies ist die zweite Stufe. Hier kannst Du die Wahrheitswerte nicht verändern,"
@@ -40,6 +46,7 @@ public class Raetselwahl extends javax.swing.JPanel {
     "Dies ist die letzte Stufe. Hier gibt es verschiedene Arten"
       + " von Rätseln und die Wahrheitstabelle ist vollautomatisiert."
   };
+
   
   /**
    * Konstruktor.
@@ -61,13 +68,18 @@ public class Raetselwahl extends javax.swing.JPanel {
    */
   private void init() {
     buttons = new Schaltflaeche[raetsel.size()];
-    JPanel buttonPanel = new JPanel();
+    // JPanel buttonPanel = new JPanel();
+    ImageIcon img = new ImageIcon(getClass().getResource("/Icon/hintergrund.png"));
+    ImagePanel buttonPanel = new ImagePanel(img.getImage());
     buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-    buttonPanel.setBackground(new Color(255, 102, 0));
+    // buttonPanel.setBackground(new Color(255, 102, 0));
+    buttonPanel.setBackground(FarbenUI.getRaetselwahlButtonPanel());
     buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-    JLabel hinweis = new JLabel(hinweise[stufe - 1]);
+    
+    JLabel hinweis = new JLabel(hinweise[stufe]);
+    
     hinweis.setFont(new javax.swing.plaf.FontUIResource("Arial", Font.BOLD, 18));
-    hinweis.setForeground(Color.WHITE);
+    hinweis.setForeground(FarbenUI.getRaetselwahlHinweisForeground());
     buttonPanel.add(hinweis, 0);
     buttonPanel.add(Box.createRigidArea(new Dimension(0, 5)));
     for (int j = 0; j < buttons.length; j++) {
@@ -84,7 +96,8 @@ public class Raetselwahl extends javax.swing.JPanel {
       buttons[j].setMaximumSize(new Dimension(Integer.MAX_VALUE, 
           buttons[j].getMinimumSize().height * 2));
       buttonPanel.add(buttons[j], j + 2);
-      buttonPanel.setBackground(new Color(255, 102, 0));
+      buttonPanel.setBackground(FarbenUI.getRaetselwahlButtonPanelBackground());
+      // buttonPanel.setBackground(Color.BLUE);
     }
     
     this.setLayout(new BorderLayout());

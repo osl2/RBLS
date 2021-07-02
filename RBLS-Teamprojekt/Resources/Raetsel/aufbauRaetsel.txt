@@ -1,0 +1,15 @@
+Raetselname
+##
+Raetseltext: Dabei steht eine § für ein Zeilenumbruch.
+##
+Antworttext
+##
+Antwortmöglichkeiten (durch Komma getrennt) (Selection Button)
+##
+Aussagen/Spaltenüberschriften (durch Komma getrennt)
+##
+Nr. der Lösung 
+##
+aussagenlogische Formel n(0un1f2)
+##
+Stufe --> abhängig davon: Aufgabenstellung

@@ -3,11 +3,15 @@ package praesentation;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -20,8 +24,11 @@ import modell.Fassade;
 
  * @author Nick
  */
-public class Hauptmenue extends javax.swing.JPanel {
 
+// public class Hauptmenue extends javax.swing.JPanel {
+
+  
+public class Hauptmenue extends ImagePanel {
   /**
    * auto-generierte ID.
    */
@@ -29,14 +36,16 @@ public class Hauptmenue extends javax.swing.JPanel {
 
   private Fensterverwaltung fw;
 
+  private Schaltflaeche stufe0;
   private Schaltflaeche stufe1;
   private Schaltflaeche stufe2;
   private Schaltflaeche stufe3;
   private Schaltflaeche stufe4;
   private Schaltflaeche freierModus;
   private Schaltflaeche beenden;
-
-  public Hauptmenue(Fensterverwaltung fw) {
+  
+  public Hauptmenue(Fensterverwaltung fw, Image image) {
+    super(image);
     this.fw = fw;
     init();
   }
@@ -45,25 +54,37 @@ public class Hauptmenue extends javax.swing.JPanel {
    * initialiert GUI und Buttonaktionen.
    */
   private void init() {
+    
+    stufe0 = new Schaltflaeche(3);
     stufe1 = new Schaltflaeche(3);
     stufe2 = new Schaltflaeche(3);
     stufe3 = new Schaltflaeche(3);
     stufe4 = new Schaltflaeche(3);
     freierModus = new Schaltflaeche("FREIER MODUS");
     beenden = new Schaltflaeche("BEENDEN");
+    
     JPanel startFeld = new JPanel(new java.awt.FlowLayout());
-    startFeld.setBackground(Color.WHITE);
+    startFeld.setBackground(FarbenUI.getHauptmenuStartFeldBackground());
     JPanel mitte = new JPanel(new java.awt.BorderLayout());
-    mitte.setBackground(Color.WHITE);
+    mitte.setBackground(FarbenUI.getHauptmenuJPanelBackground());
     mitte.add(startFeld, java.awt.BorderLayout.SOUTH);
     JLabel starttext = new javax.swing.JLabel("Start", SwingConstants.CENTER);
     mitte.add(starttext, java.awt.BorderLayout.NORTH);
 
     this.setLayout(new java.awt.GridBagLayout());
-    this.setBackground(Color.WHITE);
+    this.setBackground(FarbenUI.getHauptmenuBackground());
         
     //Stufenbuttons//
-    stufe1.setText("Stufe 1");
+    stufe0.setText("Level 0");
+    stufe0.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        klickeStart(0);
+      }
+    });
+    startFeld.add(stufe0);
+    
+    
+    stufe1.setText("Level 1");
     stufe1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         klickeStart(1);
@@ -71,7 +92,7 @@ public class Hauptmenue extends javax.swing.JPanel {
     });
     startFeld.add(stufe1);
         
-    stufe2.setText("Stufe 2");
+    stufe2.setText("Level 2");
     stufe2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         klickeStart(2);
@@ -79,7 +100,7 @@ public class Hauptmenue extends javax.swing.JPanel {
     });
     startFeld.add(stufe2);
         
-    stufe3.setText("Stufe 3");
+    stufe3.setText("Level 3");
     stufe3.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         klickeStart(3);
@@ -87,7 +108,7 @@ public class Hauptmenue extends javax.swing.JPanel {
     });
     startFeld.add(stufe3);
         
-    stufe4.setText("Stufe 4");
+    stufe4.setText("Level 4");
     stufe4.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         klickeStart(4);
@@ -149,15 +170,16 @@ public class Hauptmenue extends javax.swing.JPanel {
     titel2.setFont(new javax.swing.plaf.FontUIResource("Arial Unicode MS", Font.BOLD, 48));
     titel.add(titel1, 0);
     titel.add(titel2, 1);
-    titel.setBackground(Color.WHITE);
+    titel.setBackground(FarbenUI.getHauptmenuTitleBackground());
     this.add(titel, c);
 
     JPanel leer = new JPanel();
     leer.setLayout(new BoxLayout(leer, BoxLayout.Y_AXIS));
-    leer.setBackground(Color.WHITE);
+    leer.setBackground(new Color(255, 255, 255, 0));
     c.gridy = 3;
     c.ipady = 40;
     this.add(leer, c);
+    
 
   }
 
@@ -183,5 +205,6 @@ public class Hauptmenue extends javax.swing.JPanel {
   private void klickeFreienModus() {
     fw.starteFreienModus();
   }
+  
   
 }

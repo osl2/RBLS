@@ -2,6 +2,7 @@ package praesentation;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -16,7 +17,7 @@ import javax.swing.SwingConstants;
 
  * @author Nick
  */
-public class Abschlussfenster extends javax.swing.JPanel {
+public class Abschlussfenster extends ImagePanel {
 
   /**
    * auto-generierte ID.
@@ -35,7 +36,8 @@ public class Abschlussfenster extends javax.swing.JPanel {
 
    * @param fw Fensterverwaltung zum Wechseln der Ansichten.
    */
-  public Abschlussfenster(Fensterverwaltung fw) {
+  public Abschlussfenster(Image img, Fensterverwaltung fw) {
+    super(img);
     this.fw = fw;
 
     naechstesRaetsel = new Schaltflaeche("nächstes Rätsel", 3);
@@ -51,17 +53,18 @@ public class Abschlussfenster extends javax.swing.JPanel {
       }
     });
     JPanel buttons = new JPanel(new java.awt.BorderLayout());
-    buttons.setBackground(new Color(255, 102, 0));
+    buttons.setBackground(FarbenUI.getButtonBackgroundColor());
     naechstesRaetsel.setPreferredSize(new Dimension(200, 100));
     buttons.add(naechstesRaetsel, java.awt.BorderLayout.EAST);
     menue.setPreferredSize(new Dimension(200, 100));
     buttons.add(menue, java.awt.BorderLayout.WEST);
         
     textLabel = new JLabel(texte[new Random().nextInt(texte.length)], SwingConstants.CENTER);
-    textLabel.setForeground(Color.WHITE);
+    textLabel.setForeground(Color.BLACK);
     
     this.setLayout(new java.awt.BorderLayout());
-    this.setBackground(new Color(255, 102, 0));
+    this.setBackground(FarbenUI.getAbschlussfensterBackground());
+    this.setBackground(Color.WHITE);
     this.add(buttons, java.awt.BorderLayout.SOUTH);
     this.add(textLabel, java.awt.BorderLayout.CENTER);
   }

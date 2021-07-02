@@ -3,6 +3,7 @@ package praesentation;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,7 +33,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
 
   private WahrheitstabellenSteuerungen strg;
   private Fassade modell;
-  private JTable tabelle;
+  private JTable tabelle; 
   private Schaltflaeche ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>");
   private Schaltflaeche mehrSpalten = new Schaltflaeche("+", 6);
   private Schaltflaeche wenigerSpalten = new Schaltflaeche("-", 6);
@@ -84,25 +85,31 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
         fuegeSpalteHinzu();
       }
     });
+    
     if (stufe == 2 || stufe == 4) {
       schaltflaechenPanel.add(mehrSpalten);
     }
+    
     schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 5)));
     wenigerSpalten.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         wechseleModus(wenigerSpalten, Modus.entfernen);
       }
     });
+    
     if (stufe == 2 || stufe == 4) {
       schaltflaechenPanel.add(wenigerSpalten);
     }
+    
     schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 5)));
     zeileMarkieren.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         wechseleModus(zeileMarkieren, Modus.markieren);
       }
     });
+    
     schaltflaechenPanel.add(zeileMarkieren);
+    
     schaltflaechenPanel.add(
         Box.createRigidArea(new Dimension(0, (int) (mehrSpalten.getMaximumSize().height * 1))));
     ausfuellen.addActionListener(new ActionListener() {
@@ -110,6 +117,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
         fuelleAus();
       }
     });
+    
     if (stufe != 3) {
       schaltflaechenPanel.add(ausfuellen);
     }
@@ -122,13 +130,15 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     JScrollPane scrollPane = new JScrollPane(tabellenRahmen);
     scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-        this.thumbColor = new Color(255, 102, 0);
+        // this.thumbColor = new Color(255, 102, 0);
+        this.thumbColor = Color.BLUE;
         this.trackColor = new Color(186, 185, 219);
       }
     });
     scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-        this.thumbColor = new Color(255, 102, 0);
+        // this.thumbColor = new Color(255, 102, 0);
+        this.thumbColor = Color.BLUE;
         this.trackColor = new Color(186, 185, 219);
       }
     });
@@ -144,8 +154,13 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     tabelle.setFillsViewportHeight(true);
   }
 
+  
   private void initTabelle() {
     // Modelldaten //
+    
+    /*
+     * Zellen der Tabelle werden mit "wahr" oder "falsch" befüllt
+     */
     inhalt = new String[zeilenzahl][spaltenzahl];
     for (int i = 0; i < inhalt.length; i++) {
       for (int j = 0; j < inhalt[0].length; j++) {
@@ -158,6 +173,10 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       }
     }
     // JTable //
+    
+    /*
+     * 
+     */
     tabelle = new JTable(inhalt, inhalt[0]) {
       private static final long serialVersionUID = 1L;
       public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
@@ -175,6 +194,9 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
           .setCellRenderer(new praesentation.tabelle.FarbRenderer());
     }
 
+    /*
+     * Anklicken von Zellen, die auf "wahr" oder "falsch" gesetzt sind
+     */
     tabelle.addMouseListener(new java.awt.event.MouseAdapter() {
       @Override
       public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -182,7 +204,18 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
         int j = tabelle.columnAtPoint(evt.getPoint());
         klickeZelle(i, j);
       }
+      @Override
+      public void mouseEntered(java.awt.event.MouseEvent e) {
+        
+      }
+      
+      @Override
+      public void mouseExited(java.awt.event.MouseEvent e)
+      {
+          // e.getComponent(this);
+      }
     });
+    
     tabelle.setRowHeight((int) (tabelle.getRowHeight() * 1.5));
     tabelle.setFocusable(false);
     tabelle.setRowSelectionAllowed(false);

@@ -23,8 +23,9 @@ class Schaltflaeche extends javax.swing.JButton {
 
   public Schaltflaeche() {
     this.setBorderPainted(false);
-    this.setBackground(new Color(255, 102, 0));
-    this.setForeground(Color.WHITE);
+    // this.setBackground(new Color(255, 102, 0));
+    this.setBackground(FarbenUI.getSchaltflaeceBackground());
+    this.setForeground(FarbenUI.getSchaltflaecheForeground());
   }
 
   public Schaltflaeche(int farbe) {
@@ -33,8 +34,9 @@ class Schaltflaeche extends javax.swing.JButton {
   
   public Schaltflaeche(String text) {
     this.setBorderPainted(false);
-    this.setBackground(new Color(255, 102, 0));
-    this.setForeground(Color.WHITE);
+    // this.setBackground(new Color(255, 102, 0));
+    this.setBackground(FarbenUI.getSchaltflaeceBackground());
+    this.setForeground(FarbenUI.getSchaltflaecheForeground());
     this.setText(text);
   }
   
@@ -46,36 +48,37 @@ class Schaltflaeche extends javax.swing.JButton {
   private void setzeFarbDesign(int farbe) {
     switch (farbe) {
       case 1:
-        this.setBackground(new Color(255, 102, 0));
-        this.setForeground(Color.WHITE);
+        // this.setBackground(new Color(255, 102, 0));
+        this.setBackground(FarbenUI.getSchaltflaecheColor1Background());
+        this.setForeground(FarbenUI.getSchaltflaecheColor1Foreground());
         this.setBorderPainted(false);
         break;
       case 2:
-        this.setBackground(new Color(186, 185, 219));
-        this.setForeground(Color.DARK_GRAY);
+        this.setBackground(FarbenUI.getSchaltflaecheColor2Background());
+        this.setForeground(FarbenUI.getSchaltflaecheColor2Foreground());
         this.setBorderPainted(false);
         break;
       case 3:
-        this.setBackground(Color.WHITE);
-        this.setForeground(new Color(255, 102, 0));
+        this.setBackground(FarbenUI.getSchaltflaecheColor3Background());
+        this.setForeground(FarbenUI.getSchaltflaecheColor4Foreground());
         break;
       case 4:
-        this.setBackground(Color.WHITE);
+        this.setBackground(FarbenUI.getSchaltflaecheColor4Background());
         break;
       case 5:
-        this.setBackground(new Color(186, 185, 219));
-        this.setForeground(new Color(255, 102, 0));
+        this.setBackground(FarbenUI.getSchaltflaecheColor5Background());
+        this.setForeground(FarbenUI.getSchaltflaecheColor5Foreground());
         break;
       case 6:
-        this.setBackground(new Color(186, 185, 219));
-        this.setForeground(Color.DARK_GRAY);
+        this.setBackground(FarbenUI.getSchaltflaecheColor6Background());
+        this.setForeground(FarbenUI.getSchaltflaecheColor6Foreground());
         break;
       case 7:
-        this.setBackground(new Color(186, 185, 219));
-        this.setForeground(new Color(255, 102, 0));
+        this.setBackground(FarbenUI.getSchaltflaecheColor7Background());
+        this.setForeground(FarbenUI.getSchaltflaecheColor7Foreground());
         break;
       default:
-        this.setBackground(Color.WHITE);
+        this.setBackground(FarbenUI.getSchaltflaecheColorDefaultBackground());
         break;
     }
   }

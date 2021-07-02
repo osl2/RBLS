@@ -69,7 +69,7 @@ public class AntwortFeld {
 
     JPanel p2 = new JPanel();
     p2.setLayout(new FlowLayout());
-    p2.setBackground(Color.WHITE);
+    p2.setBackground(FarbenUI.getAntwortFeldBackground());
     p2.add(pruefeKnopf);
 
     ansicht = new JPanel();

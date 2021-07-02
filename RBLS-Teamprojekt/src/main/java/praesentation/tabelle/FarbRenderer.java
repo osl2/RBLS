@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import praesentation.FarbenUI;
+
 /**
  * Unterklasse von DefaultTableCellRenderer zum Aendern der Farben einzelner Tabellenzellen.
 
@@ -24,21 +26,21 @@ public class FarbRenderer extends DefaultTableCellRenderer {
         table, value, isSelected, hasFocus, row, col);
     FarbModell fm = (FarbModell) table.getModel();
     switch (fm.gibStatus(row, col)) {
-      case standard:l.setBackground(Color.WHITE);
+      case standard:l.setBackground(FarbenUI.getFarbRendererStandard());
       break;
-      case atomar:l.setBackground(new Color(186, 185, 219));
+      case atomar:l.setBackground(FarbenUI.getFarbRendererAtomar());
       break;
-      case wahr:l.setBackground(new Color(133, 242, 184));
+      case wahr:l.setBackground(FarbenUI.getFarbRendererWahr());
       break;
-      case falsch:l.setBackground(new Color(242, 133, 133));
+      case falsch:l.setBackground(FarbenUI.getFarbRendererFalsch());
       break;
-      case markiert_wahr:l.setBackground(Color.GREEN.darker());
+      case markiert_wahr:l.setBackground(FarbenUI.getFarbRendererMarkiertWahr());
       break;
-      case markiert_falsch:l.setBackground(Color.RED);
+      case markiert_falsch:l.setBackground(FarbenUI.getFarbRendererMarkiertFalsch());
       break;
-      case tipp:l.setBackground(Color.DARK_GRAY);
+      case tipp:l.setBackground(FarbenUI.getFarbRendererTipp());
       break;
-      default: l.setBackground(Color.WHITE);
+      default: l.setBackground(FarbenUI.getFarbRendererDefault());
     }
     setHorizontalAlignment(javax.swing.JLabel.CENTER);
     return l;

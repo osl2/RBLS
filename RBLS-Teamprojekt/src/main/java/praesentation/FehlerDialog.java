@@ -47,7 +47,7 @@ public class FehlerDialog {
     dialog.getContentPane().setLayout(new BorderLayout());
     JLabel dialogtext = new JLabel(text, SwingConstants.CENTER);
     dialogtext.setFont(new javax.swing.plaf.FontUIResource("Arial Unicode MS", Font.BOLD, 20));
-    dialogtext.setForeground(Color.WHITE);
+    dialogtext.setForeground(FarbenUI.getFehlerDialogForeground());
     Schaltflaeche button = new Schaltflaeche("OK", Schaltflaeche.WEISS);
     JPanel buttonPanel = new JPanel(new FlowLayout());
     buttonPanel.add(button);
@@ -61,8 +61,8 @@ public class FehlerDialog {
     dialog.setSize(breite, hoehe);
     dialog.setLocationRelativeTo(null);
     dialog.setAlwaysOnTop(true);
-    dialog.getContentPane().setBackground(new Color(255, 102, 0));
-    buttonPanel.setBackground(new Color(255, 102, 0));
+    dialog.getContentPane().setBackground(FarbenUI.getFehlerDialogBackground());
+    buttonPanel.setBackground(FarbenUI.getFehlerDialogButtonBackground());
     dialog.setModal(true);
     dialog.setResizable(false);
     dialog.setVisible(true);

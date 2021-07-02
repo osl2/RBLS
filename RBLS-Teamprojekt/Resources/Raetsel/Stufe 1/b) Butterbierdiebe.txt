@@ -1,0 +1,33 @@
+﻿Butterbierdiebe
+##
+Der „Honigtopf“ wurde ausgeraubt, sämtliche Butterbierfässer sind verschwunden. Dumbeldore verdächtigt die drei schwarzen Magier Sauron, Voldemort und Borbarad des Diebstahls.§§
+Dumbeldore möchte die drei verhören und geht davon aus, dass jeder Dieb lügt und jeder, der kein Dieb ist, die Wahrheit sagt. Außerdem bezeichnet er folgende Aussagen jeweils als A, B und C:§§
+
+Aussage A: „Sauron ist der Dieb.“§
+Aussage B: „Voldermort ist der Dieb.“§
+Aussage C: „Borbarad ist der Dieb.“§§
+
+Beim Verhör geben die drei schwarzen Magier Folgendes zu Protokoll:§§
+
+Sauron behauptet: „Ich bin nicht der Dieb. Voldemort und Borbarad sind die Diebe.“§
+Voldemort behauptet: „Ich bin nicht der Dieb. Borbarad ist auch nicht der Dieb. Sauron ist der Dieb.“§
+Borbarad behauptet: „Ich bin nicht der Dieb. Sauron und Voldemort sind die Diebe.“§§
+
+Nach sorgfältiger Überlegung konnte Dumbeldore einen schwarzen Magier auf jeden Fall als Dieb ausmachen.§§
+
+Aufgabenstellung: §§
+
+1. Füge für jede Aussage der drei schwarzen Magier eine Spalte in der Wahrheitstafel hinzu und überführe die jeweilige Aussage in eine aussagenlogische Formel mithilfe der Aussagen A, B und C.§§
+2. Lass dir die Wahrheitswerte der aufgestellten Formeln ausgeben (klicke dafür auf „Fülle Tabelle“), um festzustellen, wen Dumbledore als Dieb überführt hat.§
+##
+ist auf jeden Fall schuldig.
+##
+Sauron, Voldemort, Borbarad
+##
+Sauron ist der Dieb, Voldemort ist der Dieb, Borbarad ist der Dieb
+##
+2
+##
+n0u1u2,n1un2u0,n2u0u1
+##
+2

@@ -177,13 +177,13 @@ public class FormelAnsicht {
     formelPanel.setLayout(new FlowLayout());
     formelPanel.add(formelAnzeige);
 
-    aussagenPanel.setBackground(Color.WHITE);
-    operatorPanel1.setBackground(Color.WHITE);
-    operatorPanel2.setBackground(Color.WHITE);
-    entfernePanel.setBackground(Color.WHITE);
-    menuePanel.setBackground(Color.WHITE);
-    formelPanel.setBackground(new Color(186, 185, 219));
-    formelAnzeige.setBackground(Color.LIGHT_GRAY);
+    aussagenPanel.setBackground(FarbenUI.getFormelAnsichtPanel());
+    operatorPanel1.setBackground(FarbenUI.getFormelAnsichtPanel());
+    operatorPanel2.setBackground(FarbenUI.getFormelAnsichtPanel());
+    entfernePanel.setBackground(FarbenUI.getFormelAnsichtPanel());
+    menuePanel.setBackground(FarbenUI.getFormelAnsichtPanelMenu());
+    formelPanel.setBackground(FarbenUI.getFormelAnsichtFormelPanel());
+    formelAnzeige.setBackground(FarbenUI.getFormelAnsichtFormelAnzeige());
 
     ansicht = new JDialog();
     ansicht.getContentPane().setLayout(new BoxLayout(ansicht.getContentPane(), BoxLayout.Y_AXIS));
@@ -192,8 +192,9 @@ public class FormelAnsicht {
     formelRegler.setBorder(BorderFactory.createEmptyBorder());
     formelRegler.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-        this.thumbColor = new Color(255, 102, 0);
-        this.trackColor = new Color(186, 185, 219);
+        // this.thumbColor = new Color(255, 102, 0);
+        this.thumbColor = FarbenUI.getFormelAnsichtScrollBarThumb();
+        this.trackColor = FarbenUI.getFormelAnsichtScrollBarTrack();
       }
     });
     formelRegler.setPreferredSize(new Dimension(Integer.MAX_VALUE, 52));
@@ -210,7 +211,7 @@ public class FormelAnsicht {
     ansicht.setLocationRelativeTo(null);
     ansicht.setAlwaysOnTop(true);
     ansicht.setModal(true);
-    ansicht.getContentPane().setBackground(Color.LIGHT_GRAY);
+    ansicht.getContentPane().setBackground(FarbenUI.getFormelAnsichtContenPanel());
     ansicht.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     ansicht.addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent e) {
