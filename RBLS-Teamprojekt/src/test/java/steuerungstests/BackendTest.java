@@ -2,6 +2,7 @@ package steuerungstests;
 
 import modell.Fassade;
 import modelltests.Testinterpret;
+import praesentation.Fensterverwaltung;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,6 +16,7 @@ import steuerung.WahrheitstabellenSteuerungen;
 public class BackendTest {
   Fassade sf;
   WahrheitstabellenSteuerungen wts;
+  Fensterverwaltung fv;
 
   /**
    * Baut die SteuerungFassade mit allen Komponenten auf und �bergiebt sie der
@@ -26,9 +28,9 @@ public class BackendTest {
   @Before
   public void setup() {
     sf = new Fassade();
-    sf.erstelleTestUmgebung(new Testinterpret());
+    sf.erstelleTestUmgebung(new Testinterpret(fv));
 
-    wts = new WahrheitstabellenSteuerungen(sf);
+    wts = new WahrheitstabellenSteuerungen(sf, fv);
   }
 
   @Test

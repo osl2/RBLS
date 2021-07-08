@@ -3,6 +3,7 @@ package steuerung;
 import java.util.List;
 import modell.Fassade;
 import modell.formel.Formel;
+import praesentation.Fensterverwaltung;
 
 public class FormelEingeben extends WahrheitstabellenBefehl {
 
@@ -10,6 +11,7 @@ public class FormelEingeben extends WahrheitstabellenBefehl {
   private String alteFormel;
   private String alteFormelRep;
   private List<String> atomareAussagen;
+  private Fensterverwaltung fv;
 
   /**
    * Der Konstruktor, f�r die Befehl, der den Befehl auch direkt ausf�hrt.
@@ -17,8 +19,9 @@ public class FormelEingeben extends WahrheitstabellenBefehl {
    * @param model  die Fassade auf die der Befehl zugreift.
    * @param spalte die Spalte in der die Formel ge�ndert werden soll.
    */
-  public FormelEingeben(Fassade model, int spalte) {
+  public FormelEingeben(Fassade model, int spalte, Fensterverwaltung fv) {
     super(model);
+    this.fv = fv;
     this.spalte = spalte;
     hohleDaten();
     setzeDaten();
@@ -38,7 +41,7 @@ public class FormelEingeben extends WahrheitstabellenBefehl {
    * �bertr�gt die neue Formel, �ber die Fassade, zum Modell.
    */
   public void setzeDaten() {
-    FormelEditor fe = new FormelEditor(atomareAussagen);
+    FormelEditor fe = new FormelEditor(atomareAussagen, fv);
     String neueFormel = fe.gibNeueFormel(alteFormel, alteFormelRep);
     if (neueFormel.equals("-1") || neueFormel.equals("")) {
       return;

@@ -72,21 +72,22 @@ public class Raetselwahl extends javax.swing.JPanel {
     ImageIcon img = new ImageIcon(getClass().getResource("/Icon/hintergrund.png"));
     ImagePanel buttonPanel = new ImagePanel(img.getImage());
     buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-    // buttonPanel.setBackground(new Color(255, 102, 0));
-    buttonPanel.setBackground(FarbenUI.getRaetselwahlButtonPanel());
+    // buttonPanel.setBackground(FarbenEinstellungen.getRaetselwahlButtonPanel());
+    buttonPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getRaetselwahlButtonPanel());
     buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     
     JLabel hinweis = new JLabel(hinweise[stufe]);
     
     hinweis.setFont(new javax.swing.plaf.FontUIResource("Arial", Font.BOLD, 18));
-    hinweis.setForeground(FarbenUI.getRaetselwahlHinweisForeground());
+    // hinweis.setForeground(FarbenEinstellungen.getRaetselwahlHinweisForeground());
+    hinweis.setForeground(fw.getEinstellungen().getFarbenEinstellungen().getRaetselwahlHinweisForeground());
     buttonPanel.add(hinweis, 0);
     buttonPanel.add(Box.createRigidArea(new Dimension(0, 5)));
     for (int j = 0; j < buttons.length; j++) {
       if (geloest.size() > 0 && geloest.contains(raetsel.get(j))) {
-        buttons[j] = new Schaltflaeche(raetsel.get(j), 5);
+        buttons[j] = new Schaltflaeche(raetsel.get(j), 5, fw);
       } else {
-        buttons[j] = new Schaltflaeche(raetsel.get(j), 3);
+        buttons[j] = new Schaltflaeche(raetsel.get(j), 3, fw);
       }
       buttons[j].addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
@@ -96,14 +97,15 @@ public class Raetselwahl extends javax.swing.JPanel {
       buttons[j].setMaximumSize(new Dimension(Integer.MAX_VALUE, 
           buttons[j].getMinimumSize().height * 2));
       buttonPanel.add(buttons[j], j + 2);
-      buttonPanel.setBackground(FarbenUI.getRaetselwahlButtonPanelBackground());
+      // buttonPanel.setBackground(FarbenEinstellungen.getRaetselwahlButtonPanelBackground());
+      buttonPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getRaetselwahlButtonPanelBackground());
       // buttonPanel.setBackground(Color.BLUE);
     }
     
     this.setLayout(new BorderLayout());
     this.add(buttonPanel, BorderLayout.CENTER);
     
-    zurueck = new Schaltflaeche("ZUM MENÜ", 2);
+    zurueck = new Schaltflaeche("ZUM MENÜ", 2, fw);
     zurueck.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         klickeZurueck();

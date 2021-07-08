@@ -1,10 +1,13 @@
 package steuerung;
 
+import praesentation.Einstellungen;
+
 public class Hauptsteuerung {
 
   private modell.Fassade sf;
   private praesentation.Fensterverwaltung fv;
   private WahrheitstabellenSteuerungen ws;
+  private praesentation.Einstellungen einstellungen;
 
   public Hauptsteuerung() {
 
@@ -18,8 +21,12 @@ public class Hauptsteuerung {
   public void init() {
     sf = new modell.Fassade();
     sf.init();
-    fv = new praesentation.Fensterverwaltung(this, sf);
-    fv.init();
+    Einstellungen einstellungen = new Einstellungen();
+    this.einstellungen = einstellungen;
+    sf.setEinstellungen(this.einstellungen);
+    this.fv = new praesentation.Fensterverwaltung(this, sf, einstellungen);
+    this.fv.init();
+    
   }
 
   /**
@@ -27,7 +34,7 @@ public class Hauptsteuerung {
    * 
    */
   public WahrheitstabellenSteuerungen raetselFensterInit() {
-    ws = new WahrheitstabellenSteuerungen(sf);
+    ws = new WahrheitstabellenSteuerungen(sf, fv);
     ws.befehl("AufbauTabelle");
     return ws;
   }

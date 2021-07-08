@@ -34,16 +34,17 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private WahrheitstabellenSteuerungen strg;
   private Fassade modell;
   private JTable tabelle; 
-  private Schaltflaeche ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>");
-  private Schaltflaeche mehrSpalten = new Schaltflaeche("+", 6);
-  private Schaltflaeche wenigerSpalten = new Schaltflaeche("-", 6);
-  private Schaltflaeche zeileMarkieren = new Schaltflaeche("Markieren", 6);
+  private Schaltflaeche ausfuellen;
+  private Schaltflaeche mehrSpalten;
+  private Schaltflaeche wenigerSpalten;
+  private Schaltflaeche zeileMarkieren;
   private String[][] inhalt;
   private int zeilenzahl = 9;
   private int spaltenzahl = 5;
   private boolean[] markierteZeilen;
   private int[] tipp;
   private boolean aktiv = true;
+  private Fensterverwaltung fw;
 
   private enum Modus {
     standard, entfernen, markieren
@@ -61,7 +62,12 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
    * @param modell Praesentationsfassade mit den Daten
    * @param strg   Wahrheitstabellensteuerung fuer Weitergabe der Befehle
    */
-  public KonkreteTabellenAnsicht(Fassade modell, WahrheitstabellenSteuerungen strg) {
+  public KonkreteTabellenAnsicht(Fassade modell, WahrheitstabellenSteuerungen strg, Fensterverwaltung fw) {
+    ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>", fw);
+    this.fw = fw;
+    mehrSpalten = new Schaltflaeche("+", 6, fw);
+    wenigerSpalten = new Schaltflaeche("-", 6, fw);
+    zeileMarkieren = new Schaltflaeche("Markieren", 6, fw);
     this.modell = modell;
     this.strg = strg;
     init();
@@ -166,9 +172,9 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       for (int j = 0; j < inhalt[0].length; j++) {
         inhalt[i][j] = modell.gibZelle(new int[] { i, j });
         if (i > 0 && inhalt[i][j].equals("true")) {
-          inhalt[i][j] = "wahr";
+          inhalt[i][j] = "wahr";                          //
         } else if (i > 0) {
-          inhalt[i][j] = "falsch";
+          inhalt[i][j] = "falsch";                        // 
         }
       }
     }
@@ -191,7 +197,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     tabelle.setModel((FarbModell) tm);
     for (int j = 0; j < spaltenzahl; j++) {
       tabelle.getColumnModel().getColumn(j)
-          .setCellRenderer(new praesentation.tabelle.FarbRenderer());
+          .setCellRenderer(new praesentation.tabelle.FarbRenderer(fw));
     }
 
     /*
@@ -350,14 +356,14 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     inhalt[zelle[0]][zelle[1]] = modell.gibZelle(zelle);
     if (i > 0 && j >= 0) {
       if (inhalt[i][j].equals("true")) {
-        inhalt[i][j] = "wahr";
+        inhalt[i][j] = modell.getEinstellungen().beschriftungZelleWahr();
         if (!markierteZeilen[i]) {
           ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.wahr);
         } else {
           ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.markiert_wahr);
         }
       } else {
-        inhalt[i][j] = "falsch";
+        inhalt[i][j] = modell.getEinstellungen().beschriftungZelleFalsch();
         if (!markierteZeilen[i]) {
           ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.falsch);
         } else {

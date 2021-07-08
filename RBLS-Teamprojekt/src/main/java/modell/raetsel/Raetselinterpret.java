@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
+import praesentation.Fensterverwaltung;
+
 
 /** Der Raetselinterpret liest die Ordnerstruktur aus 
  * und liefert darauf basierend Raetselnamen zurueck.
@@ -24,6 +26,10 @@ public class Raetselinterpret {
   public static final String ERROR_NO_FILE_FOUND = "Es wurde kein Raetsel gefunden";
   public static final String FREIES_RAETSEL_NAME = "Freies Raetsel";
   public static final int NUMBER_OF_ROWS = 8;
+  
+  public Raetselinterpret() {
+
+  }
   
   private String[] extrahiere(String input) {
     String[] output = input.split("##");

@@ -14,6 +14,7 @@ import modell.formel.Atom;
 import modell.formel.Formel;
 import modell.formel.Und;
 import modell.raetsel.Memento;
+import praesentation.Fensterverwaltung;
 
 
 
@@ -21,11 +22,12 @@ public class FassadeTest {
 
   private Fassade testen;
   private Memento memento;
+  private Fensterverwaltung fv;
   
   @Before
   public void init() {
     testen = Fassade.gibFa();
-    testen.erstelleTestUmgebung(new Testinterpret());
+    testen.erstelleTestUmgebung(new Testinterpret(fv));
     testen.spalteHinzufuegen();
     testen.setzeFormel(new Und(new Atom("A", 0), new Atom("B", 1)), 3);
   }

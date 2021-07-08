@@ -23,6 +23,7 @@ public class AntwortFeld {
   private Schaltflaeche pruefeKnopf;
   private JComboBox<String> antwortWahl;
   private StufenRaetselFenster fenster;
+  private Fensterverwaltung fw;
 
   private String[] antwortMoeglichkeiten;
   private String text = "[Antworttext]";
@@ -38,8 +39,9 @@ public class AntwortFeld {
    * @param fenster   StufenRaetselFenster, welches das Antwortfeld benoetigt
    */
   public AntwortFeld(String[] antworten, 
-      String text, String loesung, StufenRaetselFenster fenster) {
-
+      String text, String loesung, StufenRaetselFenster fenster, Fensterverwaltung fw) {
+    
+    this.fw = fw;
     this.text = text;
     this.antwortMoeglichkeiten = antworten;
     this.loesung = loesung;
@@ -60,7 +62,7 @@ public class AntwortFeld {
     p.add(antwortWahl);
     p.add(textLabel);
 
-    pruefeKnopf = new Schaltflaeche("Prüfen");
+    pruefeKnopf = new Schaltflaeche("Prüfen", fw);
     pruefeKnopf.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         pruefeAntwort();
@@ -69,7 +71,7 @@ public class AntwortFeld {
 
     JPanel p2 = new JPanel();
     p2.setLayout(new FlowLayout());
-    p2.setBackground(FarbenUI.getAntwortFeldBackground());
+    p2.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getAntwortFeldBackground());
     p2.add(pruefeKnopf);
 
     ansicht = new JPanel();

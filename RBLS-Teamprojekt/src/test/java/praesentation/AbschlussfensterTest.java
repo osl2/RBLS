@@ -7,7 +7,7 @@ public class AbschlussfensterTest {
   @Test
   public void guiTest() {
     praesentation.Fensterverwaltung fv = 
-        new praesentation.Fensterverwaltung(new Hauptsteuerung(), null);
+        new praesentation.Fensterverwaltung(new Hauptsteuerung(), null, null);
     fv.init();
     fv.oeffneAbschlussFenster();
     try {

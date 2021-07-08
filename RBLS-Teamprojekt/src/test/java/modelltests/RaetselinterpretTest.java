@@ -7,6 +7,8 @@ import java.util.List;
 import modell.formel.Formel;
 import modell.raetsel.Raetsel;
 import modell.raetsel.Raetselinterpret;
+import praesentation.Fensterverwaltung;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,6 +23,7 @@ public class RaetselinterpretTest {
   Raetselinterpret testen;
   Raetsel vergleich;
   String raetselName = "Butterbierdiebe";
+  Fensterverwaltung fv;
   
   /** Initialisiert den Raetselinterpreten sowie das Standartraetsel "Butterbierdiebe".
    * 

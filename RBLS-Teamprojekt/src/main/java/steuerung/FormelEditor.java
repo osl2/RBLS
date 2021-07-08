@@ -1,6 +1,8 @@
 package steuerung;
 
 import java.util.List;
+
+import praesentation.Fensterverwaltung;
 import praesentation.FormelAnsicht;
 
 public class FormelEditor {
@@ -8,6 +10,7 @@ public class FormelEditor {
   private String formelAlt;
   private String formel;
   private boolean betaetige;
+  private Fensterverwaltung fw;
 
   /**
    * Konstruktor f�r den FormelEditor.
@@ -15,7 +18,8 @@ public class FormelEditor {
    * @param atomareAussagen die atomaren Aussagen die in den aussagenlogischen
    *                        Formel vorkommen kommen.
    */
-  public FormelEditor(List<String> atomareAussagen) {
+  public FormelEditor(List<String> atomareAussagen, Fensterverwaltung fw) {
+    this.fw = fw;
     this.atomareAussagen = atomareAussagen;
     betaetige = false;
   }
@@ -37,7 +41,7 @@ public class FormelEditor {
     } else {
       formel = formelAlt;
     }
-    new FormelAnsicht(listToArray(atomareAussagen), this, formelAltRep);
+    new FormelAnsicht(listToArray(atomareAussagen), this, formelAltRep, fw);
     if (betaetige) {
       return this.formel;
     } else {

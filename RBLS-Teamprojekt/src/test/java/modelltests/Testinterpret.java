@@ -5,13 +5,21 @@ import java.util.List;
 import modell.formel.Formel;
 import modell.raetsel.Raetsel;
 import modell.raetsel.Raetselinterpret;
+import praesentation.Fensterverwaltung;
 
 public class Testinterpret extends Raetselinterpret{
   
+  public Testinterpret(Fensterverwaltung fv) {
+    super();
+    // TODO Auto-generated constructor stub
+  }
+
   public static final String PATH = "/src/main/resources/Raetsel";
   public static final String ERROR_NO_FILE_FOUND = "Es wurde kein Raetsel gefunden";
   public static final String FREIES_RAETSEL_NAME = "Freies Raetsel";
   public static final int NUMBER_OF_ROWS = 8;
+  
+  private Fensterverwaltung fv;
   
   
   private int calcRow(List<String> atome) {

@@ -43,6 +43,7 @@ public class Hauptmenue extends ImagePanel {
   private Schaltflaeche stufe4;
   private Schaltflaeche freierModus;
   private Schaltflaeche beenden;
+  private Schaltflaeche einstellungen;
   
   public Hauptmenue(Fensterverwaltung fw, Image image) {
     super(image);
@@ -55,24 +56,28 @@ public class Hauptmenue extends ImagePanel {
    */
   private void init() {
     
-    stufe0 = new Schaltflaeche(3);
-    stufe1 = new Schaltflaeche(3);
-    stufe2 = new Schaltflaeche(3);
-    stufe3 = new Schaltflaeche(3);
-    stufe4 = new Schaltflaeche(3);
-    freierModus = new Schaltflaeche("FREIER MODUS");
-    beenden = new Schaltflaeche("BEENDEN");
+    stufe0 = new Schaltflaeche(3, fw);
+    stufe1 = new Schaltflaeche(3, fw);
+    stufe2 = new Schaltflaeche(3, fw);
+    stufe3 = new Schaltflaeche(3, fw);
+    stufe4 = new Schaltflaeche(3, fw);
+    freierModus = new Schaltflaeche("FREIER MODUS", fw);
+    beenden = new Schaltflaeche("BEENDEN", fw);
+    einstellungen = new Schaltflaeche(3, fw);
     
     JPanel startFeld = new JPanel(new java.awt.FlowLayout());
-    startFeld.setBackground(FarbenUI.getHauptmenuStartFeldBackground());
+    // startFeld.setBackground(FarbenEinstellungen.getHauptmenuStartFeldBackground());
+    startFeld.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getHauptmenuStartFeldBackground());
     JPanel mitte = new JPanel(new java.awt.BorderLayout());
-    mitte.setBackground(FarbenUI.getHauptmenuJPanelBackground());
+    // mitte.setBackground(FarbenEinstellungen.getHauptmenuJPanelBackground());
+    mitte.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getHauptmenuJPanelBackground());
     mitte.add(startFeld, java.awt.BorderLayout.SOUTH);
     JLabel starttext = new javax.swing.JLabel("Start", SwingConstants.CENTER);
     mitte.add(starttext, java.awt.BorderLayout.NORTH);
 
     this.setLayout(new java.awt.GridBagLayout());
-    this.setBackground(FarbenUI.getHauptmenuBackground());
+    // this.setBackground(FarbenEinstellungen.getHauptmenuBackground());
+    this.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getHauptmenuBackground());
         
     //Stufenbuttons//
     stufe0.setText("Level 0");
@@ -116,7 +121,7 @@ public class Hauptmenue extends ImagePanel {
     });
     startFeld.add(stufe4);
     
-    int stufe = Fassade.gibFa().gibAbgeschlosseneStufe();
+    int stufe = fw.gibFassade().gibFa().gibAbgeschlosseneStufe();
     if (stufe < 1) {
       stufe2.setEnabled(false);
     }
@@ -170,15 +175,23 @@ public class Hauptmenue extends ImagePanel {
     titel2.setFont(new javax.swing.plaf.FontUIResource("Arial Unicode MS", Font.BOLD, 48));
     titel.add(titel1, 0);
     titel.add(titel2, 1);
-    titel.setBackground(FarbenUI.getHauptmenuTitleBackground());
+    // titel.setBackground(FarbenEinstellungen.getHauptmenuTitleBackground());
+    titel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getHauptmenuTitleBackground());
     this.add(titel, c);
 
-    JPanel leer = new JPanel();
-    leer.setLayout(new BoxLayout(leer, BoxLayout.Y_AXIS));
-    leer.setBackground(new Color(255, 255, 255, 0));
+    einstellungen.setText("Einstellungen");
+    einstellungen.setFont(new javax.swing.plaf.FontUIResource("Arial Unicode MS", Font.BOLD, 30));
+//    JPanel leer = new JPanel();
+//    leer.setLayout(new BoxLayout(leer, BoxLayout.Y_AXIS));
+//    leer.setBackground(new Color(255, 255, 255, 0));
     c.gridy = 3;
     c.ipady = 40;
-    this.add(leer, c);
+    einstellungen.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        klickeEinstellungen("");
+      }
+    });
+    this.add(einstellungen, c);
     
 
   }
@@ -190,6 +203,10 @@ public class Hauptmenue extends ImagePanel {
    */
   private void klickeStart(int stufe) {
     fw.oeffneRaetselwahl(stufe);
+  }
+  
+  private void klickeEinstellungen(String status) {
+    fw.oeffneEinstellungen(status);
   }
 
   /**

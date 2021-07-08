@@ -1,6 +1,7 @@
 package steuerung;
 
 import modell.Fassade;
+import praesentation.Fensterverwaltung;
 
 public class WahrheitstabellenSteuerungen {
 
@@ -8,13 +9,15 @@ public class WahrheitstabellenSteuerungen {
   private TabellenPruefer tabellenPruefer;
   private int stufe;
   private boolean tabelleVoll;
+  private Fensterverwaltung fv;
 
   /**
    * Konstruktor f�r die WahrheitstabellenSteuerungen.
    * 
    * @param model die Fassade die von Befehlen angesprochen werden soll
    */
-  public WahrheitstabellenSteuerungen(Fassade model) {
+  public WahrheitstabellenSteuerungen(Fassade model, Fensterverwaltung fv) {
+    this.fv = fv;
     this.model = model;
     this.stufe = model.gibStufe();
     tabellenPruefer = new TabellenPruefer(model, stufe);
@@ -55,7 +58,7 @@ public class WahrheitstabellenSteuerungen {
       case "FormelEingeben":
         if (Integer.parseInt(parameter[0]) >= model.gibAtomareAussage().size()
             && (stufe == 2 || stufe == 4)) {
-          new FormelEingeben(model, Integer.parseInt(parameter[0]));
+          new FormelEingeben(model, Integer.parseInt(parameter[0]), fv);
         }
         break;
       case "FuelleTabelle":

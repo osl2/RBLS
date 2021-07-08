@@ -82,7 +82,7 @@ public class FreiesRaetselFenster extends RaetselFenster {
       aussagen[j] = new JTextField("");
       atomareAussagen.getContentPane().add(aussagen[j], j + 3);
     }
-    Schaltflaeche okButton = new Schaltflaeche("OK", Schaltflaeche.WEISS);
+    Schaltflaeche okButton = new Schaltflaeche("OK", Schaltflaeche.WEISS, fv);
     okButton.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
           for (int j = 0; j < aussagen.length; j++) {
@@ -126,7 +126,7 @@ public class FreiesRaetselFenster extends RaetselFenster {
     oben.setLayout(new BorderLayout());
     oben.setBackground(Color.WHITE);
     
-    menueKnopf = new Schaltflaeche("Menü", 2);
+    menueKnopf = new Schaltflaeche("Menü", 2, fv);
     menueKnopf.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
           geheZuMenue();
@@ -158,7 +158,7 @@ public class FreiesRaetselFenster extends RaetselFenster {
     modell.erstelleRaetsel(aussagenListe);
     WahrheitstabellenSteuerungen wstrg;
     wstrg = strg.raetselFensterInit();
-    tabelle = new KonkreteTabellenAnsicht(modell, wstrg);
+    tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fv);
   }
 
   private void geheZuMenue() {

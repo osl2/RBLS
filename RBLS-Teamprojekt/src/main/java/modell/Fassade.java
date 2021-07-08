@@ -6,6 +6,8 @@ import modell.raetsel.Memento;
 import modell.raetsel.Raetsel;
 import modell.raetsel.Raetselinterpret;
 import modell.tabelle.Tabelle;
+import praesentation.Einstellungen;
+import praesentation.Fensterverwaltung;
 
 /**
  * Dies ist die Klasse fuer die Fassade, die mit der Steuerung zusammenarbeitet.
@@ -21,6 +23,11 @@ public class Fassade {
   private Raetsel raetsel;
   private Tabelle tabelle;
   private Memento memento;
+  private Einstellungen einstellungen;
+  
+  public Fassade() {
+    
+  }
 
   /**
    * Einzelstueckmethode, die dafuer sorgt, dass die Klasse nur einmal erstellt,
@@ -264,6 +271,14 @@ public class Fassade {
   public void fuehreSicherungAus() {
     this.aktualisiere();
     memento.erstelleMementoDatei(raetsel);
+  }
+  
+  public void setEinstellungen(Einstellungen einstellungen) {
+    this.einstellungen = einstellungen;
+  }
+  
+  public Einstellungen getEinstellungen() {
+    return einstellungen;
   }
   
 }

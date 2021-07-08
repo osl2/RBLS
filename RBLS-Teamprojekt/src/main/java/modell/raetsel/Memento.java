@@ -12,6 +12,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+import praesentation.Fensterverwaltung;
+
 /**
  * Diese Klasse symbolisiert ein Memento. Sie verwaltet die Speicherung und das
  * Abrufen der Raetsel sowie deren Zustaende und erstellt eine
@@ -24,7 +26,6 @@ public class Memento {
 
   private List<String> memento;
   private int abschlussStufe = 0;
-
   
   
   public Memento() {
@@ -137,7 +138,7 @@ public class Memento {
    */
   private void liesMementoDatei() {
     if (!pruefeTextdatei()) {
-      new praesentation.FehlerDialog("Die Sicherungsdatei ist nicht erstellbar.");
+      new praesentation.FehlerDialog("Die Sicherungsdatei ist nicht erstellbar");
     }
     try {
       memento = extrahiere(Files.readAllLines(

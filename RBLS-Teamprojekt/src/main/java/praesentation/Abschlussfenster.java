@@ -40,20 +40,21 @@ public class Abschlussfenster extends ImagePanel {
     super(img);
     this.fw = fw;
 
-    naechstesRaetsel = new Schaltflaeche("nächstes Rätsel", 3);
+    naechstesRaetsel = new Schaltflaeche("nächstes Rätsel", 3, fw);
     naechstesRaetsel.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         klickeNaechstesRaetsel();
       }
     });
-    menue = new Schaltflaeche("zum Menü", 3);
+    menue = new Schaltflaeche("zum Menü", 3, fw);
     menue.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         klickeMenue();
       }
     });
     JPanel buttons = new JPanel(new java.awt.BorderLayout());
-    buttons.setBackground(FarbenUI.getButtonBackgroundColor());
+    // buttons.setBackground(FarbenEinstellungen.getButtonBackgroundColor());
+    buttons.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getButtonBackgroundColor());
     naechstesRaetsel.setPreferredSize(new Dimension(200, 100));
     buttons.add(naechstesRaetsel, java.awt.BorderLayout.EAST);
     menue.setPreferredSize(new Dimension(200, 100));
@@ -63,7 +64,8 @@ public class Abschlussfenster extends ImagePanel {
     textLabel.setForeground(Color.BLACK);
     
     this.setLayout(new java.awt.BorderLayout());
-    this.setBackground(FarbenUI.getAbschlussfensterBackground());
+    // this.setBackground(FarbenEinstellungen.getAbschlussfensterBackground());
+    this.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getAbschlussfensterBackground());
     this.setBackground(Color.WHITE);
     this.add(buttons, java.awt.BorderLayout.SOUTH);
     this.add(textLabel, java.awt.BorderLayout.CENTER);

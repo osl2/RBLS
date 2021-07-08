@@ -6,7 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import praesentation.FarbenUI;
+import praesentation.FarbenEinstellungen;
+import praesentation.Fensterverwaltung;
 
 /**
  * Unterklasse von DefaultTableCellRenderer zum Aendern der Farben einzelner Tabellenzellen.
@@ -18,6 +19,11 @@ public class FarbRenderer extends DefaultTableCellRenderer {
    * Standard-ID der Unterklasse.
    */
   private static final long serialVersionUID = 1L;
+  private Fensterverwaltung fw;
+  
+  public FarbRenderer(Fensterverwaltung fw) {
+    this.fw = fw;
+  }
 
   @Override
   public Component getTableCellRendererComponent(
@@ -26,21 +32,21 @@ public class FarbRenderer extends DefaultTableCellRenderer {
         table, value, isSelected, hasFocus, row, col);
     FarbModell fm = (FarbModell) table.getModel();
     switch (fm.gibStatus(row, col)) {
-      case standard:l.setBackground(FarbenUI.getFarbRendererStandard());
+      case standard:l.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFarbRendererStandard());
       break;
-      case atomar:l.setBackground(FarbenUI.getFarbRendererAtomar());
+      case atomar:l.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFarbRendererAtomar());
       break;
-      case wahr:l.setBackground(FarbenUI.getFarbRendererWahr());
+      case wahr:l.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFarbRendererWahr());
       break;
-      case falsch:l.setBackground(FarbenUI.getFarbRendererFalsch());
+      case falsch:l.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFarbRendererFalsch());
       break;
-      case markiert_wahr:l.setBackground(FarbenUI.getFarbRendererMarkiertWahr());
+      case markiert_wahr:l.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFarbRendererMarkiertWahr());
       break;
-      case markiert_falsch:l.setBackground(FarbenUI.getFarbRendererMarkiertFalsch());
+      case markiert_falsch:l.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFarbRendererMarkiertFalsch());
       break;
-      case tipp:l.setBackground(FarbenUI.getFarbRendererTipp());
+      case tipp:l.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFarbRendererTipp());
       break;
-      default: l.setBackground(FarbenUI.getFarbRendererDefault());
+      default: l.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFarbRendererDefault());
     }
     setHorizontalAlignment(javax.swing.JLabel.CENTER);
     return l;

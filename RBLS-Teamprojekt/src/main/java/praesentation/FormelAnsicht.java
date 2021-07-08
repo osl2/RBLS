@@ -32,28 +32,29 @@ public class FormelAnsicht {
   private FormelEditor strg;
   private JDialog ansicht;
   private JLabel formelAnzeige = new JLabel();
-  private Schaltflaeche bestaetige = new Schaltflaeche("Bestätige");
-  private Schaltflaeche abbruch = new Schaltflaeche("Abbruch", 2);
-  private Schaltflaeche entferne = new Schaltflaeche("Entferne", 3);
+  private Schaltflaeche bestaetige;
+  private Schaltflaeche abbruch;
+  private Schaltflaeche entferne;
   private int breite = 800;
   private int hoehe = 400;
 
   private String formel = "";
 
   private Schaltflaeche[] atomareAussagen;
-  private Schaltflaeche und = new Schaltflaeche("\u2227", 3);
-  private Schaltflaeche oder = new Schaltflaeche("\u2228", 3);
-  private Schaltflaeche nicht = new Schaltflaeche("\u00AC", 3);
-  private Schaltflaeche impliziert = new Schaltflaeche("\u2192", 3);
-  private Schaltflaeche aequivalent = new Schaltflaeche("\u2194", 3);
-  private Schaltflaeche xor = new Schaltflaeche("\u2295", 3);
-  private Schaltflaeche klammerAuf = new Schaltflaeche("(", 3);
-  private Schaltflaeche klammerZu = new Schaltflaeche(")", 3);
+  private Schaltflaeche und;
+  private Schaltflaeche oder;
+  private Schaltflaeche nicht;
+  private Schaltflaeche impliziert;
+  private Schaltflaeche aequivalent;
+  private Schaltflaeche xor;
+  private Schaltflaeche klammerAuf;
+  private Schaltflaeche klammerZu;
   private ArrayList<Schaltflaeche> zeichen = new ArrayList<Schaltflaeche>(
       Arrays.asList(new Schaltflaeche[] { und, oder, nicht, impliziert, aequivalent, xor,
           klammerAuf, klammerZu }));
   private ArrayList<Character> symbole = new ArrayList<Character>(
       Arrays.asList(new Character[] { 'u', 'o', 'n', 'f', 'a', 'x', '(', ')' }));
+  private Fensterverwaltung fw;
 
   /**
    * Erzeugt eine Ansicht fuer den Formeleditor als Fenster.
@@ -62,14 +63,28 @@ public class FormelAnsicht {
    *                 sollen
    * @param strg     Formeleditor zur Kommunikation
    */
-  public FormelAnsicht(String[] aussagen, FormelEditor strg, String formelAlt) {
+  public FormelAnsicht(String[] aussagen, FormelEditor strg, String formelAlt, Fensterverwaltung fw) {
+    this.fw = fw;
+    bestaetige = new Schaltflaeche("Bestätige", fw);
+    abbruch = new Schaltflaeche("Abbruch", 2, fw);
+    entferne = new Schaltflaeche("Entferne", 3, fw);
+    
+    und = new Schaltflaeche("\u2227", 3, fw);
+    oder = new Schaltflaeche("\u2228", 3, fw);
+    nicht = new Schaltflaeche("\u00AC", 3, fw);
+    impliziert = new Schaltflaeche("\u2192", 3, fw);
+    aequivalent = new Schaltflaeche("\u2194", 3, fw);
+    xor = new Schaltflaeche("\u2295", 3, fw);
+    klammerAuf = new Schaltflaeche("(", 3, fw);
+    klammerZu = new Schaltflaeche(")", 3, fw);
+    
     this.strg = strg;
     this.formel = formelAlt;
     JPanel aussagenPanel = new JPanel();
     aussagenPanel.setLayout(new FlowLayout());
     atomareAussagen = new Schaltflaeche[aussagen.length];
     for (int j = 0; j < aussagen.length; j++) {
-      atomareAussagen[j] = new Schaltflaeche(aussagen[j], 3);
+      atomareAussagen[j] = new Schaltflaeche(aussagen[j], 3, fw);
       atomareAussagen[j].addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
           schreibe(e.getActionCommand().substring(0, 1));
@@ -177,13 +192,13 @@ public class FormelAnsicht {
     formelPanel.setLayout(new FlowLayout());
     formelPanel.add(formelAnzeige);
 
-    aussagenPanel.setBackground(FarbenUI.getFormelAnsichtPanel());
-    operatorPanel1.setBackground(FarbenUI.getFormelAnsichtPanel());
-    operatorPanel2.setBackground(FarbenUI.getFormelAnsichtPanel());
-    entfernePanel.setBackground(FarbenUI.getFormelAnsichtPanel());
-    menuePanel.setBackground(FarbenUI.getFormelAnsichtPanelMenu());
-    formelPanel.setBackground(FarbenUI.getFormelAnsichtFormelPanel());
-    formelAnzeige.setBackground(FarbenUI.getFormelAnsichtFormelAnzeige());
+    aussagenPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtPanel());
+    operatorPanel1.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtPanel());
+    operatorPanel2.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtPanel());
+    entfernePanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtPanel());
+    menuePanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtPanelMenu());
+    formelPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtFormelPanel());
+    formelAnzeige.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtFormelAnzeige());
 
     ansicht = new JDialog();
     ansicht.getContentPane().setLayout(new BoxLayout(ansicht.getContentPane(), BoxLayout.Y_AXIS));
@@ -193,8 +208,8 @@ public class FormelAnsicht {
     formelRegler.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
         // this.thumbColor = new Color(255, 102, 0);
-        this.thumbColor = FarbenUI.getFormelAnsichtScrollBarThumb();
-        this.trackColor = FarbenUI.getFormelAnsichtScrollBarTrack();
+        this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtScrollBarThumb();
+        this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtScrollBarTrack();
       }
     });
     formelRegler.setPreferredSize(new Dimension(Integer.MAX_VALUE, 52));
@@ -211,7 +226,7 @@ public class FormelAnsicht {
     ansicht.setLocationRelativeTo(null);
     ansicht.setAlwaysOnTop(true);
     ansicht.setModal(true);
-    ansicht.getContentPane().setBackground(FarbenUI.getFormelAnsichtContenPanel());
+    ansicht.getContentPane().setBackground(fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtContenPanel());
     ansicht.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     ansicht.addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent e) {

@@ -26,6 +26,7 @@ public class Fensterverwaltung {
   private Fassade modell;
   private int[] fensterMass = new int[]{1280, 720};
   private int[] minimumMass = fensterMass;
+  private Einstellungen einstellungen;
   ImageIcon img = new ImageIcon(getClass().getResource("/Icon/hintergrund.png"));
   // ImageIcon img = new ImageIcon(getClass().getResource("/Icon/background.png"));
   
@@ -33,9 +34,10 @@ public class Fensterverwaltung {
   
   
 
-  public Fensterverwaltung(Hauptsteuerung strg, Fassade fsd) {
+  public Fensterverwaltung(Hauptsteuerung strg, Fassade fsd, Einstellungen einstellungen) {
     this.strg = strg;
     this.modell = fsd;
+    this.einstellungen = einstellungen;
   }
 
   /**
@@ -62,6 +64,7 @@ public class Fensterverwaltung {
     aktivesFenster.setVisible(true);
     aktivesFenster.setIconImage(img.getImage());
 
+    modell.init();
   }
 
   /**
@@ -147,5 +150,21 @@ public class Fensterverwaltung {
     aktivesFenster.getContentPane().repaint();
     aktivesFenster.setTitle(titel);
   }
+
+  public void oeffneEinstellungen(String status) {
+    wechseleFenster(new EinstellungenFenster(this, status), "Einstellungen");
+    
+  }
   
+  public Einstellungen getEinstellungen() {
+    return einstellungen;
+  }
+  
+  public void oeffneFarbAuswahl() {
+    wechseleFenster(new FarbauswahlFenster(this), "Farbauswahl");
+  }
+  
+  public Fassade gibFassade() {
+    return modell;
+  }
 }
