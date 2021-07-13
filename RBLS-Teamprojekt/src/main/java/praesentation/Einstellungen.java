@@ -1,15 +1,17 @@
 package praesentation;
 
+import java.awt.Color;
+
 public class Einstellungen {
   
   private String zellenBeschriftungWahr; 
   private String zellenBeschriftungFalsch; 
   private FarbenEinstellungen farbenEinstellungen;
   
-  public Einstellungen() {
+  public Einstellungen(Color color) {
     this.zellenBeschriftungWahr = "1"; // "wahr"; "w"; "true";
     this.zellenBeschriftungFalsch = "0"; // "falsch"; "f"; "false";
-    this.farbenEinstellungen = new FarbenEinstellungen();
+    this.farbenEinstellungen = new FarbenEinstellungen(color);
   }
   
   public String beschriftungZelleWahr() {

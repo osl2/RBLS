@@ -21,7 +21,7 @@ public class Hauptsteuerung {
   public void init() {
     sf = new modell.Fassade();
     sf.init();
-    Einstellungen einstellungen = new Einstellungen();
+    Einstellungen einstellungen = new Einstellungen(sf.getMemento().gibFarbeZurueck());
     this.einstellungen = einstellungen;
     sf.setEinstellungen(this.einstellungen);
     this.fv = new praesentation.Fensterverwaltung(this, sf, einstellungen);

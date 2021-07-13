@@ -158,7 +158,9 @@ public class FreiesRaetselFenster extends RaetselFenster {
     modell.erstelleRaetsel(aussagenListe);
     WahrheitstabellenSteuerungen wstrg;
     wstrg = strg.raetselFensterInit();
-    tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fv);
+    Schaltflaeche tipp = new Schaltflaeche("Tipp", 2, fv);
+    tipp.setEnabled(false);
+    tabelle = new KonkreteTabellenAnsicht(modell, wstrg, tipp, fv);
   }
 
   private void geheZuMenue() {

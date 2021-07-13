@@ -38,6 +38,7 @@ public class Fassade {
   public static Fassade gibFa() {
     if (fa == null) {
       fa = new Fassade();
+      System.out.println("fa ist null");
     }
     return fa;
   }
@@ -55,6 +56,7 @@ public class Fassade {
   public void init() {
     this.interpret = new Raetselinterpret();
     this.memento = new Memento();
+    System.out.println("Fassade: new Memento()");
   }
 
   /**
@@ -271,6 +273,10 @@ public class Fassade {
   public void fuehreSicherungAus() {
     this.aktualisiere();
     memento.erstelleMementoDatei(raetsel);
+  }
+  
+  public Memento getMemento() {
+    return memento;
   }
   
   public void setEinstellungen(Einstellungen einstellungen) {

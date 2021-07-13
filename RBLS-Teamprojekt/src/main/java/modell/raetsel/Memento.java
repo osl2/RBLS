@@ -1,5 +1,6 @@
 package modell.raetsel;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,11 +25,15 @@ import praesentation.Fensterverwaltung;
  */
 public class Memento {
 
-  private List<String> memento;
+  /* Eingelesene Zeilen */
+  private List<String> memento; 
+  
   private int abschlussStufe = 0;
+  private Color color; // = new Color(110, 220, 110); // vordefinierte Farbe
   
   
   public Memento() {
+    System.out.println("new Memento()");
     liesMementoDatei();
   }
   
@@ -75,13 +80,15 @@ public class Memento {
     try {
       fw = new FileWriter("Resources/Sicherung/Sicherung.txt");
       if (raetsel.gibStufe() > this.abschlussStufe) {
-        fw.write(raetsel.gibStufe() + "\n");  
+        fw.write("Stufe: " + raetsel.gibStufe() + "\n");  
+        fw.write("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue() + "\n");
       } else {
-        fw.write(abschlussStufe + "\n");  
+        fw.write("Stufe: " + abschlussStufe + "\n");  
+        fw.write("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue() + "\n");
       }
       fw.write("##\n");             
       for (int i = 0; i < memento.size(); i++) {
-        fw.write(memento.get(i) + "\n"); //alle bisher geloesten Raetselnamen
+        fw.write(memento.get(i) + "\n"); /* Hier werden alle gelösten Rätsel aufgelistet */
       }
     } catch (IOException e) {
       new praesentation.FehlerDialog("Sicherung konnte nicht erstellt werden.");
@@ -119,7 +126,8 @@ public class Memento {
       String encoding = "UTF-8";
       try {
         PrintWriter writer = new PrintWriter(fileName, encoding);
-        writer.println("0");
+        writer.println("Stufe: 0");
+        writer.println("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue());
         writer.println("##");
         writer.close();
       } catch (IOException e) {
@@ -137,6 +145,7 @@ public class Memento {
    * Erstellt außerdem eine Liste nur mit den Namen der bisher geloesten Raetsel.
    */
   private void liesMementoDatei() {
+    System.out.println("Memento: liesMementoDatei()");
     if (!pruefeTextdatei()) {
       new praesentation.FehlerDialog("Die Sicherungsdatei ist nicht erstellbar");
     }
@@ -147,10 +156,33 @@ public class Memento {
     } catch (IOException e) {
       e.printStackTrace();
     }
+    /* Hier wird die Abschlussstufe vermerkt. */
     if (memento != null && !memento.isEmpty()) {
-      this.abschlussStufe = Integer.parseInt(memento.get(0));
+      String abschlussStufeZeile = memento.get(0);
+      // System.out.println(abschlussStufeZeile);
+      abschlussStufeZeile = abschlussStufeZeile.split(" ")[1];
+      this.abschlussStufe = Integer.parseInt(abschlussStufeZeile);
+      
+      String farbenRGB = memento.get(1);
+      // System.out.println(farbenRGB);
+      String[] farbenZahlen = farbenRGB.split(" ");
+      
+      if (color == null) {
+        int farbeRot = Integer.parseInt(farbenZahlen[1]);
+        int farbeGruen = Integer.parseInt(farbenZahlen[2]);
+        int farbeBlau = Integer.parseInt(farbenZahlen[3]);
+        
+        color = new Color(farbeRot, farbeGruen, farbeBlau);
+      }
+      
+     
+      
     }
+    
+    
+    memento.remove(0);    
     memento.remove(0);
+
   }
 
   private List<String> extrahiere(List<String> input) {
@@ -164,7 +196,18 @@ public class Memento {
   }
   
   public List<String> gibGeloesteRaetsel() {
+    System.out.println("Memento: gibGeloestRaetsel()");
     liesMementoDatei();
     return memento;
+  }
+  
+  public Color gibFarbeZurueck() {
+    return color;
+  }
+  
+  public void setzeFarbe(Color color) {
+    System.out.println("Die Farbe wurde gesetzt!");
+    this.color = color;
+    System.out.println("RGB: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue());
   }
 }

@@ -33,7 +33,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
 
   private WahrheitstabellenSteuerungen strg;
   private Fassade modell;
-  private JTable tabelle; 
+  private JTable tabelle;             //  
   private Schaltflaeche ausfuellen;
   private Schaltflaeche mehrSpalten;
   private Schaltflaeche wenigerSpalten;
@@ -54,6 +54,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private int stufe = 4;
   private JPanel panel;
   private JPanel tabellenRahmen = new JPanel();
+  private Schaltflaeche tipp_schaltflaeche;
 
   /**
    * Erstellt eine Wahrheitstabelle mit den Daten aus der Praesentationsfassade
@@ -62,16 +63,35 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
    * @param modell Praesentationsfassade mit den Daten
    * @param strg   Wahrheitstabellensteuerung fuer Weitergabe der Befehle
    */
-  public KonkreteTabellenAnsicht(Fassade modell, WahrheitstabellenSteuerungen strg, Fensterverwaltung fw) {
-    ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>", fw);
+  public KonkreteTabellenAnsicht(Fassade modell, WahrheitstabellenSteuerungen strg, Schaltflaeche tipp_schaltflaeche, Fensterverwaltung fw) {
     this.fw = fw;
-    mehrSpalten = new Schaltflaeche("+", 6, fw);
-    wenigerSpalten = new Schaltflaeche("-", 6, fw);
-    zeileMarkieren = new Schaltflaeche("Markieren", 6, fw);
+    ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>", this.fw);
+    mehrSpalten = new Schaltflaeche("+", 6, this.fw);
+    wenigerSpalten = new Schaltflaeche("-", 6, this.fw);
+    zeileMarkieren = new Schaltflaeche("Markieren", 6, this.fw);
     this.modell = modell;
     this.strg = strg;
+    this.tipp_schaltflaeche = tipp_schaltflaeche;
     init();
   }
+  
+//  /**
+//   * Erstellt eine Wahrheitstabelle mit den Daten aus der Praesentationsfassade
+//   * und initialisiert die Schaltflaechen und die JTable.
+//   * 
+//   * @param modell Praesentationsfassade mit den Daten
+//   * @param strg   Wahrheitstabellensteuerung fuer Weitergabe der Befehle
+//   */
+//  public KonkreteTabellenAnsicht(Fassade modell, WahrheitstabellenSteuerungen strg, Fensterverwaltung fw) {
+//    this.fw = fw;
+//    ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>", this.fw);
+//    mehrSpalten = new Schaltflaeche("+", 6, this.fw);
+//    wenigerSpalten = new Schaltflaeche("-", 6, this.fw);
+//    zeileMarkieren = new Schaltflaeche("Markieren", 6, this.fw);
+//    this.modell = modell;
+//    this.strg = strg;
+//    init();
+//  }
 
   private void init() {
     zeilenzahl = modell.gibZeilenAnz();
@@ -97,6 +117,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     }
     
     schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 5)));
+    
     wenigerSpalten.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         wechseleModus(wenigerSpalten, Modus.entfernen);
@@ -108,6 +129,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     }
     
     schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 5)));
+    
     zeileMarkieren.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         wechseleModus(zeileMarkieren, Modus.markieren);
@@ -115,6 +137,8 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     });
     
     schaltflaechenPanel.add(zeileMarkieren);
+    
+    
     
     schaltflaechenPanel.add(
         Box.createRigidArea(new Dimension(0, (int) (mehrSpalten.getMaximumSize().height * 1))));
@@ -127,6 +151,10 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     if (stufe != 3) {
       schaltflaechenPanel.add(ausfuellen);
     }
+   
+    schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+    
+    schaltflaechenPanel.add(tipp_schaltflaeche);
 
     // Tabellenrahmen //
     tabellenRahmen.setLayout(new BorderLayout());
@@ -172,9 +200,9 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       for (int j = 0; j < inhalt[0].length; j++) {
         inhalt[i][j] = modell.gibZelle(new int[] { i, j });
         if (i > 0 && inhalt[i][j].equals("true")) {
-          inhalt[i][j] = "wahr";                          //
+          inhalt[i][j] = "wahr";                          // ???? wo verwendet?
         } else if (i > 0) {
-          inhalt[i][j] = "falsch";                        // 
+          inhalt[i][j] = "falsch";                        // ???? wo verwendet?
         }
       }
     }
@@ -218,6 +246,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       @Override
       public void mouseExited(java.awt.event.MouseEvent e)
       {
+          
           // e.getComponent(this);
       }
     });
@@ -349,14 +378,19 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
 
   /**
    * Aktualisiert den Wert einer Zelle mit den Daten der Praesentationsfassade.
+   * Wird für jede Zelle aufgerufen.
+   * @param Koordinaten der Zelle
    */
+  
   public void aktualisiere(int[] zelle) {
     int i = zelle[0];
     int j = zelle[1];
-    inhalt[zelle[0]][zelle[1]] = modell.gibZelle(zelle);
+    inhalt[i][j] = modell.gibZelle(zelle);
+    
+    /* Wahr/Falsch-Zellen */
     if (i > 0 && j >= 0) {
       if (inhalt[i][j].equals("true")) {
-        inhalt[i][j] = modell.getEinstellungen().beschriftungZelleWahr();
+        inhalt[i][j] = modell.getEinstellungen().beschriftungZelleWahr();               // Hier wird die Beschriftung einer Zelle in der Tabelle festgelegt
         if (!markierteZeilen[i]) {
           ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.wahr);
         } else {
@@ -371,11 +405,19 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
         }
       }
     }
+    
+    /* Überschriften der Spalten */
+    
+    /* Atomar */
     if (i == 0 && j >= 0 && j < modell.gibAtomareAussage().size()) {
       ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.atomar);
-    } else if (i == 0 && j >= 0) {
+    } 
+    
+    /* Zusammengesetze Formel */
+    else if (i == 0 && j >= 0) {
       ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.standard);
     }
+    
     tabelle.getModel().setValueAt(inhalt[zelle[0]][zelle[1]], zelle[0], zelle[1]);
     ((FarbModell) tabelle.getModel()).fireTableCellUpdated(i, j);
   }

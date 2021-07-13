@@ -28,7 +28,6 @@ public class Fensterverwaltung {
   private int[] minimumMass = fensterMass;
   private Einstellungen einstellungen;
   ImageIcon img = new ImageIcon(getClass().getResource("/Icon/hintergrund.png"));
-  // ImageIcon img = new ImageIcon(getClass().getResource("/Icon/background.png"));
   
   Image image = img.getImage();
   
@@ -65,6 +64,7 @@ public class Fensterverwaltung {
     aktivesFenster.setIconImage(img.getImage());
 
     modell.init();
+    System.out.println("Fensterverwaltung: modell.init()");
   }
 
   /**
@@ -100,7 +100,7 @@ public class Fensterverwaltung {
     modell.setzeRaetsel(name);
     WahrheitstabellenSteuerungen wstrg;
     wstrg = strg.raetselFensterInit();
-    wechseleFenster(new StufenRaetselFenster(this, modell, wstrg).ansicht, "RBLS");    
+    wechseleFenster(new StufenRaetselFenster(this, modell, wstrg).ansicht, "RBLS   –    " + name);    
   }
 
   /**

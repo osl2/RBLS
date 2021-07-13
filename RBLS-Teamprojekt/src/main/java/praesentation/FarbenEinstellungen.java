@@ -4,9 +4,9 @@ import java.awt.Color;
 
 public class FarbenEinstellungen {
   
-  private static Color farbeGruen = new Color(110, 220, 110);
+  private static Color hauptFarbe = new Color(110, 220, 110);
   
-  private static Color farbeGruenTabelle = new Color(0, 240, 0);
+  private static Color hauptFarbeTabelle = new Color(0, 240, 0);
   
   private static Color farbeGrau = new Color(220, 220, 220);
   
@@ -42,21 +42,21 @@ public class FarbenEinstellungen {
   private  Color formelAnsichtContentPanel = Color.WHITE;
   
   
-  private  Color hauptmenuStartFeldBackground = farbeGruen;
+  private  Color hauptmenuStartFeldBackground = hauptFarbe;
   
-  private  Color hauptmenuJPanelBackground = farbeGruen;
+  private  Color hauptmenuJPanelBackground = hauptFarbe;
   
   private  Color hauptmenuBackground = Color.WHITE;
   
-  private  Color hautptmenuTitleBackground = farbeGruen;
+  private  Color hautptmenuTitleBackground = hauptFarbe;
   
   
   private  Color schaltflaecheForeground = Color.BLACK; // Schriftfarbe
   
-  private  Color schaltflaecheBackground = farbeGruen;
+  private  Color schaltflaecheBackground = hauptFarbe;
   
   
-  private  Color raetselwahlButtonPanel = farbeGruen;
+  private  Color raetselwahlButtonPanel = hauptFarbe;
   
   private  Color raetselwahlHinweisForeground = Color.BLACK;
   
@@ -86,56 +86,57 @@ public class FarbenEinstellungen {
   private  Color stufenraetselPanel3 = Color.BLACK;
   
   
-  private  Color schaltflaecheColor1Background = farbeGruen;
+  private  Color schaltflaecheColor1Background = hauptFarbe;
   
   private  Color schaltflaecheColor1Foreground = Color.BLACK;
   
-  private  Color schaltflaecheColor2Background = farbeGruen;
+  private  Color schaltflaecheColor2Background = hauptFarbe;
   
   private  Color schaltflaecheColor2Foreground = Color.BLACK;
   
-  private  Color schaltflaecheColor3Background = farbeGruen;
+  private  Color schaltflaecheColor3Background = hauptFarbe;
   
   private  Color schaltflaecheColor3Foreground = Color.BLACK;
   
-  private  Color schaltflaecheColor4Background = farbeGruen;
+  private  Color schaltflaecheColor4Background = hauptFarbe;
   
   private  Color schaltflaecheColor4Foreground = Color.BLACK;
   
-  private  Color schaltflaecheColor5Background = farbeGruen;
+  private  Color schaltflaecheColor5Background = hauptFarbe;
   
   private  Color schaltflaecheColor5Foreground = Color.BLACK;
   
-  private  Color schaltflaecheColor6Background = farbeGruen;
+  private  Color schaltflaecheColor6Background = hauptFarbe;
   
   private  Color schaltflaecheColor6Foreground = Color.BLACK;
   
-  private  Color schaltflaecheColor7Background = farbeGruen;
+  private  Color schaltflaecheColor7Background = hauptFarbe;
   
   private  Color schaltflaecheColor7Foreground = Color.BLACK;
   
-  private  Color schaltflaecheColorDefaultBackground = farbeGruen;
+  private  Color schaltflaecheColorDefaultBackground = hauptFarbe;
   
   
   private  Color farbRendererStandard = farbeGrau;
   
   private  Color farbRendererAtomar = farbeGrau;
   
-  private  Color farbRendererWahr = farbeGruen;
+  private  Color farbRendererWahr = hauptFarbe;
   
   private  Color farbRendererFalsch = new Color(250,128,114);
   
-  private  Color farbRendererMarkiertWahr = farbeGruenTabelle;
+  private  Color farbRendererMarkiertWahr = hauptFarbeTabelle;
   
   private  Color farbRendererMarkiertFalsch = Color.RED;
   
   private  Color farbRendererTipp = farbeTipp;
 
-  private  Color farbRendererDefault = farbeGruen;
+  private  Color farbRendererDefault = hauptFarbe;
 
 
-  public FarbenEinstellungen() {
+  public FarbenEinstellungen(Color hauptFarbe) {
     
+    this.hauptFarbe = hauptFarbe;
     buttonBackgroundColor = farbeGrau;
     abschlussfensterBackground = Color.BLACK;
     antwortFeldBackground = Color.BLACK;
@@ -149,17 +150,17 @@ public class FarbenEinstellungen {
     formelAnsichtScrollBarThumb = farbeGrau;
     formelAnsichtScrollBarTrack = Color.WHITE;
     formelAnsichtContentPanel = Color.WHITE;
-    hauptmenuStartFeldBackground = farbeGruen;
-    hauptmenuJPanelBackground = farbeGruen;
+    hauptmenuStartFeldBackground = hauptFarbe;
+    hauptmenuJPanelBackground = hauptFarbe;
     hauptmenuBackground = Color.WHITE;
-    hautptmenuTitleBackground = farbeGruen;
+    hautptmenuTitleBackground = hauptFarbe;
     
     schaltflaecheForeground = Color.BLACK; // Schriftfarbe
     
-     schaltflaecheBackground = farbeGruen;
+     schaltflaecheBackground = hauptFarbe;
     
     
-     raetselwahlButtonPanel = farbeGruen;
+     raetselwahlButtonPanel = hauptFarbe;
     
      raetselwahlHinweisForeground = Color.BLACK;
     
@@ -189,52 +190,52 @@ public class FarbenEinstellungen {
      stufenraetselPanel3 = Color.BLACK;
     
     
-     schaltflaecheColor1Background = farbeGruen;
+     schaltflaecheColor1Background = hauptFarbe;
     
      schaltflaecheColor1Foreground = Color.BLACK;
     
-     schaltflaecheColor2Background = farbeGruen;
+     schaltflaecheColor2Background = hauptFarbe;
     
      schaltflaecheColor2Foreground = Color.BLACK;
     
-     schaltflaecheColor3Background = farbeGruen;
+     schaltflaecheColor3Background = hauptFarbe;
     
      schaltflaecheColor3Foreground = Color.BLACK;
     
-     schaltflaecheColor4Background = farbeGruen;
+     schaltflaecheColor4Background = hauptFarbe;
     
      schaltflaecheColor4Foreground = Color.BLACK;
     
-     schaltflaecheColor5Background = farbeGruen;
+     schaltflaecheColor5Background = hauptFarbe;
     
      schaltflaecheColor5Foreground = Color.BLACK;
     
-     schaltflaecheColor6Background = farbeGruen;
+     schaltflaecheColor6Background = hauptFarbe;
      
      schaltflaecheColor6Foreground = Color.BLACK;
     
-     schaltflaecheColor7Background = farbeGruen;
+     schaltflaecheColor7Background = hauptFarbe;
     
      schaltflaecheColor7Foreground = Color.BLACK;
     
-     schaltflaecheColorDefaultBackground = farbeGruen;
+     schaltflaecheColorDefaultBackground = hauptFarbe;
     
     
      farbRendererStandard = farbeGrau;
     
      farbRendererAtomar = farbeGrau;
     
-     farbRendererWahr = farbeGruen;
+     farbRendererWahr = hauptFarbe;
     
      farbRendererFalsch = new Color(250,128,114);
     
-     farbRendererMarkiertWahr = farbeGruenTabelle;
+     farbRendererMarkiertWahr = hauptFarbeTabelle;
     
      farbRendererMarkiertFalsch = Color.RED;
     
      farbRendererTipp = farbeTipp;
      
-     farbRendererDefault = farbeGruen;
+     farbRendererDefault = hauptFarbe;
   }
 
 
@@ -496,17 +497,17 @@ public class FarbenEinstellungen {
     formelAnsichtScrollBarThumb = farbeGrau;
     formelAnsichtScrollBarTrack = Color.WHITE;
     formelAnsichtContentPanel = Color.WHITE;
-    hauptmenuStartFeldBackground = farbeGruen;
-    hauptmenuJPanelBackground = farbeGruen;
+    hauptmenuStartFeldBackground = hauptFarbe;
+    hauptmenuJPanelBackground = hauptFarbe;
     hauptmenuBackground = Color.WHITE;
-    hautptmenuTitleBackground = farbeGruen;
+    hautptmenuTitleBackground = hauptFarbe;
     
     schaltflaecheForeground = Color.BLACK; // Schriftfarbe
     
-     schaltflaecheBackground = farbeGruen;
+     schaltflaecheBackground = hauptFarbe;
     
     
-     raetselwahlButtonPanel = farbeGruen;
+     raetselwahlButtonPanel = hauptFarbe;
     
      raetselwahlHinweisForeground = Color.BLACK;
     
@@ -536,52 +537,52 @@ public class FarbenEinstellungen {
      stufenraetselPanel3 = Color.BLACK;
     
     
-     schaltflaecheColor1Background = farbeGruen;
+     schaltflaecheColor1Background = hauptFarbe;
     
      schaltflaecheColor1Foreground = Color.BLACK;
     
-     schaltflaecheColor2Background = farbeGruen;
+     schaltflaecheColor2Background = hauptFarbe;
     
      schaltflaecheColor2Foreground = Color.BLACK;
     
-     schaltflaecheColor3Background = farbeGruen;
+     schaltflaecheColor3Background = hauptFarbe;
     
      schaltflaecheColor3Foreground = Color.BLACK;
     
-     schaltflaecheColor4Background = farbeGruen;
+     schaltflaecheColor4Background = hauptFarbe;
     
      schaltflaecheColor4Foreground = Color.BLACK;
     
-     schaltflaecheColor5Background = farbeGruen;
+     schaltflaecheColor5Background = hauptFarbe;
     
      schaltflaecheColor5Foreground = Color.BLACK;
     
-     schaltflaecheColor6Background = farbeGruen;
+     schaltflaecheColor6Background = hauptFarbe;
      
      schaltflaecheColor6Foreground = Color.BLACK;
     
-     schaltflaecheColor7Background = farbeGruen;
+     schaltflaecheColor7Background = hauptFarbe;
     
      schaltflaecheColor7Foreground = Color.BLACK;
     
-     schaltflaecheColorDefaultBackground = farbeGruen;
+     schaltflaecheColorDefaultBackground = hauptFarbe;
     
     
      farbRendererStandard = farbeGrau;
     
      farbRendererAtomar = farbeGrau;
     
-     farbRendererWahr = farbeGruen;
+     farbRendererWahr = hauptFarbe;
     
      farbRendererFalsch = new Color(250,128,114);
     
-     farbRendererMarkiertWahr = farbeGruenTabelle;
+     farbRendererMarkiertWahr = hauptFarbeTabelle;
     
      farbRendererMarkiertFalsch = Color.RED;
     
      farbRendererTipp = farbeTipp;
      
-     farbRendererDefault = farbeGruen;
+     farbRendererDefault = hauptFarbe;
   }
   
 }

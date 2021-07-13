@@ -49,11 +49,8 @@ public class FormelAnsicht {
   private Schaltflaeche xor;
   private Schaltflaeche klammerAuf;
   private Schaltflaeche klammerZu;
-  private ArrayList<Schaltflaeche> zeichen = new ArrayList<Schaltflaeche>(
-      Arrays.asList(new Schaltflaeche[] { und, oder, nicht, impliziert, aequivalent, xor,
-          klammerAuf, klammerZu }));
-  private ArrayList<Character> symbole = new ArrayList<Character>(
-      Arrays.asList(new Character[] { 'u', 'o', 'n', 'f', 'a', 'x', '(', ')' }));
+  private ArrayList<Schaltflaeche> zeichen;
+  private ArrayList<Character> symbole;
   private Fensterverwaltung fw;
 
   /**
@@ -64,6 +61,7 @@ public class FormelAnsicht {
    * @param strg     Formeleditor zur Kommunikation
    */
   public FormelAnsicht(String[] aussagen, FormelEditor strg, String formelAlt, Fensterverwaltung fw) {
+    
     this.fw = fw;
     bestaetige = new Schaltflaeche("Bestätige", fw);
     abbruch = new Schaltflaeche("Abbruch", 2, fw);
@@ -77,6 +75,11 @@ public class FormelAnsicht {
     xor = new Schaltflaeche("\u2295", 3, fw);
     klammerAuf = new Schaltflaeche("(", 3, fw);
     klammerZu = new Schaltflaeche(")", 3, fw);
+    zeichen = new ArrayList<Schaltflaeche>(
+        Arrays.asList(new Schaltflaeche[] { und, oder, nicht, impliziert, aequivalent, xor,
+            klammerAuf, klammerZu }));
+    symbole = new ArrayList<Character>(
+        Arrays.asList(new Character[] { 'u', 'o', 'n', 'f', 'a', 'x', '(', ')' }));
     
     this.strg = strg;
     this.formel = formelAlt;
@@ -257,6 +260,7 @@ public class FormelAnsicht {
   private void pruefeErlaubteZeichen() {
     int j = 0;
     for (Iterator<Schaltflaeche> iter = zeichen.iterator(); iter.hasNext();) {
+      System.out.println("j= " + j);
       Schaltflaeche element = iter.next();
       if (strg.zeichenErlaubt(symbole.get(j))) {
         element.setEnabled(true);

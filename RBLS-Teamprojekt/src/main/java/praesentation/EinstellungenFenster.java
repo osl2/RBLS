@@ -46,6 +46,7 @@ public class EinstellungenFenster extends javax.swing.JPanel{
     
     Schaltflaeche button1 = new Schaltflaeche("Farbauswahl", 5, fw);
     
+    
     button1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         oeffneFarbAuswahl();

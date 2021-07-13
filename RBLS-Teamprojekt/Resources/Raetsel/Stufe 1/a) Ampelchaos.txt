@@ -1,14 +1,15 @@
 ﻿Ampelchaos
 ##
-Stell dir eine einfache Kreuzung mit zwei Ampelen vor. Die Ampeln können entweder grün oder rot sein.§§
+Stell dir eine einfache Kreuzung mit zwei Ampeln vor. Die Ampeln können entweder grün oder rot sein.<br><br>
 
-Wir möchten nun mit Hilfe einer Wahrheitstafel herausfinden, wann die Kreuzung unsicher ist.§§
+Wir möchten nun mit Hilfe einer Wahrheitstafel herausfinden, wann die Kreuzung unsicher ist.<br><br>
 
-Dafür legen wir die Aussage „Die erste Ampel ist grün.“ als Aussage A und die Aussage „Die zweite Ampel ist grün.“ als Aussage B fest. Werten wir nun in der Tabelle die rechte aussagenlogische Formel (Frage: welchen Sachverhalt beschreibt sie?) für alle Kombinationen der Belegungen der beiden Aussagen A und B aus, so können wir festellen, bei welcher Belegung von A und B die Kreuzung unsicher ist.§§
+Dafür legen wir die Aussage „Die erste Ampel ist grün.“ als Aussage A und die Aussage „Die zweite Ampel ist grün.“ als Aussage B fest. Werten wir nun in der Tabelle die rechte aussagenlogische Formel (Frage: welchen Sachverhalt beschreibt sie?) für alle Kombinationen der Belegungen der beiden Aussagen A und B aus, so können wir festellen, bei welcher Belegung von A und B die Kreuzung unsicher ist.<br><br>
 
-In der Tabelle kannst du in den ersten beiden linken Spalten durch Klicken auf „falsch“ (bzw. „wahr“) die Belegung der Aussage in der entsprechenden Zeile ändern.§§
+In der Tabelle kannst du durch das Klicken auf die jeweiligen Felder in den ersten beiden linken Spalten die Belegung der Aussage in der entsprechenden Zeile ändern.<br><br>
 
-Stelle die Felder in der linken und mittleren Spalte der Tabelle so ein, dass du alle Kombinationen der Belegungen von A und B abdeckst. Klicke anschließend auf „Fülle Tabelle“, um herauszufinden für welche Belegung(en) von A und B die Formel auf der rechten Seite nicht erfüllt ist und die Kreuzung somit unsicher ist. 
+<h3>Aufgabenstellung:</h3>
+<i>Stelle die Felder in der linken und mittleren Spalte der Tabelle so ein, dass du alle Kombinationen der Belegungen von A und B abdeckst. Klicke anschließend auf „Fülle Tabelle“, um herauszufinden für welche Belegung(en) von A und B die Formel auf der rechten Seite nicht erfüllt ist und die Kreuzung somit unsicher ist. </i>
 ##
 
 ##

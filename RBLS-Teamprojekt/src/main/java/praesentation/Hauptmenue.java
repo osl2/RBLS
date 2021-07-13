@@ -132,6 +132,8 @@ public class Hauptmenue extends ImagePanel {
       stufe4.setEnabled(false);
       freierModus.setEnabled(false);
     }
+    
+    freierModus.setEnabled(true);
         
     GridBagConstraints c = new GridBagConstraints();
     c.weightx = 0.5;

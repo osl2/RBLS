@@ -73,7 +73,7 @@ public class FarbauswahlFenster extends javax.swing.JPanel{
     Color c = colorChooser.getColor();
     fw.getEinstellungen().getFarbenEinstellungen().setColorDesign(c);
     fw.oeffneFarbAuswahl();
-    
+    fw.gibFassade().getMemento().setzeFarbe(c);
   }
 
 }

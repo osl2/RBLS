@@ -1,9 +1,4 @@
-2
+Stufe: 1
+Farbe: 110 220 110
 ##
-Ampelchaos
-Butterbierdiebe
-Ampelchao
-Test
-2. Butterbierdiebe
 a) Ampelchaos
-b) Butterbierdiebe

@@ -1,0 +1,7 @@
+Raetsel0
+##
+Gebe an, ob wahr oder falsch.
+##
+0. 2 ist eine Primzahl; wahr
+1. Wird es heute regnen?; falsch
+3. 2 x 3 = 7; wahr
