@@ -51,6 +51,7 @@ public class Fensterverwaltung {
         new javax.swing.plaf.FontUIResource("Arial Unicode MS", Font.PLAIN, 18));
     UIManager.put("Table.font", new Font("Arial Unicode MS", Font.BOLD, 20));
     
+    
 
     aktivesFenster = new JFrame();
     aktivesFenster.setContentPane(new Hauptmenue(this, image));
@@ -63,8 +64,8 @@ public class Fensterverwaltung {
     aktivesFenster.setVisible(true);
     aktivesFenster.setIconImage(img.getImage());
 
-    modell.init();
-    System.out.println("Fensterverwaltung: modell.init()");
+    // modell.init();
+    // System.out.println("Fensterverwaltung: modell.init()");
   }
 
   /**

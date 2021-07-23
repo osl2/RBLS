@@ -39,8 +39,8 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private Schaltflaeche wenigerSpalten;
   private Schaltflaeche zeileMarkieren;
   private String[][] inhalt;
-  private int zeilenzahl = 9;
-  private int spaltenzahl = 5;
+  private int zeilenzahl = 9;               /* Warum? */
+  private int spaltenzahl = 5;              /* Warum? */
   private boolean[] markierteZeilen;
   private int[] tipp;
   private boolean aktiv = true;
@@ -55,6 +55,8 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private JPanel panel;
   private JPanel tabellenRahmen = new JPanel();
   private Schaltflaeche tipp_schaltflaeche;
+  
+  private double zeilenHoehe = 1.5;
 
   /**
    * Erstellt eine Wahrheitstabelle mit den Daten aus der Praesentationsfassade
@@ -99,9 +101,11 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     stufe = modell.gibStufe();
     markierteZeilen = new boolean[zeilenzahl];
     Arrays.fill(markierteZeilen, false);
-    initTabelle();
-
-    // SchaltflaechenPanel//
+    
+    /*
+     * Schaltflaechenpanel (rechten Seite) (ANFANG) 
+     */
+    
     JPanel schaltflaechenPanel = new JPanel();
     schaltflaechenPanel.setLayout(new BoxLayout(schaltflaechenPanel, BoxLayout.Y_AXIS));
     schaltflaechenPanel.setBackground(Color.WHITE);
@@ -155,27 +159,43 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     
     schaltflaechenPanel.add(tipp_schaltflaeche);
+    
+    /*
+     * Schaltflaechenpanel (rechten Seite) (ENDE) 
+     */
+    
+    /*
+     * Tabellen-Panel (ANFANG)
+     */
+    
+    initTabelle();
 
     // Tabellenrahmen //
     tabellenRahmen.setLayout(new BorderLayout());
     tabellenRahmen.add(tabelle, BorderLayout.CENTER);
     tabellenRahmen.setBackground(Color.GRAY);
-    tabellenRahmen.setBorder(BorderFactory.createEmptyBorder(1, 1, 0, 0));
+    tabellenRahmen.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));            /* Rahmen der Tabelle */
+    
     JScrollPane scrollPane = new JScrollPane(tabellenRahmen);
+    
+    /* Vertikale Scrollbar der Tabelle */
     scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
         // this.thumbColor = new Color(255, 102, 0);
         this.thumbColor = Color.BLUE;
-        this.trackColor = new Color(186, 185, 219);
+        this.trackColor = new Color(186, 185, 219);                                   /* Farbe der ScrollBar ändern */
       }
     });
+    
+    /* Horizontale Scrollbar der Tabelle */
     scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
         // this.thumbColor = new Color(255, 102, 0);
         this.thumbColor = Color.BLUE;
-        this.trackColor = new Color(186, 185, 219);
+        this.trackColor = new Color(186, 185, 219);                                   /* Farbe der ScrollBar ändern */
       }
     });
+    
     scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
     // Panel //
@@ -195,21 +215,26 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     /*
      * Zellen der Tabelle werden mit "wahr" oder "falsch" befüllt
      */
-    inhalt = new String[zeilenzahl][spaltenzahl];
-    for (int i = 0; i < inhalt.length; i++) {
-      for (int j = 0; j < inhalt[0].length; j++) {
-        inhalt[i][j] = modell.gibZelle(new int[] { i, j });
-        if (i > 0 && inhalt[i][j].equals("true")) {
-          inhalt[i][j] = "wahr";                          // ???? wo verwendet?
-        } else if (i > 0) {
-          inhalt[i][j] = "falsch";                        // ???? wo verwendet?
+    
+      inhalt = new String[zeilenzahl][spaltenzahl];
+      for (int i = 0; i < inhalt.length; i++) {
+        for (int j = 0; j < inhalt[0].length; j++) {
+          inhalt[i][j] = modell.gibZelle(new int[] { i, j });
+          if (i > 0 && inhalt[i][j].equals("true")) {
+            inhalt[i][j] = "wahr";                          // ???? wo verwendet?
+          } else if (i > 0) {
+            inhalt[i][j] = "falsch";                        // ???? wo verwendet?
+          }
         }
       }
-    }
+   
+    
+      
+    
     // JTable //
     
     /*
-     * 
+     * Konstruktor JTable: JTable(Daten, Spaltennamen)
      */
     tabelle = new JTable(inhalt, inhalt[0]) {
       private static final long serialVersionUID = 1L;
@@ -228,30 +253,34 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
           .setCellRenderer(new praesentation.tabelle.FarbRenderer(fw));
     }
 
+   
     /*
      * Anklicken von Zellen, die auf "wahr" oder "falsch" gesetzt sind
      */
     tabelle.addMouseListener(new java.awt.event.MouseAdapter() {
+      
       @Override
       public void mouseClicked(java.awt.event.MouseEvent evt) {
         int i = tabelle.rowAtPoint(evt.getPoint());
         int j = tabelle.columnAtPoint(evt.getPoint());
         klickeZelle(i, j);
       }
+      
       @Override
       public void mouseEntered(java.awt.event.MouseEvent e) {
         
+       
       }
       
       @Override
       public void mouseExited(java.awt.event.MouseEvent e)
       {
-          
-          // e.getComponent(this);
+        
       }
     });
     
-    tabelle.setRowHeight((int) (tabelle.getRowHeight() * 1.5));
+    this.zeilenHoehe *= tabelle.getRowHeight();
+    tabelle.setRowHeight((int) (this.zeilenHoehe));
     tabelle.setFocusable(false);
     tabelle.setRowSelectionAllowed(false);
     for (int i = 0; i < inhalt.length; i++) {
@@ -259,7 +288,10 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
         aktualisiere(new int[] { i, j });
       }
     }
-    tabelle.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    // tabelle.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    tabelle.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+    
+    tabelle.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
   }
 
   private void klickeZelle(int i, int j) {
@@ -406,7 +438,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       }
     }
     
-    /* Überschriften der Spalten */
+    /* Überschriften der Spalten in der Tabelle */
     
     /* Atomar */
     if (i == 0 && j >= 0 && j < modell.gibAtomareAussage().size()) {
@@ -417,6 +449,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     else if (i == 0 && j >= 0) {
       ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.standard);
     }
+    
     
     tabelle.getModel().setValueAt(inhalt[zelle[0]][zelle[1]], zelle[0], zelle[1]);
     ((FarbModell) tabelle.getModel()).fireTableCellUpdated(i, j);
@@ -430,4 +463,8 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     return strg.gibTabelleVoll();
   }
 
+  public double getZeilenHoehe() {
+    return zeilenHoehe;
+  }
+  
 }

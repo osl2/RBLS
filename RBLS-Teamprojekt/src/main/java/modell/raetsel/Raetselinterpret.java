@@ -140,6 +140,7 @@ public class Raetselinterpret {
       for (int i = 0; i < antwortM.length; i++) {
         antwortM[i] = killSpace(antwortM[i]);
       }
+      
       return new Raetsel(
           input,                    //spaltenAnz
           Integer.parseInt(lines[7]), //stufe

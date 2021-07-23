@@ -30,10 +30,10 @@ public class Memento {
   
   private int abschlussStufe = 0;
   private Color color; // = new Color(110, 220, 110); // vordefinierte Farbe
+  private String[] wahrFalsch = new String[2];
   
   
   public Memento() {
-    System.out.println("new Memento()");
     liesMementoDatei();
   }
   
@@ -73,7 +73,7 @@ public class Memento {
    */
   public boolean erstelleMementoDatei(Raetsel raetsel) {
     Writer fw = null;
-    liesMementoDatei();
+    // liesMementoDatei();
     if (istNeu(raetsel.gibName())) {
       memento.add(raetsel.gibName());
     }
@@ -82,10 +82,38 @@ public class Memento {
       if (raetsel.gibStufe() > this.abschlussStufe) {
         fw.write("Stufe: " + raetsel.gibStufe() + "\n");  
         fw.write("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue() + "\n");
+        fw.write("Belegungen: " + wahrFalsch[0] + " " + wahrFalsch[1] + "\n");
       } else {
         fw.write("Stufe: " + abschlussStufe + "\n");  
         fw.write("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue() + "\n");
+        fw.write("Belegungen: " + wahrFalsch[0] + " " + wahrFalsch[1] + "\n");
       }
+      fw.write("##\n");             
+      for (int i = 0; i < memento.size(); i++) {
+        fw.write(memento.get(i) + "\n"); /* Hier werden alle gelösten Rätsel aufgelistet */
+      }
+    } catch (IOException e) {
+      new praesentation.FehlerDialog("Sicherung konnte nicht erstellt werden.");
+    } finally {
+      if (fw != null) {
+        try {
+          fw.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    return true;
+  }
+  
+  public boolean erstelleMementoDatei() {
+    Writer fw = null;
+    
+    try {
+      fw = new FileWriter("Resources/Sicherung/Sicherung.txt");
+      fw.write("Stufe: " + abschlussStufe + "\n");  
+      fw.write("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue() + "\n");
+      fw.write("Belegungen: " + wahrFalsch[0] + " " + wahrFalsch[1] + "\n");
       fw.write("##\n");             
       for (int i = 0; i < memento.size(); i++) {
         fw.write(memento.get(i) + "\n"); /* Hier werden alle gelösten Rätsel aufgelistet */
@@ -121,22 +149,27 @@ public class Memento {
    */
   private boolean pruefeTextdatei() {
     File file = new File("Resources/Sicherung/Sicherung.txt");
+    
+    /* Wenn Sicherungsdatei nicht existiert */ 
     if (!file.exists()) {
       String fileName = "Resources/Sicherung/Sicherung.txt";
       String encoding = "UTF-8";
       try {
         PrintWriter writer = new PrintWriter(fileName, encoding);
         writer.println("Stufe: 0");
-        writer.println("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue());
+        writer.println("Farbe: " + 204 + " " + 255 + " " + 204);
+        writer.println("Belegung: 1 0");
         writer.println("##");
         writer.close();
       } catch (IOException e) {
         new praesentation.FehlerDialog("Fehler beim Erstellen. Ist der Ordner entpackt?");
       }
     }
+    
     if (file.isFile() && file.canWrite() && file.canRead()) {
       return true;
     }
+    
     return false;
   }
 
@@ -145,7 +178,6 @@ public class Memento {
    * Erstellt außerdem eine Liste nur mit den Namen der bisher geloesten Raetsel.
    */
   private void liesMementoDatei() {
-    System.out.println("Memento: liesMementoDatei()");
     if (!pruefeTextdatei()) {
       new praesentation.FehlerDialog("Die Sicherungsdatei ist nicht erstellbar");
     }
@@ -167,20 +199,22 @@ public class Memento {
       // System.out.println(farbenRGB);
       String[] farbenZahlen = farbenRGB.split(" ");
       
+      String wahrFalschString = memento.get(2);
+      String[] stringArray = wahrFalschString.split(" ");
+      wahrFalsch[0] = stringArray[1];
+      wahrFalsch[1] = stringArray[2];
+      
       if (color == null) {
         int farbeRot = Integer.parseInt(farbenZahlen[1]);
         int farbeGruen = Integer.parseInt(farbenZahlen[2]);
         int farbeBlau = Integer.parseInt(farbenZahlen[3]);
         
         color = new Color(farbeRot, farbeGruen, farbeBlau);
-      }
-      
-     
-      
+      } 
     }
-    
-    
+  
     memento.remove(0);    
+    memento.remove(0);
     memento.remove(0);
 
   }
@@ -196,7 +230,6 @@ public class Memento {
   }
   
   public List<String> gibGeloesteRaetsel() {
-    System.out.println("Memento: gibGeloestRaetsel()");
     liesMementoDatei();
     return memento;
   }
@@ -206,8 +239,14 @@ public class Memento {
   }
   
   public void setzeFarbe(Color color) {
-    System.out.println("Die Farbe wurde gesetzt!");
     this.color = color;
-    System.out.println("RGB: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue());
+  }
+  
+  public void setzeWahrFalsch(String[] wahrFalsch) {
+    this.wahrFalsch = wahrFalsch;
+  }
+  
+  public String[] gibWahrFalschZurueck() {
+    return wahrFalsch;
   }
 }

@@ -169,30 +169,36 @@ public class EinstellungenFenster extends javax.swing.JPanel{
   
   private void setzeWahrFalsch() {
     Einstellungen einstellungen = fw.getEinstellungen();
+    String[] s = new String[2];
+    
     if (radioButton1.isSelected()) {
-      einstellungen.setzeBeschrifungZelleWahr("wahr");
-      einstellungen.setzeBeschrifungZelleFalsch("falsch");
+      s[0]= "wahr";
+      s[1] = "falsch";
     }
     
     else if (radioButton2.isSelected()) {
-      einstellungen.setzeBeschrifungZelleWahr("w");
-      einstellungen.setzeBeschrifungZelleFalsch("f");
+      s[0]= "w";
+      s[1] = "f";
     }
     
     else if (radioButton3.isSelected()) {
-      einstellungen.setzeBeschrifungZelleWahr("richtig");
-      einstellungen.setzeBeschrifungZelleFalsch("falsch");
+      s[0]= "richtig";
+      s[1] = "falsch";
     }
     
     else if (radioButton4.isSelected()) {
-      einstellungen.setzeBeschrifungZelleWahr("1");
-      einstellungen.setzeBeschrifungZelleFalsch("0");
+      s[0]= "1";
+      s[1] = "0";
     }
     
     else if (radioButton5.isSelected()) {
-      einstellungen.setzeBeschrifungZelleWahr("true");
-      einstellungen.setzeBeschrifungZelleFalsch("false");
+      s[0]= "true";
+      s[1] = "false";
     }
+    einstellungen.setzeBeschrifungZelleWahr(s[0]);
+    einstellungen.setzeBeschrifungZelleFalsch(s[1]);
+    fw.gibFassade().getMemento().setzeWahrFalsch(s);
+    fw.gibFassade().getMemento().erstelleMementoDatei();
     aenderungenGespeichert.setText("Änderungen wurden gespeichert!");
     
   }
@@ -204,7 +210,12 @@ public class EinstellungenFenster extends javax.swing.JPanel{
   
   private void einstellungenZuruecksetzen() {
     fw.getEinstellungen().getFarbenEinstellungen().zuruecksetzen();
+    Color c = fw.getEinstellungen().getFarbenEinstellungen().gibHauptfarbeZurueck();
+    String[] wahrFalsch = fw.getEinstellungen().gibStartWahrZurueck();
+    fw.gibFassade().getMemento().setzeFarbe(c);
+    fw.gibFassade().getMemento().setzeWahrFalsch(wahrFalsch);
     fw.getEinstellungen().zuruecksetzen();
+    fw.gibFassade().getMemento().erstelleMementoDatei();
     fw.oeffneEinstellungen("Einstellungen wurden zurückgesetzt!");
   }
 

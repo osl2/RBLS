@@ -15,7 +15,7 @@ In der Tabelle kannst du durch das Klicken auf die jeweiligen Felder in den erst
 ##
 Wenn beide rot sind., Wenn eine rot & eine grün ist., Wenn beide grün sind.
 ##
-Ampel A ist grün, Ampel B ist grün
+Die erste Ampel ist grün, Die zweite Ampel ist grün
 ##
 3
 ##

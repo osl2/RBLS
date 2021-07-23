@@ -11,6 +11,8 @@ public class FarbenEinstellungen {
   private static Color farbeGrau = new Color(220, 220, 220);
   
   private static Color farbeTipp = new Color(121, 205, 205);
+  
+  private static Color farbeGruen = new Color(204, 255, 204);
     
   
   private  Color buttonBackgroundColor = farbeGrau;
@@ -125,7 +127,7 @@ public class FarbenEinstellungen {
   
   private  Color farbRendererFalsch = new Color(250,128,114);
   
-  private  Color farbRendererMarkiertWahr = hauptFarbeTabelle;
+  private  Color farbRendererMarkiertWahr = farbeGruen;
   
   private  Color farbRendererMarkiertFalsch = Color.RED;
   
@@ -225,7 +227,7 @@ public class FarbenEinstellungen {
     
      farbRendererAtomar = farbeGrau;
     
-     farbRendererWahr = hauptFarbe;
+     farbRendererWahr = farbeGruen;
     
      farbRendererFalsch = new Color(250,128,114);
     
@@ -572,7 +574,7 @@ public class FarbenEinstellungen {
     
      farbRendererAtomar = farbeGrau;
     
-     farbRendererWahr = hauptFarbe;
+     farbRendererWahr = farbeGruen;
     
      farbRendererFalsch = new Color(250,128,114);
     
@@ -583,6 +585,10 @@ public class FarbenEinstellungen {
      farbRendererTipp = farbeTipp;
      
      farbRendererDefault = hauptFarbe;
+  }
+  
+  public Color gibHauptfarbeZurueck() {
+    return hauptFarbe;
   }
   
 }

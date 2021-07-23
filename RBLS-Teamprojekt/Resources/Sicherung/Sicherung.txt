@@ -1,4 +1,5 @@
-Stufe: 1
-Farbe: 110 220 110
+Stufe: 4
+Farbe: 204 255 204
+Belegungen: true false
 ##
 a) Ampelchaos

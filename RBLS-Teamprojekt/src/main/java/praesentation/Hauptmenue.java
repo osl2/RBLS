@@ -121,7 +121,8 @@ public class Hauptmenue extends ImagePanel {
     });
     startFeld.add(stufe4);
     
-    int stufe = fw.gibFassade().gibFa().gibAbgeschlosseneStufe();
+    int stufe = fw.gibFassade().gibAbgeschlosseneStufe();
+    
     if (stufe < 1) {
       stufe2.setEnabled(false);
     }

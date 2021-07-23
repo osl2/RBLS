@@ -18,4 +18,6 @@ public abstract class TabellenAnsicht {
 
   public abstract JPanel gibAnsicht();
   
+  public abstract double getZeilenHoehe();
+  
 }

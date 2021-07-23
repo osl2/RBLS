@@ -22,7 +22,9 @@ public class Atom extends Formel {
    * @param nummer  Position im Werte-Array.
    */
   public Atom(String aussage, int nummer) {
-    this.aussage = aussage + " (" + (char) (65 + nummer) + ")";
+    // this.aussage = aussage + " (" + (char) (65 + nummer) + ")";
+    char c = (char) (65 + nummer);
+    this.aussage = "" + c;
     if (nummer == -1) {
       this.rep = "Formel einfügen";
     } else {

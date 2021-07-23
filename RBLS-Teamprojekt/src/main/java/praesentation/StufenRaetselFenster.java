@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicScrollBarUI;
@@ -97,7 +98,17 @@ public class StufenRaetselFenster extends RaetselFenster {
     // tippPanel.setBackground(FarbenEinstellungen.getStufenRaetselTippPanelBackground());
     tippPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselTippPanelBackground());
     
-    this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg, tipp, fw);                    // konkrete Tabellenansicht
+                       // konkrete Tabellenansicht
+    
+  
+    if (modell.gibStufe() == 0) {
+      System.out.println("Stufe 0");
+      this.tabelle = new TabellenAnsichtStufe0(modell, wstrg, tipp, fw);
+    }
+    
+    else {
+      this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg, tipp, fw); 
+    }
 
     
     // frageFeld = new JTextArea(frage);
@@ -143,17 +154,39 @@ public class StufenRaetselFenster extends RaetselFenster {
     // fragePanel.add(tippPanel, BorderLayout.EAST);
     
     //WahrheitstabellenPanel//
+    
+    /*
+     * Tabellen-Panel (ANFANG)
+     */
+    
+    
     JPanel tabellenPanel = new JPanel();
     tabellenPanel = tabelle.gibAnsicht();
     // tabellenPanel.setBackground(FarbenEinstellungen.getStufenRaetselTabellenPanelBackground());
     tabellenPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselTabellenPanelBackground());
-    tabellenPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 1000));
     
+    
+    tabellenPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 500));          /* Groesse des Panels */
+    // tabellenPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 5 * (int) tabelle.getZeilenHoehe()));
+    
+    /*
+     * Tabellen-Panel (ENDE)
+     */
     
     //AntwortfeldPanel//
     JPanel antwortPanel = new JPanel();
-    antwortAnsicht = new AntwortFeld(modell.gibAntwortmoeglichkeiten(),
-        modell.gibAntwortText(), modell.gibLoesung(), this, fw).gibAnsicht();
+    
+    if (modell.gibStufe() == 0) {
+      String[] antworten = {"Aussage", "keine Aussage"};
+      String loesung = "Aussage";
+      
+      antwortAnsicht = new AntwortFeldStufe0(antworten, loesung, this, fw).gibAnsicht();
+    }
+    else {
+      antwortAnsicht = new AntwortFeld(modell.gibAntwortmoeglichkeiten(),
+          modell.gibAntwortText(), modell.gibLoesung(), this, fw).gibAnsicht();
+    }
+    
     
     JPanel antwortRahmen = erzeugeRahmenPanel(antwortAnsicht, "Lösung");
     antwortPanel.setLayout(new BorderLayout());
@@ -172,10 +205,49 @@ public class StufenRaetselFenster extends RaetselFenster {
     antwortPanel.add(weiter, BorderLayout.EAST);
     weiter.setVisible(false);
     
+    /*
+     * Aussagenpanel ANFANG
+     *
+     */
+    
+    
+    JPanel aussagenPanel = new JPanel();
+    aussagenPanel.setLayout(new BorderLayout());
+    aussagenPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselFensterFragePanelBackground());
+
+    JEditorPane aussageFeld = new JEditorPane("text/html", "<b>Aussage A: <b> " +  modell.gibAussage(0) + "<br><b>Aussage B: <b> " + modell.gibAussage(1));
+    
+    aussageFeld.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, Boolean.TRUE);
+  
+    aussageFeld.setFont(font);
+ 
+    aussageFeld.setEditable(false);
+    aussageFeld.setHighlighter(null);
+    
+    JPanel panel1 = new JPanel();
+    panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
+    Border border1 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+    panel1.setBorder(border1);
+    panel1.add(aussageFeld);
+    // panel1.setBackground(FarbenEinstellungen.getStufenRaetselPanel1Background());
+    panel1.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselAntwortPanelBackground());
+    
+    aussagenPanel.add(panel1);
+    
+
+    /*
+     * Aussagenpanel ENDE
+     *
+     */
+    
     //Ansicht zusammenfuegen//
     ansicht.add(fragePanel, 0);
-    ansicht.add(tabellenPanel, 1);
-    ansicht.add(antwortPanel, 2);
+    ansicht.add(aussagenPanel, 1);
+    ansicht.add(tabellenPanel, 2);
+    ansicht.add(antwortPanel, 3);
+    
+    
+    
   }
   
   private JPanel erzeugeRahmenPanel(JPanel innen, String titel) {

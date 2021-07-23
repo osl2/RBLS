@@ -24,6 +24,8 @@ public class Raetsel {
   protected int zeilenAnz;
   protected int loesung;
   protected String name;
+  
+  protected List<String> aussagen;
 
   /**
    * Konstruktor für ein Raetselobjekt.
@@ -49,12 +51,20 @@ public class Raetsel {
     this.antworttext = antworttext;
     this.name = name;
     this.antworten = antwortMoeglichkeiten;
+    
+    
+    this.aussagen = atom;
+    for (String s : atom) {
+      System.out.println(s);
+    }
+   
   }
 
   private void stringToAtomList(List<String> atomS) {
     atom = new ArrayList<Atom>();
     for (int i = 0; i < atomS.size(); i++) {
       atom.add(new Atom(atomS.get(i), i));
+      //  aussagen.add(atomS.get(i));
     }
   }
 
@@ -134,5 +144,9 @@ public class Raetsel {
 
   public List<Atom> gibAtome() {
     return atom;
+  }
+  
+  public String gibAussage(int i) {
+    return aussagen.get(i);
   }
 }

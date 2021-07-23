@@ -8,10 +8,18 @@ public class Einstellungen {
   private String zellenBeschriftungFalsch; 
   private FarbenEinstellungen farbenEinstellungen;
   
-  public Einstellungen(Color color) {
-    this.zellenBeschriftungWahr = "1"; // "wahr"; "w"; "true";
-    this.zellenBeschriftungFalsch = "0"; // "falsch"; "f"; "false";
+  private String zellenBeschriftungWahrStart;
+  private String zellenBeschriftungFalschStart;
+  private FarbenEinstellungen farbenEinstellungenStart;
+  
+  public Einstellungen(Color color, String wahr, String falsch) {
+    this.zellenBeschriftungWahr = wahr; // "wahr"; "w"; "true";
+    this.zellenBeschriftungFalsch = falsch; // "falsch"; "f"; "false";
     this.farbenEinstellungen = new FarbenEinstellungen(color);
+    
+    this.zellenBeschriftungWahrStart = wahr;
+    this.zellenBeschriftungFalschStart = falsch;
+    this.farbenEinstellungenStart = new FarbenEinstellungen(color);
   }
   
   public String beschriftungZelleWahr() {
@@ -35,7 +43,13 @@ public class Einstellungen {
   }
   
   public void zuruecksetzen() {
-    this.zellenBeschriftungWahr = "1"; // "wahr"; "w"; "true";
-    this.zellenBeschriftungFalsch = "0"; // "falsch"; "f"; "false";
+    zellenBeschriftungWahr = zellenBeschriftungWahrStart;
+    zellenBeschriftungFalsch = zellenBeschriftungFalschStart;
+    farbenEinstellungen = farbenEinstellungenStart;
+  }
+  
+  public String[] gibStartWahrZurueck() {
+    String[] s = {zellenBeschriftungWahrStart, zellenBeschriftungFalschStart};
+    return s;
   }
 }

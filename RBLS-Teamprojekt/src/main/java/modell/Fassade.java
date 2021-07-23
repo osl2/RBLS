@@ -18,7 +18,7 @@ import praesentation.Fensterverwaltung;
  */
 public class Fassade {
 
-  private static Fassade fa = null;
+  // private static Fassade fa = null;
   private Raetselinterpret interpret;
   private Raetsel raetsel;
   private Tabelle tabelle;
@@ -35,13 +35,13 @@ public class Fassade {
 
    * @return Objekt der Klasse SteuerungFassade.
    */
-  public static Fassade gibFa() {
-    if (fa == null) {
-      fa = new Fassade();
-      System.out.println("fa ist null");
-    }
-    return fa;
-  }
+//  public static Fassade gibFa() {
+//    if (fa == null) {
+//      fa = new Fassade();
+//      System.out.println("fa ist null");
+//    }
+//    return fa;
+//  }
 
   private void aktualisiere() { // Präs aktuallisieren.
 
@@ -56,7 +56,7 @@ public class Fassade {
   public void init() {
     this.interpret = new Raetselinterpret();
     this.memento = new Memento();
-    System.out.println("Fassade: new Memento()");
+    
   }
 
   /**
@@ -262,7 +262,7 @@ public class Fassade {
    */
   public int gibAbgeschlosseneStufe() {
     aktualisiere();
-    this.memento = new Memento();
+    // this.memento = new Memento();
     return memento.gibStufenSicherung();
   }
   
@@ -273,6 +273,10 @@ public class Fassade {
   public void fuehreSicherungAus() {
     this.aktualisiere();
     memento.erstelleMementoDatei(raetsel);
+  }
+  
+  public String gibAussage(int i) {
+    return raetsel.gibAussage(i);
   }
   
   public Memento getMemento() {
