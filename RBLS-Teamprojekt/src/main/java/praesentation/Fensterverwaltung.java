@@ -24,7 +24,8 @@ public class Fensterverwaltung {
   private Hauptsteuerung strg;
   private JFrame aktivesFenster;
   private Fassade modell;
-  private int[] fensterMass = new int[]{1280, 720};
+  // private int[] fensterMass = new int[]{1280, 720};
+  private int[] fensterMass = new int[]{1450, 800};
   private int[] minimumMass = fensterMass;
   private Einstellungen einstellungen;
   ImageIcon img = new ImageIcon(getClass().getResource("/Icon/hintergrund.png"));

@@ -35,7 +35,7 @@ public class StufenRaetselFenster extends RaetselFenster {
   // private JTextArea frageFeld;
   private JEditorPane frageFeld;
   private JPanel antwortAnsicht;
-  private Schaltflaeche tipp;
+  // private Schaltflaeche tipp;
   private Schaltflaeche weiter;
   
   private Fensterverwaltung fw;
@@ -68,46 +68,46 @@ public class StufenRaetselFenster extends RaetselFenster {
     fragePanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselFensterFragePanelBackground());
     
     
-    
-    menueKnopf = new Schaltflaeche("zurück", 2, fw);
-    menueKnopf.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          geheZuRaetselwahlMenue();
-        }
-      });
-    
+//    
+//    menueKnopf = new Schaltflaeche("zum Menü", 2, fw);
+//    menueKnopf.addActionListener(new ActionListener() {
+//        public void actionPerformed(ActionEvent e) {
+//          geheZuRaetselwahlMenue();
+//        }
+//      });
+//    
    
-    JPanel menuePanel = new JPanel();
-    menuePanel.setLayout(new FlowLayout());
-    menuePanel.add(menueKnopf);
-    // menuePanel.setBackground(FarbenEinstellungen.getStufenRaetselMenuPanelBackground());
-    menuePanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselMenuPanelBackground());
+//    JPanel menuePanel = new JPanel();
+//    menuePanel.setLayout(new FlowLayout());
+//    menuePanel.add(menueKnopf);
+//    // menuePanel.setBackground(FarbenEinstellungen.getStufenRaetselMenuPanelBackground());
+//    menuePanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselMenuPanelBackground());
    
 
     
-    tipp = new Schaltflaeche("Tipp", 2, fw);
-    tipp.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          zeigeTippAn();
-        }
-      });
+//    tipp = new Schaltflaeche("Tipp", 2, fw);
+//    tipp.addActionListener(new ActionListener() {
+//        public void actionPerformed(ActionEvent e) {
+//          zeigeTippAn();
+//        }
+//      });
     
-    JPanel tippPanel = new JPanel();
-    tippPanel.setLayout(new FlowLayout());
-    tippPanel.add(tipp);
+//    JPanel tippPanel = new JPanel();
+//    tippPanel.setLayout(new FlowLayout());
+//    tippPanel.add(tipp);
     // tippPanel.setBackground(FarbenEinstellungen.getStufenRaetselTippPanelBackground());
-    tippPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselTippPanelBackground());
+    // tippPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselTippPanelBackground());
     
-                       // konkrete Tabellenansicht
+    // konkrete Tabellenansicht
     
   
     if (modell.gibStufe() == 0) {
       System.out.println("Stufe 0");
-      this.tabelle = new TabellenAnsichtStufe0(modell, wstrg, tipp, fw);
+       // this.tabelle = new TabellenAnsichtStufe0(modell, wstrg, fw);
     }
     
     else {
-      this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg, tipp, fw); 
+      this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fw); 
     }
 
     
@@ -149,7 +149,7 @@ public class StufenRaetselFenster extends RaetselFenster {
       frageRahmen.setPreferredSize(new Dimension(1, (int) (frage.length() * 0.8)));
     }
     
-    fragePanel.add(menuePanel, BorderLayout.WEST);
+    // fragePanel.add(menuePanel, BorderLayout.WEST);
     fragePanel.add(frageRahmen, BorderLayout.CENTER);
     // fragePanel.add(tippPanel, BorderLayout.EAST);
     
@@ -279,7 +279,7 @@ public class StufenRaetselFenster extends RaetselFenster {
     return panel3;
   }
 
-  private void zeigeTippAn() {
+  private void TippAn() {
     tabelle.zeigeTippAn();
   }
 

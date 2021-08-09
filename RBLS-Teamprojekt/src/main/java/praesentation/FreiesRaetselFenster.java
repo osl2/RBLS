@@ -160,7 +160,7 @@ public class FreiesRaetselFenster extends RaetselFenster {
     wstrg = strg.raetselFensterInit();
     Schaltflaeche tipp = new Schaltflaeche("Tipp", 2, fv);
     tipp.setEnabled(false);
-    tabelle = new KonkreteTabellenAnsicht(modell, wstrg, tipp, fv);
+    tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fv);
   }
 
   private void geheZuMenue() {

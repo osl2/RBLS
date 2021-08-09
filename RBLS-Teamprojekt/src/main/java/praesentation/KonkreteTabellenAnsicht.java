@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -45,6 +46,9 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private int[] tipp;
   private boolean aktiv = true;
   private Fensterverwaltung fw;
+  
+  private Schaltflaeche zumMenu;
+  private Schaltflaeche tippButton;
 
   private enum Modus {
     standard, entfernen, markieren
@@ -54,7 +58,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private int stufe = 4;
   private JPanel panel;
   private JPanel tabellenRahmen = new JPanel();
-  private Schaltflaeche tipp_schaltflaeche;
+  // private Schaltflaeche tipp_schaltflaeche;
   
   private double zeilenHoehe = 1.5;
 
@@ -65,15 +69,16 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
    * @param modell Praesentationsfassade mit den Daten
    * @param strg   Wahrheitstabellensteuerung fuer Weitergabe der Befehle
    */
-  public KonkreteTabellenAnsicht(Fassade modell, WahrheitstabellenSteuerungen strg, Schaltflaeche tipp_schaltflaeche, Fensterverwaltung fw) {
+  public KonkreteTabellenAnsicht(Fassade modell, WahrheitstabellenSteuerungen strg, Fensterverwaltung fw) {
     this.fw = fw;
     ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>", this.fw);
     mehrSpalten = new Schaltflaeche("+", 6, this.fw);
     wenigerSpalten = new Schaltflaeche("-", 6, this.fw);
     zeileMarkieren = new Schaltflaeche("Markieren", 6, this.fw);
+    zumMenu = new Schaltflaeche("zum Menü", 6, this.fw);
     this.modell = modell;
     this.strg = strg;
-    this.tipp_schaltflaeche = tipp_schaltflaeche;
+    // this.tipp_schaltflaeche = tipp_schaltflaeche;
     init();
   }
   
@@ -103,24 +108,32 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     Arrays.fill(markierteZeilen, false);
     
     /*
-     * Schaltflaechenpanel (rechten Seite) (ANFANG) 
+     * Schaltflaechenpanel (rechte Seite) (ANFANG) 
      */
     
     JPanel schaltflaechenPanel = new JPanel();
-    schaltflaechenPanel.setLayout(new BoxLayout(schaltflaechenPanel, BoxLayout.Y_AXIS));
+    
+    // schaltflaechenPanel.setLayout(new BoxLayout(schaltflaechenPanel, BoxLayout.Y_AXIS));
+    
+    if (stufe == 2 || stufe == 4) {
+      schaltflaechenPanel.setLayout(new GridLayout(5, 1, 20, 20));
+    }
+    else {
+      schaltflaechenPanel.setLayout(new GridLayout(4, 1, 22, 22));
+    }
     schaltflaechenPanel.setBackground(Color.WHITE);
-    schaltflaechenPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
+    schaltflaechenPanel.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 0));
+    
+    
+//    schaltflaechenPanel.setLayout(new BoxLayout(schaltflaechenPanel, BoxLayout.Y_AXIS));
+
+//    schaltflaechenPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
+   
     mehrSpalten.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         fuegeSpalteHinzu();
       }
     });
-    
-    if (stufe == 2 || stufe == 4) {
-      schaltflaechenPanel.add(mehrSpalten);
-    }
-    
-    schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 5)));
     
     wenigerSpalten.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -128,11 +141,15 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       }
     });
     
-    if (stufe == 2 || stufe == 4) {
-      schaltflaechenPanel.add(wenigerSpalten);
-    }
     
-    schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 5)));
+    if (stufe == 2 || stufe == 4) {
+      JPanel plusMinusPanel = new JPanel();
+      plusMinusPanel.setLayout(new GridLayout(1, 2, 20, 20));
+      plusMinusPanel.setBackground(Color.WHITE);
+      plusMinusPanel.add(mehrSpalten);
+      plusMinusPanel.add(wenigerSpalten);
+      schaltflaechenPanel.add(plusMinusPanel);
+    }
     
     zeileMarkieren.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -140,28 +157,52 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       }
     });
     
+    
+    
     schaltflaechenPanel.add(zeileMarkieren);
     
     
     
-    schaltflaechenPanel.add(
-        Box.createRigidArea(new Dimension(0, (int) (mehrSpalten.getMaximumSize().height * 1))));
-    ausfuellen.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        fuelleAus();
-      }
-    });
+//    schaltflaechenPanel.add(
+//        Box.createRigidArea(new Dimension(0, (int) (mehrSpalten.getMaximumSize().height * 1))));
+//    ausfuellen.addActionListener(new ActionListener() {
+//      public void actionPerformed(ActionEvent e) {
+//        fuelleAus();
+//      }
+//    });
     
     if (stufe != 3) {
       schaltflaechenPanel.add(ausfuellen);
     }
    
-    schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+    // schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     
-    schaltflaechenPanel.add(tipp_schaltflaeche);
+    // schaltflaechenPanel.add(tipp_schaltflaeche);
+    
+    
+    
+    tippButton = new Schaltflaeche("Tipp", 2, fw);
+    tippButton.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          zeigeTippAn();
+        }
+      });
+    
+    
+    schaltflaechenPanel.add(tippButton);
+    
+    zumMenu.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        geheZuRaetselwahlMenue();
+      }
+    });
+    
+    zumMenu.setzeFarbe(new Color(220, 220, 220));
+    
+    schaltflaechenPanel.add(zumMenu);
     
     /*
-     * Schaltflaechenpanel (rechten Seite) (ENDE) 
+     * Schaltflaechenpanel (rechte Seite) (ENDE) 
      */
     
     /*
@@ -465,6 +506,10 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
 
   public double getZeilenHoehe() {
     return zeilenHoehe;
+  }
+  
+  private void geheZuRaetselwahlMenue() {
+    fw.oeffneRaetselwahl(modell.gibStufe());
   }
   
 }
