@@ -215,7 +215,8 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     tabellenRahmen.setLayout(new BorderLayout());
     tabellenRahmen.add(tabelle, BorderLayout.CENTER);
     tabellenRahmen.setBackground(Color.GRAY);
-    tabellenRahmen.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));            /* Rahmen der Tabelle */
+    // tabellenRahmen.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));            /* Rahmen der Tabelle */
+    tabellenRahmen.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     
     JScrollPane scrollPane = new JScrollPane(tabellenRahmen);
     

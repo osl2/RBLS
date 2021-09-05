@@ -35,8 +35,7 @@ public class Raetselwahl extends javax.swing.JPanel {
   private List<String> geloest;
   private int stufe;
   private String[] hinweise = new String[] {
-     "Dieser Hinweis muss noch geschrieben werden "
-          + " .",
+     "Die Stufe 0 soll dich in die Aussagenlogik einführen.",
     "Dies ist die erste Stufe. Decke in der Wahrheitstabelle alle Fälle für die atomaren "
       + "Aussagen ab und klicke auf 'Fülle Tabelle'.",
     "Dies ist die zweite Stufe. Hier kannst Du die Wahrheitswerte nicht verändern,"

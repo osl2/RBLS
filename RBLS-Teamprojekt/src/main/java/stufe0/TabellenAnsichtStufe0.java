@@ -1,4 +1,4 @@
-package praesentation;
+package stufe0;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,7 +20,9 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import modell.Fassade;
-
+import praesentation.Fensterverwaltung;
+import praesentation.Schaltflaeche;
+import praesentation.TabellenAnsicht;
 import praesentation.tabelle.FarbModell;
 import praesentation.tabelle.ZellenStatus;
 import steuerung.WahrheitstabellenSteuerungen;
@@ -32,19 +34,16 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
   private JTable tabelle;             //  
   private Schaltflaeche ausfuellen;
   private String[][] inhalt;
-  private int zeilenzahl = 2;
-  private int spaltenzahl = 3;
+  private int zeilenzahl;
+  private int spaltenzahl;
   private boolean[] markierteZeilen;
-  private int[] tipp;
-  private boolean aktiv = true;
+
   private Fensterverwaltung fw;
+  private Schaltflaeche zumMenu;
 
-  private enum Modus {
-    standard, entfernen, markieren
-  }
 
-  private Modus modus = Modus.standard;
   private int stufe = 0;
+  
   private JPanel panel;
   private JPanel tabellenRahmen = new JPanel();
 
@@ -55,11 +54,11 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
    * @param modell Praesentationsfassade mit den Daten
    * @param strg   Wahrheitstabellensteuerung fuer Weitergabe der Befehle
    */
-  public TabellenAnsichtStufe0(Fassade modell, WahrheitstabellenSteuerungen strg, Schaltflaeche tipp_schaltflaeche, Fensterverwaltung fw) {
+  public TabellenAnsichtStufe0(Fassade modell, WahrheitstabellenSteuerungen strg, Fensterverwaltung fw) {
     this.fw = fw;
-    ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>", this.fw);
     this.modell = modell;
     this.strg = strg;
+    zumMenu = new Schaltflaeche("zum Menü", 6, this.fw);
     init();
   }
   
@@ -82,6 +81,16 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 5)));
    
     schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+    
+    zumMenu.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        geheZuRaetselwahlMenue();
+      }
+    });
+    
+    zumMenu.setzeFarbe(new Color(220, 220, 220));
+    
+    schaltflaechenPanel.add(zumMenu, BorderLayout.NORTH);
     
 
     // Tabellenrahmen //
@@ -123,33 +132,24 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     /*
      * Zellen der Tabelle werden mit "wahr" oder "falsch" befüllt
      */
-    inhalt=new String[2][3];
-    for (int i = 0; i < inhalt.length; i++) {
-      for (int j = 0; j < inhalt[0].length; j++) {
-        inhalt[i][j] = "hi";
-      }
-      
-    }
-    // JTable //
+   
+    inhalt = new String[3][2];
+    inhalt[0][0] = "Ist ... eine Aussage?";
+    inhalt[0][1] = "Antwort";
+    inhalt[1][0] = "A";
+    inhalt[1][1] = "ja";
+    inhalt[2][0] = "B";
+    inhalt[2][1] = "ja";
+    tabelle = new JTable(inhalt, inhalt[0]);
     
-    /*
-     * Konstruktor JTable: JTable(Daten, Spaltennamen)
-     */
-    tabelle = new JTable(inhalt, inhalt[0]) {
-      private static final long serialVersionUID = 1L;
-      public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
-          Component component = super.prepareRenderer(renderer, row, column);
-          TableColumn spalte = getColumnModel().getColumn(column);
-          spalte.setPreferredWidth(Math.max(component.getPreferredSize().width 
-              + getIntercellSpacing().width, spalte.getPreferredWidth()));
-          return component;
-      }
-    };
-    FarbModell tm = new FarbModell(inhalt, inhalt[0]);
-    tabelle.setModel((FarbModell) tm);
+    // tabelle = new JTable()
+    FarbModellStufe0 tm = new FarbModellStufe0(inhalt, inhalt[0]);
+    tabelle.setModel((FarbModellStufe0) tm);
+    
     for (int j = 0; j < spaltenzahl; j++) {
       tabelle.getColumnModel().getColumn(j)
-          .setCellRenderer(new praesentation.tabelle.FarbRenderer(fw));
+          .setCellRenderer(new stufe0.FarbRendererStufe0(fw));
+      
     }
 
     /*
@@ -163,8 +163,14 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
         klickeZelle(i, j);
       }
       @Override
-      public void mouseEntered(java.awt.event.MouseEvent e) {
-        e.getComponent().setCursor(new Cursor(Cursor.HAND_CURSOR));
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        int i = tabelle.rowAtPoint(evt.getPoint());
+        int j = tabelle.columnAtPoint(evt.getPoint());
+        System.out.println("Ändern: row=" + i + " col=" + j);
+        if (i > 0 && i < 3 && j == 1) {
+          evt.getComponent().setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        
       }
       
       @Override
@@ -177,13 +183,7 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     tabelle.setRowHeight((int) (tabelle.getRowHeight() * 1.5));
     tabelle.setFocusable(false);
     tabelle.setRowSelectionAllowed(false);
-    for (int i = 0; i < inhalt.length; i++) {
-      for (int j = 0; j < inhalt[0].length; j++) {
-        aktualisiere(new int[] { i, j });
-      }
-    }
-    // tabelle.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-    // tabelle.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+  
     
     tabelle.setPreferredScrollableViewportSize(tabelle.getPreferredSize());
     tabelle.setFillsViewportHeight(true);
@@ -192,20 +192,19 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
 
   @Override
   public void zeigeTippAn() {
-    // TODO Auto-generated method stub
+   // kein Tipp für Stufe 0
     
   }
 
   
   
   private void klickeZelle(int i, int j) {
-    if (i > 0 && j >= 0) {
-      strg.befehl("ZelleAendern(" + i + "," + j + ")");
+    if (i > 0 && j > 0) {
+      // strg.befehl("ZelleAendern(" + i + "," + j + ")");
       aktualisiere(new int[] { i, j });
+      // tabelle.getCellRenderer(i, j);
     } 
-    if (i >= 0) {
-      ((FarbModell) tabelle.getModel()).fireTableCellUpdated(i, j);
-    }
+    
   }
   
   /**
@@ -218,50 +217,23 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     int i = zelle[0];
     int j = zelle[1];
     if (i < zeilenzahl && j < spaltenzahl) {
-      inhalt[i][j] = modell.gibZelle(zelle);
-    }
-    
-    
-    /* Wahr/Falsch-Zellen */
-    if (i > 0 && j >= 0) {
-      if (inhalt[i][j].equals("true")) {
-        // inhalt[i][j] = modell.getEinstellungen().beschriftungZelleWahr();               // Hier wird die Beschriftung einer Zelle in der Tabelle festgelegt
-        inhalt[i][j] = "Aussage";
-        if (!markierteZeilen[i]) {
-          ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.wahr);
-        } else {
-          ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.markiert_wahr);
-        }
-      } else {
-        // inhalt[i][j] = modell.getEinstellungen().beschriftungZelleFalsch();
-        inhalt[i][j] = "keine Aussage";
-        if (!markierteZeilen[i]) {
-          ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.falsch);
-        } else {
-          ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.markiert_falsch);
-        }
+      // inhalt[i][j] = modell.gibZelle(zelle);
+      if (inhalt[i][j] == "ja") {
+        inhalt[i][j] = "nein";
+        ((FarbModellStufe0) tabelle.getModel()).setzeStatus(i, j, ZellenStatusStufe0.falsch);
+      }
+      else  {
+        inhalt[i][j] = "ja";
+        ((FarbModellStufe0) tabelle.getModel()).setzeStatus(i, j, ZellenStatusStufe0.wahr);
       }
     }
     
-    /* Überschriften der Spalten */
-    
-    /* Atomar */
-    if (i == 0 && j >= 0 && j < modell.gibAtomareAussage().size()) {
-      ((FarbModell) tabelle.getModel()).setzeStatus(i, j, ZellenStatus.atomar);
-    } 
-    
-    
     tabelle.getModel().setValueAt(inhalt[zelle[0]][zelle[1]], zelle[0], zelle[1]);
-    ((FarbModell) tabelle.getModel()).fireTableCellUpdated(i, j);
+    ((FarbModellStufe0) tabelle.getModel()).fireTableCellUpdated(i, j);
   }
   
   @Override
   public JPanel gibAnsicht() {
-    JPanel p = new JPanel();
-    p.setBackground(Color.BLACK);
-    p.setForeground(Color.BLACK);
-    p.setSize(50, 50);
-    // return p;
     return panel;
   }
   
@@ -273,6 +245,10 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
   public double getZeilenHoehe() {
     // TODO Auto-generated method stub
     return 0;
+  }
+  
+  private void geheZuRaetselwahlMenue() {
+    fw.oeffneRaetselwahl(modell.gibStufe());
   }
   
   

@@ -1,4 +1,4 @@
-package praesentation;
+package stufe0;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,6 +11,10 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import praesentation.Fensterverwaltung;
+import praesentation.Schaltflaeche;
+import praesentation.StufenRaetselFenster;
 
 public class AntwortFeldStufe0 {
   private JPanel ansicht;

@@ -1,6 +1,6 @@
 Test
 ##
-Das ist ein Test!
+Aufgabentext
 ##
 ist die Lösung
 ##
@@ -13,3 +13,4 @@ A, B
 0f1, 0u1
 ##
 0
+

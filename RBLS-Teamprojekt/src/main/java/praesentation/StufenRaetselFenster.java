@@ -19,6 +19,8 @@ import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import modell.Fassade;
 import steuerung.WahrheitstabellenSteuerungen;
+import stufe0.AntwortFeldStufe0;
+import stufe0.TabellenAnsichtStufe0;
 
 /**
  * Grafische Ansicht eines Raetsels. Zeigt eine Wahrheitstabelle
@@ -67,43 +69,14 @@ public class StufenRaetselFenster extends RaetselFenster {
     // fragePanel.setBackground(FarbenEinstellungen.getStufenRaetselFensterFragePanelBackground());
     fragePanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselFensterFragePanelBackground());
     
-    
-//    
-//    menueKnopf = new Schaltflaeche("zum Menü", 2, fw);
-//    menueKnopf.addActionListener(new ActionListener() {
-//        public void actionPerformed(ActionEvent e) {
-//          geheZuRaetselwahlMenue();
-//        }
-//      });
-//    
-   
-//    JPanel menuePanel = new JPanel();
-//    menuePanel.setLayout(new FlowLayout());
-//    menuePanel.add(menueKnopf);
-//    // menuePanel.setBackground(FarbenEinstellungen.getStufenRaetselMenuPanelBackground());
-//    menuePanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselMenuPanelBackground());
-   
 
-    
-//    tipp = new Schaltflaeche("Tipp", 2, fw);
-//    tipp.addActionListener(new ActionListener() {
-//        public void actionPerformed(ActionEvent e) {
-//          zeigeTippAn();
-//        }
-//      });
-    
-//    JPanel tippPanel = new JPanel();
-//    tippPanel.setLayout(new FlowLayout());
-//    tippPanel.add(tipp);
-    // tippPanel.setBackground(FarbenEinstellungen.getStufenRaetselTippPanelBackground());
-    // tippPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselTippPanelBackground());
-    
     // konkrete Tabellenansicht
     
   
     if (modell.gibStufe() == 0) {
       System.out.println("Stufe 0");
-       // this.tabelle = new TabellenAnsichtStufe0(modell, wstrg, fw);
+      this.tabelle = new TabellenAnsichtStufe0(modell, wstrg, fw);
+      // this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fw);
     }
     
     else {
@@ -213,6 +186,11 @@ public class StufenRaetselFenster extends RaetselFenster {
     
     JPanel aussagenPanel = new JPanel();
     aussagenPanel.setLayout(new BorderLayout());
+    
+//    Border border = BorderFactory.createEmptyBorder(5,5,5,5);
+//    // aussagenPanel.setBorder(border);
+//    aussagenPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+    
     aussagenPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselFensterFragePanelBackground());
 
     JEditorPane aussageFeld = new JEditorPane("text/html", "<b>Aussage A: <b> " +  modell.gibAussage(0) + "<br><b>Aussage B: <b> " + modell.gibAussage(1));
@@ -246,6 +224,7 @@ public class StufenRaetselFenster extends RaetselFenster {
     ansicht.add(tabellenPanel, 2);
     ansicht.add(antwortPanel, 3);
     
+   
     
     
   }

@@ -8,7 +8,7 @@ import java.awt.Dimension;
 
  * @author Nick
  */
-class Schaltflaeche extends javax.swing.JButton {
+public class Schaltflaeche extends javax.swing.JButton {
 
   /**
    * auto-generierte ID.

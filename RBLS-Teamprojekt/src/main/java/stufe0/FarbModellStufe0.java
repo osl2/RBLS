@@ -1,18 +1,21 @@
-package praesentation.tabelle;
+package stufe0;
+
 
 import javax.swing.table.DefaultTableModel;
+
+
 
 /** Unterklasse von DefaultTableModel, um einen Status von Zellen zu setzten, 
  * aus dem der Farbwert hervorgeht.
 
  * @author Nick
  */
-public class FarbModell extends DefaultTableModel {
+public class FarbModellStufe0 extends DefaultTableModel {
   /**
    * Standard-ID der Unterklasse.
    */
   private static final long serialVersionUID = 1L;
-  ZellenStatus[][] status;
+  ZellenStatusStufe0[][] status;
   
   /**
    * Erzeugt eine Tabelle mit dem angegebenem Inhalt.
@@ -20,25 +23,28 @@ public class FarbModell extends DefaultTableModel {
    * @param inhalt Zweidimensionaler Array mit dem Tabelleninhalt als Strings
    * @param inhalt2 Array mit Inhalten der obersten Zeile --> Spaltenüberschriften
    */
-  public FarbModell(String[][] inhalt, String[] inhalt2) {
-    status = new ZellenStatus[inhalt.length][inhalt[0].length];
+  public FarbModellStufe0(String[][] inhalt, String[] inhalt2) {
+    status = new ZellenStatusStufe0[inhalt.length][inhalt[0].length];
     this.setDataVector(inhalt, inhalt2);
     for (int i = 0; i < inhalt.length; i++) {
       for (int j = 0; j < inhalt[0].length; j++) {
-        status[i][j] = ZellenStatus.standard;
+        status[i][j] = ZellenStatusStufe0.fest;
       }
-    }    
+    }
+    status[1][1] = ZellenStatusStufe0.wahr;
+    status[2][1] = ZellenStatusStufe0.wahr;
+    
   }
   
   public boolean isCellEditable(int row, int column) {
     return false;
   }
 
-  public void setzeStatus(int i, int j, ZellenStatus s) {
+  public void setzeStatus(int i, int j, ZellenStatusStufe0 s) {
     status[i][j] = s;
   }
     
-  public ZellenStatus gibStatus(int i, int j) {
+  public ZellenStatusStufe0 gibStatus(int i, int j) {
     return status[i][j];
   }
 }
