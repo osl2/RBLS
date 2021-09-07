@@ -56,7 +56,7 @@ public class StufenRaetselFenster extends RaetselFenster {
     this.modell = modell;
     this.name = modell.gibAktivenRaetselnamen();
     // Ersetzt alle Vorkommnisse von § durch eine neue Zeile 
-    this.frage = (modell.gibFragestellung().replaceAll("§", "\n"));
+    this.frage = modell.gibFragestellung();
     
     ansicht = new JPanel();
     ansicht.setLayout(new BoxLayout(ansicht, BoxLayout.Y_AXIS));
@@ -74,8 +74,8 @@ public class StufenRaetselFenster extends RaetselFenster {
     
   
     if (modell.gibStufe() == 0) {
-      System.out.println("Stufe 0");
       this.tabelle = new TabellenAnsichtStufe0(modell, wstrg, fw);
+      modell.setzeStufe(0);
       // this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fw);
     }
     
@@ -193,7 +193,7 @@ public class StufenRaetselFenster extends RaetselFenster {
     
     aussagenPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselFensterFragePanelBackground());
 
-    JEditorPane aussageFeld = new JEditorPane("text/html", "<b>Aussage A: <b> " +  modell.gibAussage(0) + "<br><b>Aussage B: <b> " + modell.gibAussage(1));
+    JEditorPane aussageFeld = new JEditorPane("text/html", modell.gibTextImAussagenfeld());
     
     aussageFeld.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, Boolean.TRUE);
   
@@ -277,6 +277,25 @@ public class StufenRaetselFenster extends RaetselFenster {
     } else {
       return true;
     }
+  }
+  
+  public boolean pruefeLoesungStufe0() {
+    
+    String[] result = (((TabellenAnsichtStufe0) this.tabelle).ueberpruefeLoesung()).split(" ");
+    String[] loesung = modell.gibRaetselStufe0().gibAntwort();
+    boolean flag = true;
+    
+    for (int i = 0; i < loesung.length; i++) {
+      if (!result[i].equals(loesung[i])) {
+        flag = false;
+        break;
+      }
+    }
+    if (flag) {
+      return true;
+    }
+   
+    return false;
   }
   
   public void schliesseRaetselAb() {

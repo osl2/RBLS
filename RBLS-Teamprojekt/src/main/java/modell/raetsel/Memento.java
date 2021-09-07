@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import praesentation.Fensterverwaltung;
+import stufe0.RaetselStufe0;
 
 /**
  * Diese Klasse symbolisiert ein Memento. Sie verwaltet die Speicherung und das
@@ -72,6 +73,41 @@ public class Memento {
    * @return True, wenn die Datei erfolgreich erstellt wurde.
    */
   public boolean erstelleMementoDatei(Raetsel raetsel) {
+    Writer fw = null;
+    // liesMementoDatei();
+    if (istNeu(raetsel.gibName())) {
+      memento.add(raetsel.gibName());
+    }
+    try {
+      fw = new FileWriter("Resources/Sicherung/Sicherung.txt");
+      if (raetsel.gibStufe() > this.abschlussStufe) {
+        fw.write("Stufe: " + raetsel.gibStufe() + "\n");  
+        fw.write("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue() + "\n");
+        fw.write("Belegungen: " + wahrFalsch[0] + " " + wahrFalsch[1] + "\n");
+      } else {
+        fw.write("Stufe: " + abschlussStufe + "\n");  
+        fw.write("Farbe: " + color.getRed() + " " + color.getGreen() + " " + color.getBlue() + "\n");
+        fw.write("Belegungen: " + wahrFalsch[0] + " " + wahrFalsch[1] + "\n");
+      }
+      fw.write("##\n");             
+      for (int i = 0; i < memento.size(); i++) {
+        fw.write(memento.get(i) + "\n"); /* Hier werden alle gelösten Rätsel aufgelistet */
+      }
+    } catch (IOException e) {
+      new praesentation.FehlerDialog("Sicherung konnte nicht erstellt werden.");
+    } finally {
+      if (fw != null) {
+        try {
+          fw.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    return true;
+  }
+  
+  public boolean erstelleMementoDateiStufe0(RaetselStufe0 raetsel) {
     Writer fw = null;
     // liesMementoDatei();
     if (istNeu(raetsel.gibName())) {

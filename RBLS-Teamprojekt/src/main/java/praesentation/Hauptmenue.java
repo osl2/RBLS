@@ -205,6 +205,7 @@ public class Hauptmenue extends ImagePanel {
    * @param stufe Stufe der Raetsel
    */
   private void klickeStart(int stufe) {
+    fw.gibFassade().setzeStufe(stufe);
     fw.oeffneRaetselwahl(stufe);
   }
   

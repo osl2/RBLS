@@ -179,6 +179,12 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     
     // schaltflaechenPanel.add(tipp_schaltflaeche);
     
+    ausfuellen.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        fuelleAus();
+      }
+    });
+    
     
     
     tippButton = new Schaltflaeche("Tipp", 2, fw);

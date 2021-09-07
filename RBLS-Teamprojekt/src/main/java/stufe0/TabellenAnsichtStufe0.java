@@ -133,13 +133,19 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
      * Zellen der Tabelle werden mit "wahr" oder "falsch" befüllt
      */
    
-    inhalt = new String[3][2];
+    inhalt = new String[modell.gibAnzahlAussagen() + 1][2];
     inhalt[0][0] = "Ist ... eine Aussage?";
     inhalt[0][1] = "Antwort";
-    inhalt[1][0] = "A";
-    inhalt[1][1] = "ja";
-    inhalt[2][0] = "B";
-    inhalt[2][1] = "ja";
+    char start = 'A';
+   
+    for (int i = 1; i < modell.gibAnzahlAussagen()+1; i++) {
+      char aussageChar = (char) (i-1);
+      aussageChar += start;
+      String aussage = String.valueOf(aussageChar);
+      inhalt[i][0] = aussage;
+      inhalt[i][1] = "ja";
+    }
+   
     tabelle = new JTable(inhalt, inhalt[0]);
     
     // tabelle = new JTable()
@@ -230,6 +236,7 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     
     tabelle.getModel().setValueAt(inhalt[zelle[0]][zelle[1]], zelle[0], zelle[1]);
     ((FarbModellStufe0) tabelle.getModel()).fireTableCellUpdated(i, j);
+    
   }
   
   @Override
@@ -251,7 +258,17 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     fw.oeffneRaetselwahl(modell.gibStufe());
   }
   
+  private String gibInhaltZelle(int i, int j) {
+    return (String) tabelle.getModel().getValueAt(i, j);
+  }
   
+  public String ueberpruefeLoesung() {
+    String result = "";
+    for (int i = 1; i < zeilenzahl; i++) {
+      result = result + gibInhaltZelle(i, 1) + " ";
+    }
+    return result;
+  }
 
 
 }

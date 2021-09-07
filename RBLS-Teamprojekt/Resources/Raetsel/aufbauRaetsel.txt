@@ -1,6 +1,6 @@
 Raetselname
 ##
-Raetseltext: Dabei steht eine § für ein Zeilenumbruch.
+Raetseltext: --> in html
 ##
 Antworttext
 ##

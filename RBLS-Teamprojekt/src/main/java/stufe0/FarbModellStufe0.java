@@ -26,13 +26,15 @@ public class FarbModellStufe0 extends DefaultTableModel {
   public FarbModellStufe0(String[][] inhalt, String[] inhalt2) {
     status = new ZellenStatusStufe0[inhalt.length][inhalt[0].length];
     this.setDataVector(inhalt, inhalt2);
-    for (int i = 0; i < inhalt.length; i++) {
-      for (int j = 0; j < inhalt[0].length; j++) {
-        status[i][j] = ZellenStatusStufe0.fest;
-      }
+    
+    status[0][0] = ZellenStatusStufe0.fest;
+    status[0][1] = ZellenStatusStufe0.fest;
+    
+    for (int i = 1; i < inhalt.length; i++) {
+      status[i][0] = ZellenStatusStufe0.fest;
+      status[i][1] = ZellenStatusStufe0.wahr;
     }
-    status[1][1] = ZellenStatusStufe0.wahr;
-    status[2][1] = ZellenStatusStufe0.wahr;
+    
     
   }
   

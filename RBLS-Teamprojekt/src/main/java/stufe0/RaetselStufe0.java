@@ -1,4 +1,5 @@
-package modell.raetsel;
+package stufe0;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ import modell.formel.Atom;
  * @author Flo
  *
  */
-public class Raetsel {
+public class RaetselStufe0 {
 
   protected String raetselText;
   protected int stufe;
@@ -39,24 +40,23 @@ public class Raetsel {
    * @param antworttext Antowrttext
    * @param formeln Formeln
    */
-  public Raetsel(String name, int stufe, List<String> atom, String raetselText, String[] antwortMoeglichkeiten,
+  public RaetselStufe0(String name, int stufe, List<String> atom, String raetselText, String[] antwortMoeglichkeiten,
       int loesung, String antworttext, List<String> formeln) {
-    this.spaltenAnz = atom.size();
-    this.zeilenAnz = (int) Math.pow(2, atom.size());
-    this.stufe = stufe;
-    stringToAtomList(atom);
-    this.loesung = loesung;
-    this.raetselText = raetselText;
-    this.formeln = formeln;
-    this.antworttext = antworttext;
-    this.name = name;
-    this.antworten = antwortMoeglichkeiten;
-    
     
     this.aussagen = atom;
-    for (String s : atom) {
-      System.out.println(s);
-    }
+    
+    this.spaltenAnz = 2; 
+    this.zeilenAnz = aussagen.size()+1;
+    
+    this.stufe = stufe;
+    stringToAtomList(atom);
+    this.loesung = 0; // redundant
+    this.raetselText = raetselText;
+    this.formeln = formeln; // loeschen
+    this.antworttext = antworttext; // loeschen
+    this.name = name; 
+    this.antworten = antwortMoeglichkeiten;
+   
    
   }
 

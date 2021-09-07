@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import praesentation.FehlerDialog;
 import praesentation.Fensterverwaltung;
 import praesentation.Schaltflaeche;
 import praesentation.StufenRaetselFenster;
@@ -69,6 +70,17 @@ public class AntwortFeldStufe0 {
   }
 
   private void pruefeAntwort() {
-   System.out.println("Hier soll die Antwort geprüft werden!");
+      
+      boolean korrekt = fenster.pruefeLoesungStufe0();
+    
+//    if (!fenster.pruefeTabelle()) {
+//      return;
+//    }
+    if (korrekt) {
+      fenster.schliesseRaetselAb();
+      // antwortWahl.setEnabled(false);
+    } else {
+      new FehlerDialog("Falsche Antwort");
+    }
   }
 }

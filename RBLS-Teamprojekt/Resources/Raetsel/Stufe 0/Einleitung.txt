@@ -1,0 +1,18 @@
+Test
+##
+Eine Aussage ist ein sprachlicher oder formaler Ausdruck, dem man genau einen möglichen Wahrheitswert <p style="color:#FF0000";>wahr</p> oder <i>falsch</i> zuordnen kann.
+<br><br>
+Welcher der folgenden Sätze sind Aussagen? Wähle die entsprechende Antwort per Klick auf das Antwortfeld aus.
+##
+
+##
+nein, ja, nein, ja, nein, ja, ja
+##
+Hurra! § 6 ist eine Primzahl. § Wie geht es dir? § Blau ist eine Farbe. § Angela Merkel war vielleicht Bundeskanzlerin. § 17 x 5 = 85 § Es regnet.
+##
+0
+##
+
+##
+0
+

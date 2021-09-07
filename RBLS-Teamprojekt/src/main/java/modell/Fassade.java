@@ -8,6 +8,8 @@ import modell.raetsel.Raetselinterpret;
 import modell.tabelle.Tabelle;
 import praesentation.Einstellungen;
 import praesentation.Fensterverwaltung;
+import stufe0.RaetselStufe0;
+import stufe0.RaetselinterpretStufe0;
 
 /**
  * Dies ist die Klasse fuer die Fassade, die mit der Steuerung zusammenarbeitet.
@@ -20,10 +22,13 @@ public class Fassade {
 
   // private static Fassade fa = null;
   private Raetselinterpret interpret;
+  private RaetselinterpretStufe0 interpretStufe0;
   private Raetsel raetsel;
+  private RaetselStufe0 raetselStufe0;
   private Tabelle tabelle;
   private Memento memento;
   private Einstellungen einstellungen;
+  private int stufe;
   
   public Fassade() {
     
@@ -55,6 +60,7 @@ public class Fassade {
    */
   public void init() {
     this.interpret = new Raetselinterpret();
+    this.interpretStufe0 = new RaetselinterpretStufe0();
     this.memento = new Memento();
     
   }
@@ -66,13 +72,24 @@ public class Fassade {
    */
   public List<String> gibAtomareAussage() {
     this.aktualisiere();
-    return this.raetsel.gibAtomareAussage();
+    if (stufe == 0) {
+      return this.raetselStufe0.gibAtomareAussage();
+    }
+    else {
+      return this.raetsel.gibAtomareAussage();
+    }
   }
 
   //zum Testen benoetigt
   public String gibRaetselString() {
     aktualisiere();
-    return this.raetsel.gibName();
+    if (stufe == 0) {
+      return this.raetselStufe0.gibName();
+    }
+    else {
+      return this.raetsel.gibName();
+    }
+    
   }
 
   /**
@@ -84,8 +101,15 @@ public class Fassade {
    */
   public void setzeRaetsel(String raetselname) {
     aktualisiere();
-    this.raetsel = this.interpret.liesRaetsel(raetselname);
-    this.tabelle = new Tabelle(raetsel.gibAtome());
+    if (stufe == 0) {
+      this.raetselStufe0 = this.interpretStufe0.liesRaetsel(raetselname);
+      this.tabelle = new Tabelle(raetselStufe0.gibAtome());
+    }
+    else {
+      this.raetsel = this.interpret.liesRaetsel(raetselname);
+      this.tabelle = new Tabelle(raetsel.gibAtome());
+    }
+
   }
 
   /**
@@ -96,32 +120,66 @@ public class Fassade {
    */
   public List<String> gibRaetselListe(int i) {
     aktualisiere();
-    return interpret.liesOrdner(i);
+    if (stufe == 0) {
+      return interpretStufe0.liesOrdner(i);
+    }
+    else {
+      return interpret.liesOrdner(i);
+    }
+    
   }
 
   public String gibAktivenRaetselnamen() {
     aktualisiere();
-    return raetsel.gibName();
+    if (stufe == 0) {
+      return raetselStufe0.gibName();
+    }
+    else {
+      return raetsel.gibName();
+    }
+    
   }
 
   public String gibFragestellung() {
     aktualisiere();
-    return raetsel.gibRaetselText();
+    if (stufe == 0) {
+      return raetselStufe0.gibRaetselText();
+    }
+    else {
+      return raetsel.gibRaetselText();
+    }
+    
   }
 
   public String gibAntwortText() {
     aktualisiere();
-    return raetsel.gibAntworttext();
+    if (stufe == 0) {
+      return raetselStufe0.gibAntworttext();
+    }
+    else {
+      return raetsel.gibAntworttext();
+    }
+    
   }
 
   public String[] gibAntwortmoeglichkeiten() {
     aktualisiere();
-    return raetsel.gibAntwort();
+    if (stufe == 0) {
+      return raetselStufe0.gibAntwort();
+    }
+    else {
+      return raetsel.gibAntwort();
+    }
   }
 
   public String gibLoesung() {
     aktualisiere();
-    return raetsel.gibLoesung();
+    if (stufe == 0) {
+      return raetselStufe0.gibLoesung();
+    }
+    else {
+      return raetsel.gibLoesung();
+    }
   }
 
   /**
@@ -144,8 +202,15 @@ public class Fassade {
    */
   public void erstelleRaetsel(List<String> atome) {
     aktualisiere();
-    this.raetsel = this.interpret.erstelleFrRa(atome);
-    this.tabelle = new Tabelle(raetsel.gibAtome());
+    if (stufe == 0) {
+      this.raetselStufe0 = this.interpretStufe0.erstelleFrRa(atome);
+      this.tabelle = new Tabelle(raetselStufe0.gibAtome());
+    }
+    else {
+      this.raetsel = this.interpret.erstelleFrRa(atome);
+      this.tabelle = new Tabelle(raetsel.gibAtome());
+    }
+    
   }
 
   /**
@@ -155,7 +220,12 @@ public class Fassade {
    */
   public List<String> gibNoetigeFormel() {
     this.aktualisiere();
-    return this.raetsel.gibFormeln();
+    if (stufe == 0) {
+      return this.raetselStufe0.gibFormeln();
+    }
+    else {
+      return this.raetsel.gibFormeln();
+    }
   }
 
   /**
@@ -186,12 +256,24 @@ public class Fassade {
 
   public int gibZeilenAnz() {
     this.aktualisiere();
-    return tabelle.gibZeilenAnz();
+    if (stufe == 0) {
+      return raetselStufe0.gibAnzahlAussagen() + 1;
+    }
+    else {
+      return tabelle.gibZeilenAnz();
+    }
+    
   }
 
   public int gibSpaltenAnz() {
     this.aktualisiere();
-    return tabelle.gibSpaltenAnz();
+    if (stufe == 0) {
+      return 2;
+    }
+    else {
+      return tabelle.gibSpaltenAnz();
+    }
+    
   }
 
   public boolean[] gibZeileFall(int zeile) {
@@ -236,7 +318,8 @@ public class Fassade {
 
   public int gibStufe() {
     this.aktualisiere();
-    return this.raetsel.gibStufe();
+    return stufe;
+     // return this.raetsel.gibStufe();
   }
 
   /**
@@ -272,11 +355,21 @@ public class Fassade {
    */
   public void fuehreSicherungAus() {
     this.aktualisiere();
-    memento.erstelleMementoDatei(raetsel);
+    if (stufe == 0) {
+      memento.erstelleMementoDateiStufe0(raetselStufe0);
+    }
+    else {
+      memento.erstelleMementoDatei(raetsel);
+    }
   }
   
   public String gibAussage(int i) {
-    return raetsel.gibAussage(i);
+    if (stufe == 0) {
+      return raetselStufe0.gibAussage(i);
+    }
+    else {
+      return raetsel.gibAussage(i);
+    }
   }
   
   public Memento getMemento() {
@@ -289,6 +382,46 @@ public class Fassade {
   
   public Einstellungen getEinstellungen() {
     return einstellungen;
+  }
+  
+  public void setzeStufe(int stufe) {
+    this.stufe = stufe;
+  }
+  
+  public int gibAnzahlAussagen() {
+    if (stufe == 0) {
+      return raetselStufe0.gibAnzahlAussagen();
+    }
+    else {
+      return raetsel.gibAnzahlAussagen();
+    }
+  }
+  
+  public String gibTextImAussagenfeld() {
+    char start = 'A';
+    String result = "";
+  
+    for (int i = 0; i < gibAnzahlAussagen(); i++) {
+      char aussageChar = (char) i;
+      aussageChar += start;
+      String aussage = String.valueOf(aussageChar);
+      if (stufe == 0) {
+        result = result + "<b>" + aussage + ": <b>" + gibAussage(i) + "<br>";
+      }
+      else {
+        result = result + "<b>Aussage " + aussage + ": <b>" + gibAussage(i) + "<br>";
+      }
+    }
+    return result;
+    
+  }
+  
+//  public boolean pruefeLoesungStufe0() {
+//    raetselStufe0.
+//  }
+  
+  public RaetselStufe0 gibRaetselStufe0() {
+    return raetselStufe0;
   }
   
 }
