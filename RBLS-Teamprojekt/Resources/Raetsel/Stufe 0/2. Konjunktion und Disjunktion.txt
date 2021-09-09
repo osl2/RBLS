@@ -1,0 +1,42 @@
+Konjunktion und Disjunktion
+##
+<h2>Konjunktion und Disjunktion</h2> <br>
+Aussagen lassen sich miteinander verknüpfen. Wenn du die beiden Aussagen <br><br>
+
+X: <i>Beth spielt Schach.</i> <br>
+Y: <i>Luca ist ein Pro-Gamer.</i> <br><br>
+
+betrachtest, so kannst du diese zu neuen Aussagen verknüpfen, indem du zwischen die beiden Aussagen entweder ein Und (entsprechendes Symbol in einer Formel: ∧) oder ein Oder (entsprechendes Symbol in einer Formel: ∨) einfügst: <br><br>
+
+Z<sub>1</sub>: <i>Beth spielt Schach und Luca ist ein Pro-Gamer.</i> <br>
+Z<sub>2</sub>: <i>Beth spielt Schach oder Luca ist ein Pro-Gamer.</i> <br><br>
+
+In Formelschreibweise lauten die Aussagen: <br><br>
+
+Z<sub>1</sub>: X ∧ Y <br>
+Z<sub>2</sub>: X ∨ Y <br><br>
+
+Aussage Z<sub>1</sub> ist somit nur dann wahr, wenn sowohl die Aussage X als auch die Aussage Y wahr ist, d.h. wenn sowohl Beth Schach spielt als auch Luca ein Pro-Gamer ist. <br><br>
+
+Aussage Z<sub>2</sub> ist dann wahr, wenn die Aussage X oder die Aussage Y wahr ist, d.h. wenn Beth Schach spielt oder Luca ein Pro-Gamer ist. Beachte, dass die Aussage Z<sub>2</sub> auch dann wahr ist, wenn <u>beide</u> Aussagen X und Y wahr sind. Das Symbol ∨ bezeichnet also keine <i>exklusive</i> Oder-Verknüfpung.<br><br>
+
+Eine Aussage bezeichnet man also <b>Konjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Und-Verknüpfung verknüpft sind. <br><br>
+
+Eine Aussage bezeichnet man also <b>Disjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Oder-Verknüpfung verknüpft sind. <br><br>
+
+<h3>Aufgabenstellung:</h3>
+<i>Entscheide, ob folgende Aussagen richtig oder falsch sind.</i>
+##
+Aussage § Wahrheitswert
+##
+wahr § falsch § falsch § falsch § wahr § falsch
+##
+Eine mögliche Verknüpfung der Aussagen <i>Es regnet</i> und <i>Die Sonne scheint</i> ist: Es regnet oder die Sonne scheint. § Die Disjunktion der Aussagen <i>Es regnet</i> und <i>Die Sonne scheint</i> ist genau dann wahr, wenn es regnet und die Sonne <i>nicht</i> scheint oder wenn es <i>nicht</i> regnet und die Sonne scheint. §
+Verknüpft man zwei Aussagen X und Y durch eine Und-Verknüpfung, lautet die entsprechende Formel: X ∨ Y. § Eine Aussage X kann nicht durch eine Und-Verknüpfung mit sich selbst zu X ∧ X verknüpft werden. § Wenn eine der beiden Aussagen einer Disjunktion wahr ist, so ist die Disjunktion wahr. § Wenn eine der beiden Aussagen einer Konjunktion wahr ist, so folgt daraus, dass auch die Konjunktion wahr ist.
+##
+0
+##
+wahr § falsch
+##
+0
+

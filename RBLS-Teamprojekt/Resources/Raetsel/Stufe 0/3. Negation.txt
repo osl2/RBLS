@@ -1,0 +1,54 @@
+Negation
+##
+<h2>Negation</h2><br>
+
+Aussagen können verneint werden. Die Verneigung einer Aussage bezeichnet man als <b>Negation</b> und kennzeichnet sie in der Formelschreibweise, indem man vor die Aussage den Junktor ¬ setzt. <br><br>
+
+Die Negation einer Aussage bewirkt, dass sich der Wahrheitswert der Aussage umkehrt. So ist die Negation einer wahren Aussagen <i>falsch</i> und die Negation einer falschen Aussage <i>wahr</i>. <br><br>
+
+Sprachlich hast du mehrere Möglichkeiten eine Aussage zu verneinen. Du kannst folgende Ausdrücke vor die Aussage setzen, um sie zu verneinen:
+<br>
+
+<ul>
+<li> Es ist falsch, dass ...</li>
+<li> Es ist nicht richtig, dass ...</li>
+<li> Es ist nicht der Fall, dass ...</li>
+</ul>
+
+
+So ist die Verneinung der Aussage A: <i>Es regnet.</i> <br><br>
+
+¬ A: <i>Es ist nicht der Fall, dass es regnet.</i> <br><br>
+
+Diesen Satz kannst du sprachlich weiter vereinfachen, sodass die einfachste sprachliche Formulierung der Negation lautet: <i>Es regnet nicht</i>. <br><br>
+
+(Zusatzinfo: Achtung! Die Verneinung mancher Aussagen ist nicht offensichtlich. So ist die Negation der Aussage <i>Alle Menschen sind freundlich</i> nicht: <i>Alle Menschen sind nicht freundlich</i>, sondern <i>Es ist nicht der Fall, dass alle Menschen freundlich sind</i>, d.h. <i>Es gibt mindestens einen Menschen, der nicht freundlich ist.</i>)
+
+<br><br>
+
+Die <b>Negation einer Konjunktion</b> X ∧ Y zweier Aussagen X und Y lautet: 
+
+¬X ∨ ¬Y.
+
+<br><br>
+
+Die <b>Negation einer Disjunktion</b> X ∨ Y zweier Aussagen X und Y lautet:
+
+¬X ∧ ¬Y.
+
+<br><br>
+
+<h3>Aufgabenstellung:</h3>
+<i>Entscheide, ob folgende Aussagen richtig oder falsch sind.</i>
+##
+Aussage § Wahrheitswert
+##
+wahr § wahr § wahr § falsch § wahr § wahr § falsch
+##
+Eine mögliche sprachliche Formulierung der Negation der Aussage <i>5 ist eine Primzahl</i> ist <i>5 ist keine Primzahl</i>. § Die Negation der Aussage <i>Die Sonne scheint nicht</i> ist, <i>Es ist falsch, dass die Sonne nicht scheint</i>, also: <i>Die Sonne scheint</i>. § Wird eine negierte Aussage ¬ A negiert, so ergibt es die Aussage A. § Die Negation der Aussage <i>Till ist 15</i> lautet <i>Till ist 16</i>. § Die Negation der Aussage <i>Das dritte Bit ist 0</i> lautet <i>Das dritte Bit ist 1</i>. § Die Negation der Aussage <i>Anna spielt Fußball und Ali liest ein Buch </i> lautet <i>Anna spielt kein Fußball oder es nicht der Fall, dass Ali ein Buch liest</i>. § Die Negation der Aussage <i>7 ist eine Primzahl oder 11 ist eine Primzahl</i> lautet <i>7 ist keine Primzahl oder 11 ist keine Primzahl</i> <span style="color:red;">This is a paragraph.</span>.
+##
+0
+##
+wahr § falsch
+##
+0

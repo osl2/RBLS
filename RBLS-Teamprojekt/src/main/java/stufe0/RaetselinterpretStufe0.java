@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -51,6 +52,8 @@ public class RaetselinterpretStufe0 {
     path = new File("Resources/Raetsel/Stufe 0");
       
     File[] files = path.listFiles();
+    Arrays.sort(files);
+
    
     if (files != null) { 
       for (int i = 0; i < files.length; i++) {
@@ -119,28 +122,28 @@ public class RaetselinterpretStufe0 {
       }
       // Text wird extrahiert
       String[] lines = extrahiere(text);
-      List<String> atome = null;
-      String[] antwortM = lines[3].split(","); // loesungen
+      List<String> aussagen = null;
+      String[] loesungen = lines[3].split("§"); // loesungen
       
-      List<String> formeln = new ArrayList<String>();    // 
-      for (String temp : lines[6].split(",")) {
-        formeln.add(killSpace(temp));
+      List<String> jaNeinWahrFalsch = new ArrayList<String>();    // 
+      for (String temp : lines[6].split("§")) {
+        jaNeinWahrFalsch.add(killSpace(temp));
       }
       //String[] name = lines[0].split(".txt");
-      atome = this.exAtome(lines[4]);
-      for (int i = 0; i < antwortM.length; i++) {
-        antwortM[i] = killSpace(antwortM[i]);
+      aussagen = this.exAtome(lines[4]);
+      for (int i = 0; i < loesungen.length; i++) {
+        loesungen[i] = killSpace(loesungen[i]);
       }
       
       return new RaetselStufe0(
-          input,                    //spaltenAnz
+          input,                    //Raetselname
           Integer.parseInt(lines[7]), //stufe
-          atome,                      //Atome
+          aussagen,                      // Aussagen
           lines[1],                   //Raetseltext
-          antwortM,                   //Antwortm�glichkeiten
+          loesungen,                   // Loesungen
           Integer.parseInt(lines[5]), //Wievielte Antwort die L�sung ist
-          lines[2],                   //Antworttext
-          formeln);                   //Formelliste  
+          lines[2],                   // Spaltenueberschriften
+          jaNeinWahrFalsch);                   //
     } 
     
     else {

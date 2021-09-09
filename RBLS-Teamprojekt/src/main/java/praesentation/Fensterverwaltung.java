@@ -25,7 +25,7 @@ public class Fensterverwaltung {
   private JFrame aktivesFenster;
   private Fassade modell;
   // private int[] fensterMass = new int[]{1280, 720};
-  private int[] fensterMass = new int[]{1450, 800};
+  private int[] fensterMass = new int[]{1450, 900};
   private int[] minimumMass = fensterMass;
   private Einstellungen einstellungen;
   ImageIcon img = new ImageIcon(getClass().getResource("/Icon/hintergrund.png"));
@@ -83,7 +83,7 @@ public class Fensterverwaltung {
    */
   public void oeffneRaetselwahl(int stufe) {
     wechseleFenster(new Raetselwahl(this, modell.gibRaetselListe(stufe), 
-        modell.gibGeloesteRaetsel(stufe), stufe), "Rätselwahl");
+        modell.gibGeloesteRaetsel(stufe), stufe), "RBLS  –   Rätselwahl  –   Stufe " + modell.gibStufe());
   }
 
   /**
@@ -102,7 +102,7 @@ public class Fensterverwaltung {
     modell.setzeRaetsel(name);
     WahrheitstabellenSteuerungen wstrg;
     wstrg = strg.raetselFensterInit();
-    wechseleFenster(new StufenRaetselFenster(this, modell, wstrg).ansicht, "RBLS   –    " + name);    
+    wechseleFenster(new StufenRaetselFenster(this, modell, wstrg).ansicht, "RBLS   –   Stufe " + modell.gibStufe() + "   –   " + name);    
   }
 
   /**

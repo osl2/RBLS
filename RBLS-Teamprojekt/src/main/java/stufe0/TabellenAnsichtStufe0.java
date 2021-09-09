@@ -102,15 +102,15 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
         // this.thumbColor = new Color(255, 102, 0);
-        this.thumbColor = Color.BLUE;
-        this.trackColor = new Color(186, 185, 219);
+        this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
+        this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack(); 
       }
     });
     scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
         // this.thumbColor = new Color(255, 102, 0);
-        this.thumbColor = Color.BLUE;
-        this.trackColor = new Color(186, 185, 219);
+        this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
+        this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack(); 
       }
     });
     scrollPane.setBorder(BorderFactory.createEmptyBorder());
@@ -134,8 +134,8 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
      */
    
     inhalt = new String[modell.gibAnzahlAussagen() + 1][2];
-    inhalt[0][0] = "Ist ... eine Aussage?";
-    inhalt[0][1] = "Antwort";
+    inhalt[0][0] = modell.gibRaetselStufe0().gibSpaltenueberschriften()[0];
+    inhalt[0][1] = modell.gibRaetselStufe0().gibSpaltenueberschriften()[1];
     char start = 'A';
    
     for (int i = 1; i < modell.gibAnzahlAussagen()+1; i++) {
@@ -143,7 +143,7 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
       aussageChar += start;
       String aussage = String.valueOf(aussageChar);
       inhalt[i][0] = aussage;
-      inhalt[i][1] = "ja";
+      inhalt[i][1] = modell.gibRaetselStufe0().gibJaNeinWahrFalsch().get(0);
     }
    
     tabelle = new JTable(inhalt, inhalt[0]);
@@ -224,12 +224,12 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     int j = zelle[1];
     if (i < zeilenzahl && j < spaltenzahl) {
       // inhalt[i][j] = modell.gibZelle(zelle);
-      if (inhalt[i][j] == "ja") {
-        inhalt[i][j] = "nein";
+      if (inhalt[i][j] == modell.gibRaetselStufe0().gibJaNeinWahrFalsch().get(0)) {
+        inhalt[i][j] = modell.gibRaetselStufe0().gibJaNeinWahrFalsch().get(1);
         ((FarbModellStufe0) tabelle.getModel()).setzeStatus(i, j, ZellenStatusStufe0.falsch);
       }
       else  {
-        inhalt[i][j] = "ja";
+        inhalt[i][j] = modell.gibRaetselStufe0().gibJaNeinWahrFalsch().get(0);
         ((FarbModellStufe0) tabelle.getModel()).setzeStatus(i, j, ZellenStatusStufe0.wahr);
       }
     }

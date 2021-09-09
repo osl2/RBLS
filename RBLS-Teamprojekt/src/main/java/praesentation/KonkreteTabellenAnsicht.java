@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -60,7 +61,8 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private JPanel tabellenRahmen = new JPanel();
   // private Schaltflaeche tipp_schaltflaeche;
   
-  private double zeilenHoehe = 1.5;
+  // private double zeilenHoehe = 1.5;
+  private double zeilenHoehe = 24;
 
   /**
    * Erstellt eine Wahrheitstabelle mit den Daten aus der Praesentationsfassade
@@ -230,8 +232,8 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
         // this.thumbColor = new Color(255, 102, 0);
-        this.thumbColor = Color.BLUE;
-        this.trackColor = new Color(186, 185, 219);                                   /* Farbe der ScrollBar ändern */
+        this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
+        this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack();              
       }
     });
     
@@ -239,10 +241,12 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
         // this.thumbColor = new Color(255, 102, 0);
-        this.thumbColor = Color.BLUE;
-        this.trackColor = new Color(186, 185, 219);                                   /* Farbe der ScrollBar ändern */
+        this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
+        this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack(); 
       }
     });
+    
+    scrollPane.getViewport().setViewPosition(new Point(0,0)); // 
     
     scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
@@ -327,7 +331,8 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       }
     });
     
-    this.zeilenHoehe *= tabelle.getRowHeight();
+    // this.zeilenHoehe *= tabelle.getRowHeight();
+    // this.zeilenHoehe = 24;
     tabelle.setRowHeight((int) (this.zeilenHoehe));
     tabelle.setFocusable(false);
     tabelle.setRowSelectionAllowed(false);

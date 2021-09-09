@@ -1,7 +1,9 @@
 Stufe: 4
-Farbe: 153 204 255
-Belegungen: true false
+Farbe: 204 255 204
+Belegungen: wahr falsch
 ##
-a) Ampelchaos
-b) Butterbierdiebe
-Test
+
+Einleitung
+1. Ampelchaos
+1. Einleitung
+3. Negation

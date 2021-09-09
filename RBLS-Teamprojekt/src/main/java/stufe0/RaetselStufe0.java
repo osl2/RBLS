@@ -18,9 +18,9 @@ public class RaetselStufe0 {
   protected String raetselText;
   protected int stufe;
   protected List<Atom> atom;
-  protected String antworttext;
-  protected String[] antworten;
-  protected List<String> formeln;
+  protected String[] spaltenueberschriften;
+  protected String[] loesungen;
+  protected List<String> jaNeinWahrFalsch;
   protected int spaltenAnz;
   protected int zeilenAnz;
   protected int loesung;
@@ -40,22 +40,22 @@ public class RaetselStufe0 {
    * @param antworttext Antowrttext
    * @param formeln Formeln
    */
-  public RaetselStufe0(String name, int stufe, List<String> atom, String raetselText, String[] antwortMoeglichkeiten,
-      int loesung, String antworttext, List<String> formeln) {
+  public RaetselStufe0(String raetselName, int stufe, List<String> aussagen, String raetselText, String[] loesungen,
+      int loesung, String spaltenueberschriften, List<String> jaNeinWahrFalsch) {
     
-    this.aussagen = atom;
+    this.aussagen = aussagen;
     
     this.spaltenAnz = 2; 
     this.zeilenAnz = aussagen.size()+1;
     
     this.stufe = stufe;
-    stringToAtomList(atom);
+    stringToAtomList(aussagen);
     this.loesung = 0; // redundant
     this.raetselText = raetselText;
-    this.formeln = formeln; // loeschen
-    this.antworttext = antworttext; // loeschen
-    this.name = name; 
-    this.antworten = antwortMoeglichkeiten;
+    this.jaNeinWahrFalsch = jaNeinWahrFalsch;
+    this.spaltenueberschriften = spaltenueberschriften.split("§"); // loeschen
+    this.name = raetselName; 
+    this.loesungen = loesungen;
    
    
   }
@@ -107,16 +107,16 @@ public class RaetselStufe0 {
     return output;
   }
 
-  public String gibAntworttext() {
-    return antworttext;
+  public String[] gibSpaltenueberschriften() {
+    return spaltenueberschriften;
   }
 
-  public String[] gibAntwort() {
-    return antworten;
+  public String[] gibLoesungen() {
+    return loesungen;
   }
 
   public String gibLoesung() {
-    return this.antworten[loesung - 1];
+    return this.loesungen[loesung - 1];
   }
 
   /**
@@ -126,8 +126,8 @@ public class RaetselStufe0 {
    * @return Liste der benotigten Formelnamen, die zur Loesung des Raetsels
    *         benoetigt werden.
    */
-  public List<String> gibFormeln() {
-    return formeln;
+  public List<String> gibJaNeinWahrFalsch() {
+    return jaNeinWahrFalsch;
   }
 
   public int gibSpaltenAnz() {

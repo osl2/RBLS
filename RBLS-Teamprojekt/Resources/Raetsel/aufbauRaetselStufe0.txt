@@ -1,0 +1,18 @@
+Raetselname
+##
+Raetseltext: --> in html
+<h2>Überschrift</h2><br>
+
+<h3>Aufgabenstellung</h3>
+##
+Spaltenüberschrift 1 § Spaltenüberschrift 2
+##
+ja/nein § ja/nein (Loesungen)
+##
+Aussage 1 § Aussage 2
+##
+0
+##
+ja/wahr/richtig $ nein/falsch/falsch (was soll verwendet werden?)
+##
+0 (Stufe)

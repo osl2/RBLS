@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -62,6 +63,8 @@ public class Raetselinterpret {
       default: path = null;
     }
     File[] files = path.listFiles();
+    Arrays.sort(files); // sortiert Raetsel in alphabetischer Reihenfolge
+    
    
     if (files != null) { 
       for (int i = 0; i < files.length; i++) {

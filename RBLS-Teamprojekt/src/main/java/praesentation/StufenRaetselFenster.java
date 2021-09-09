@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
@@ -12,6 +13,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -101,6 +103,8 @@ public class StufenRaetselFenster extends RaetselFenster {
     
     JPanel frageFeldPanel = new JPanel();
     frageFeldPanel.setLayout(new BorderLayout());
+    
+    frageFeld.setCaretPosition(0);
     JScrollPane schiebeRegler = new JScrollPane(frageFeld);
     schiebeRegler.setBorder(BorderFactory.createEmptyBorder());
     schiebeRegler.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
@@ -110,8 +114,14 @@ public class StufenRaetselFenster extends RaetselFenster {
           this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
           // this.trackColor = FarbenEinstellungen.getStufenRaetselScrollBarTrack();
           this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack();
+          
       }
     });
+    
+    
+//    JScrollBar vertical = schiebeRegler.getVerticalScrollBar();
+//    vertical.setValue( vertical.getMinimum() );
+    
     frageFeldPanel.add(schiebeRegler, BorderLayout.CENTER);
     JPanel frageRahmen = erzeugeRahmenPanel(frageFeldPanel, this.name);
     String leerzeilen = frage.trim();
@@ -282,7 +292,7 @@ public class StufenRaetselFenster extends RaetselFenster {
   public boolean pruefeLoesungStufe0() {
     
     String[] result = (((TabellenAnsichtStufe0) this.tabelle).ueberpruefeLoesung()).split(" ");
-    String[] loesung = modell.gibRaetselStufe0().gibAntwort();
+    String[] loesung = modell.gibRaetselStufe0().gibLoesungen();
     boolean flag = true;
     
     for (int i = 0; i < loesung.length; i++) {
