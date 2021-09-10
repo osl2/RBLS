@@ -1,21 +1,24 @@
 ﻿Ampelchaos
 ##
-Stell dir eine einfache Kreuzung mit zwei Ampeln vor. Die Ampeln können entweder grün oder rot sein.<br><br>
+<h2>Ampelchaos</h2>
 
-Wir möchten nun mit Hilfe einer Wahrheitstafel herausfinden, wann die Kreuzung unsicher ist.<br><br>
+Stell dir einen Fußgängerüberweg mit zwei Ampeln vor – eine Ampel für die Autofahrer und eine Ampel für die Fußgänger. Jede Ampel kann entweder grün oder rot sein.<br><br>
 
-Dafür legen wir die Aussage „Die erste Ampel ist grün.“ als Aussage A und die Aussage „Die zweite Ampel ist grün.“ als Aussage B fest. Werten wir nun in der Tabelle die rechte aussagenlogische Formel (Frage: welchen Sachverhalt beschreibt sie?) für alle Kombinationen der Belegungen der beiden Aussagen A und B aus, so können wir festellen, bei welcher Belegung von A und B die Kreuzung unsicher ist.<br><br>
+Wir möchten nun mit Hilfe einer Wahrheitstafel herausfinden, wann es zu Unfällen kommen kann, d.h. wann die Kreuzung unsicher ist. <br><br>
 
-In der Tabelle kannst du durch das Klicken auf die jeweiligen Felder in den ersten beiden linken Spalten die Belegung der Aussage in der entsprechenden Zeile ändern.<br><br>
+Dafür legen wir die Aussage  <span style="color:#0404B4";><i>Die erste Ampel ist grün</i></span> als Aussage A und die Aussage <span style="color:#0404B4";><i>Die zweite Ampel ist grün.</span> als Aussage B fest. <br><br>
+
+In der Tabelle kannst du durch das Klicken auf die jeweiligen Felder in den ersten beiden Spalten die Belegung der entsprechenden Aussage in der entsprechenden Zeile ändern.<br><br>
 
 <h3>Aufgabenstellung:</h3>
-<i>Stelle die Felder in der linken und mittleren Spalte der Tabelle so ein, dass du alle Kombinationen der Belegungen von A und B abdeckst. Klicke anschließend auf „Fülle Tabelle“, um herauszufinden für welche Belegung(en) von A und B die Formel auf der rechten Seite nicht erfüllt ist und die Kreuzung somit unsicher ist. </i>
+<i>Stelle die Felder in der linken und mittleren Spalte der Tabelle so ein, dass du alle Kombinationen der Belegungen von A und B abdeckst. Klicke anschließend auf „Fülle Tabelle“, um herauszufinden für welche Belegung(en) von A und B die Formel auf der rechten Seite nicht erfüllt ist. <br>
+Was bedeutet das Ergbenis in der Wahrheitstabelle für das Problem? Wann ist der Fußgängerübergang unsicher? </i>
 ##
 
 ##
-Wenn beide rot sind., Wenn eine rot & eine grün ist., Wenn beide grün sind.
+Wenn beide rot sind. § Wenn eine rot & eine grün ist. § Wenn beide grün sind.
 ##
-Die erste Ampel ist grün, Die zweite Ampel ist grün
+Die erste Ampel ist grün § Die zweite Ampel ist grün
 ##
 3
 ##

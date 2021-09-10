@@ -1,6 +1,6 @@
 Konjunktion und Disjunktion
 ##
-<h2>Konjunktion und Disjunktion</h2> <br>
+<h2>Konjunktion und Disjunktion</h2>
 Aussagen lassen sich miteinander verknüpfen. Wenn du die beiden Aussagen <br><br>
 
 X: <i>Beth spielt Schach.</i> <br>
@@ -18,11 +18,11 @@ Z<sub>2</sub>: X ∨ Y <br><br>
 
 Aussage Z<sub>1</sub> ist somit nur dann wahr, wenn sowohl die Aussage X als auch die Aussage Y wahr ist, d.h. wenn sowohl Beth Schach spielt als auch Luca ein Pro-Gamer ist. <br><br>
 
-Aussage Z<sub>2</sub> ist dann wahr, wenn die Aussage X oder die Aussage Y wahr ist, d.h. wenn Beth Schach spielt oder Luca ein Pro-Gamer ist. Beachte, dass die Aussage Z<sub>2</sub> auch dann wahr ist, wenn <u>beide</u> Aussagen X und Y wahr sind. Das Symbol ∨ bezeichnet also keine <i>exklusive</i> Oder-Verknüfpung.<br><br>
+Aussage Z<sub>2</sub> ist dann wahr, wenn die Aussage X oder die Aussage Y wahr ist, d.h. wenn Beth Schach spielt oder Luca ein Pro-Gamer ist. Beachte, dass die Aussage Z<sub>2</sub> auch dann wahr ist, wenn <u>beide</u> Aussagen X und Y wahr sind. Das Symbol ∨ bezeichnet also keine <i>exklusive</i> Oder-Verknüfpung. Das Symbol für ein exklusives Oder ist ⊕.<br><br>
 
-Eine Aussage bezeichnet man also <b>Konjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Und-Verknüpfung verknüpft sind. <br><br>
+Eine Aussage bezeichnet man also als <b>Konjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Und-Verknüpfung verknüpft sind. <br><br>
 
-Eine Aussage bezeichnet man also <b>Disjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Oder-Verknüpfung verknüpft sind. <br><br>
+Eine Aussage bezeichnet man also als <b>Disjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Oder-Verknüpfung verknüpft sind. <br><br>
 
 <h3>Aufgabenstellung:</h3>
 <i>Entscheide, ob folgende Aussagen richtig oder falsch sind.</i>
@@ -31,7 +31,7 @@ Aussage § Wahrheitswert
 ##
 wahr § falsch § falsch § falsch § wahr § falsch
 ##
-Eine mögliche Verknüpfung der Aussagen <i>Es regnet</i> und <i>Die Sonne scheint</i> ist: Es regnet oder die Sonne scheint. § Die Disjunktion der Aussagen <i>Es regnet</i> und <i>Die Sonne scheint</i> ist genau dann wahr, wenn es regnet und die Sonne <i>nicht</i> scheint oder wenn es <i>nicht</i> regnet und die Sonne scheint. §
+Eine mögliche Verknüpfung der Aussagen <span style="color:#0404B4";><i>Es regnet</i></span> und <span style="color:#0404B4";><i>Die Sonne scheint</i></span> ist: <span style="color:#0404B4";><i>Es regnet oder die Sonne scheint</i></span>. § Die Disjunktion der Aussagen <span style="color:#0404B4";><i>Es regnet</i></span> und <span style="color:#0404B4";><i>Die Sonne scheint</i></span> ist genau dann wahr, wenn es regnet und die Sonne <i>nicht</i> scheint oder wenn es <i>nicht</i> regnet und die Sonne scheint. §
 Verknüpft man zwei Aussagen X und Y durch eine Und-Verknüpfung, lautet die entsprechende Formel: X ∨ Y. § Eine Aussage X kann nicht durch eine Und-Verknüpfung mit sich selbst zu X ∧ X verknüpft werden. § Wenn eine der beiden Aussagen einer Disjunktion wahr ist, so ist die Disjunktion wahr. § Wenn eine der beiden Aussagen einer Konjunktion wahr ist, so folgt daraus, dass auch die Konjunktion wahr ist.
 ##
 0

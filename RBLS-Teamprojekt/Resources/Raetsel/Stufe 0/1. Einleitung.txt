@@ -1,11 +1,11 @@
 Einleitung
 ##
-<h2>Einleitung</h2><br>
+<h2>Einleitung</h2>
 Eine Aussage ist ein sprachlicher oder formaler Ausdruck, dem man genau einen möglichen Wahrheitswert <i>wahr</i> oder <i>falsch</i> zuordnen kann.
 <br><br>
 
 <h3>Aufgabenstellung:</h3>
-<i>Welcher der folgenden Sätze sind Aussagen? Wähle die entsprechende Antwort per Klick auf das Antwortfeld aus.</i>
+<i>Welche der folgenden Sätze sind Aussagen? Wähle die entsprechende Antwort per Klick auf das Antwortfeld aus.</i>
 ##
 Ist ... eine Aussage? § Antwort
 ##

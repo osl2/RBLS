@@ -1,0 +1,31 @@
+﻿Katzendrama
+##
+<h2>Katzendrama</h2>
+Die Katzen Ada, Bastet und Celly haben Hunger.<br><br>
+
+Die drei fressen jeweils entweder das Futter „Katzentraum“ oder „Fettes-Fell“ und zeigen folgendes Fressverhalten:<br><br>
+
+<span style="color:#0404B4";>
+(1) Wenn Ada „Katzentraum“ bekommt, möchte Bastet das auch.<br>
+(2) Celly frisst nur „Fettes-Fell“-Futter.<br>
+(3) Ada und Celly fressen nie dasselbe Futter.
+</span><br><br>
+
+
+
+<h3>Aufgabenstellung</h3>
+<i>Benutze die untere Wahrheitstabelle, um herauszufinden, welche Katze welches Futter frisst, indem du die Aussagen 1-3 in aussagenlogische Formeln umwandelst und die Tabelle ausfüllen lässt. <br>
+Welches Futter frisst Bastet?</i>
+
+##
+wird von Bastet gefressen.
+##
+Katzentraum § FettesFell
+##
+Ada frisst „Katzentraum“ § Bastet frisst „Katzentraum“ § Celly frisst „Katzentraum“
+##
+1
+##
+0f1 § n2 § 0x2
+##
+2

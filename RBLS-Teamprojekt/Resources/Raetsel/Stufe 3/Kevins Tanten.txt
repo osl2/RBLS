@@ -1,25 +1,30 @@
 ﻿Kevins Tanten
 ##
-Kevin hat seine Tanten Ada, Berte und Charlotte zu seinem 16. Geburtstag eingeladen.#
- #
-(1) Berte und Charlotte haben sich zerstritten, weil Berte auf Charlottes Zwergpudel getreten ist. #
-     Sie werden sicher nicht beide kommen.#
-(2) Andererseits kommen Ada und Charlotte immer nur zusammen.#
-(3) Falls Berte aber kommt, dann kommt sicher auch Ada.#
-(4) Kevin weiß auch, dass nicht alle drei Tanten fernbleiben werden.#
- #
-Die Aussagen wurden schon in aussagenlogische Formeln umgewandelt. Deine Aufgabe ist jetzt, die Formeln auszuwerten. Betrachte dazu die Formel in einer Spalte und deren Belegung in jeder Zeile. Die Zellen werden wieder durch Klicken verändert.#
- #
-Mit welchem Besuch darf Kevin rechnen?
+<h2>Kevins Tanten</h2>
+
+Kevin hat seine Tanten Ada, Berte und Charlotte zu seinem 16. Geburtstag eingeladen.
+Allerdings gestaltet sich das Verhältnis der Tanten nicht ganz so einfach. Folgendes ist zu beachten: <br><br>
+
+<span style="color:#0404B4";>
+(1) Berte und Charlotte haben sich zerstritten, weil Berte auf Charlottes Zwergpudel getreten ist. Sie werden sicher nicht beide kommen.<br>
+(2) Andererseits kommen Ada und Charlotte immer nur zusammen.<br>
+(3) Falls Berte aber kommt, dann kommt sicher auch Ada.<br>
+(4) Kevin weiß auch, dass nicht alle drei Tanten fernbleiben werden.
+</span><br><br>
+
+
+<h3>Aufgabenstellung</h3>
+<i>Die Aussagen 1-4 wurden bereits unten in aussagenlogische Formeln umgewandelt. Werte die Formeln für alle möglichen Belegungen der Variablen aus, indem du auf die Zellen klickst.<br>
+Mit welchem Besuch darf Kevin rechnen?</i>
 ##
 kommen zu Kevins Geburtstag.
 ##
-Ada & Berte, Berte, Berte & Charlotte, Charlotte, Charlotte & Ada, Ada
+Ada & Berte § Berte § Berte & Charlotte § Charlotte § Charlotte & Ada § Ada
 ##
-Ada kommt, Berte ist dabei, Charlotte wird kommen
+Ada kommt § Berte ist dabei § Charlotte wird kommen
 ##
 5
 ##
-n(1u2), 0a2, 1f0, n(n0un1un2)
+n(1u2) § 0a2 § 1f0 § n(n0un1un2)
 ##
 3

@@ -1,6 +1,6 @@
 Implikation und Äquivalenz
 ##
-<h2>Implikation und Äquivalenz</h2><br>
+<h2>Implikation und Äquivalenz</h2>
 
 Die Implikation ist in der Mathematik und Informatik sehr wichtig. Du hast von der Implikation bestimmt auch schon im Alltag Gebrauch gemacht, indem du aus einer gegebenen Tatsache auf eine andere Aussage geschlossen hast. <br><br>
 

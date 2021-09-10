@@ -38,7 +38,7 @@ public class Raetselinterpret {
   }
   
   private List<String> exAtome(String input) {
-    String[] sep = input.split(",");
+    String[] sep = input.split("§");
     List<String> output = new ArrayList<String>();
     for (String temp : sep) {
       output.add(killSpace(temp));
@@ -133,9 +133,9 @@ public class Raetselinterpret {
       }
       String[] lines = extrahiere(text);
       List<String> atome = null;
-      String[] antwortM = lines[3].split(",");
+      String[] antwortM = lines[3].split("§");
       List<String> formeln = new ArrayList<String>();    
-      for (String temp : lines[6].split(",")) {
+      for (String temp : lines[6].split("§")) {
         formeln.add(killSpace(temp));
       }
       //String[] name = lines[0].split(".txt");

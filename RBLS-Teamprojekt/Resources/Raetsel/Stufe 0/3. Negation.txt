@@ -1,7 +1,6 @@
 Negation
 ##
-<h2>Negation</h2><br>
-
+<h2>Negation</h2>
 Aussagen können verneint werden. Die Verneigung einer Aussage bezeichnet man als <b>Negation</b> und kennzeichnet sie in der Formelschreibweise, indem man vor die Aussage den Junktor ¬ setzt. <br><br>
 
 Die Negation einer Aussage bewirkt, dass sich der Wahrheitswert der Aussage umkehrt. So ist die Negation einer wahren Aussagen <i>falsch</i> und die Negation einer falschen Aussage <i>wahr</i>. <br><br>
@@ -45,7 +44,7 @@ Aussage § Wahrheitswert
 ##
 wahr § wahr § wahr § falsch § wahr § wahr § falsch
 ##
-Eine mögliche sprachliche Formulierung der Negation der Aussage <i>5 ist eine Primzahl</i> ist <i>5 ist keine Primzahl</i>. § Die Negation der Aussage <i>Die Sonne scheint nicht</i> ist, <i>Es ist falsch, dass die Sonne nicht scheint</i>, also: <i>Die Sonne scheint</i>. § Wird eine negierte Aussage ¬ A negiert, so ergibt es die Aussage A. § Die Negation der Aussage <i>Till ist 15</i> lautet <i>Till ist 16</i>. § Die Negation der Aussage <i>Das dritte Bit ist 0</i> lautet <i>Das dritte Bit ist 1</i>. § Die Negation der Aussage <i>Anna spielt Fußball und Ali liest ein Buch </i> lautet <i>Anna spielt kein Fußball oder es nicht der Fall, dass Ali ein Buch liest</i>. § Die Negation der Aussage <i>7 ist eine Primzahl oder 11 ist eine Primzahl</i> lautet <i>7 ist keine Primzahl oder 11 ist keine Primzahl</i> <span style="color:red;">This is a paragraph.</span>.
+Eine mögliche sprachliche Formulierung der Negation der Aussage <span style="color:#0404B4";><i>5 ist eine Primzahl</i></span> ist <span style="color:#0404B4";><i>5 ist keine Primzahl</i></span>. § Die Negation der Aussage <span style="color:#0404B4";><i>Die Sonne scheint nicht</i></span> ist, <span style="color:#0404B4";><i>Es ist falsch, dass die Sonne nicht scheint</i></span>, also: <span style="color:#0404B4";><i>Die Sonne scheint</i></span>. § Wird eine negierte Aussage ¬ A negiert, so ergibt es die Aussage A. § Die Negation der Aussage <span style="color:#0404B4";><i>Till ist 15</i></span> lautet <span style="color:#0404B4";><i>Till ist 16</i></span>. § Die Negation der Aussage <span style="color:#0404B4";><i>Das dritte Bit ist 0</i></span> lautet <span style="color:#0404B4";><i>Das dritte Bit ist 1</i></span>. § Die Negation der Aussage <span style="color:#0404B4";><i>Anna spielt Fußball und Ali liest ein Buch </i></span> lautet <span style="color:#0404B4";><i>Anna spielt kein Fußball oder es nicht der Fall, dass Ali ein Buch liest</i></span>. § Die Negation der Aussage <span style="color:#0404B4";><i>7 ist eine Primzahl oder 11 ist eine Primzahl</i></span> lautet <span style="color:#0404B4";><i>7 ist keine Primzahl oder 11 ist keine Primzahl</i></span>.
 ##
 0
 ##

@@ -1,6 +1,7 @@
 Raetselname
 ##
 Raetseltext: --> in html
+<span style="color:#0404B4";><i>Farbe</i></span>
 ##
 Antworttext
 ##

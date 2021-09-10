@@ -1,0 +1,28 @@
+﻿Auf der Tanzflaeche
+##
+<h2>Auf der Tanzfläche</h2>
+
+Anna, Bea und Carla gehen zusammen in die Disco. Beim Tanzen haben sie aber folgendende Prinzipien: <br><br>
+
+<span style="color:#0404B4";>
+(1) Wenn Anna tanzt, dann tanzt auch Bea. <br>
+(2) Anna oder Carla tanzen auf jeden Fall. <br>
+(3) Wenn Carla tanzt, dann auch Anna. <br>
+(4) Bea und Carla tanzen beide sehr gerne, aber nie gleichzeitig. 
+</span><br><br>
+
+<h3>Aufgabenstellung</h3>
+<i>Die Aussagen 1-4 wurden schon in aussagenlogische Formeln umgewandelt. Gebe für jede Belegung der Variablen den Wahrheitswert der entsprechenden Formel an, indem du gegebenenfalls den Wahrheitswert durch Klicken auf die entsprechende Zelle änderst.<br>
+Gebe anschließend mit Hilfe der Wahrheitstabelle an, wer auf der Tanzfläche steht.</i>
+##
+sind auf der Tanzfläche.
+##
+Anna § Bea § Carla § Anna & Bea § Anna & Carla § Bea & Carla § Anna & Bea & Carla § Keine der vier
+##
+Anna tanzt § Bea tanzt § Carla tanzt
+##
+4
+##
+0f1 § 0o2 § 2f0 § n(1u2)
+##
+3

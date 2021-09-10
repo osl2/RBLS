@@ -154,7 +154,8 @@ public class Fassade {
   public String gibAntwortText() {
     aktualisiere();
     if (stufe == 0) {
-      return raetselStufe0.gibAntworttext();
+      // return raetselStufe0.gibAntworttext();
+      return null;
     }
     else {
       return raetsel.gibAntworttext();
@@ -165,7 +166,8 @@ public class Fassade {
   public String[] gibAntwortmoeglichkeiten() {
     aktualisiere();
     if (stufe == 0) {
-      return raetselStufe0.gibAntwort();
+      // return raetselStufe0.gibAntwort();
+      return null;
     }
     else {
       return raetsel.gibAntwort();
@@ -221,7 +223,8 @@ public class Fassade {
   public List<String> gibNoetigeFormel() {
     this.aktualisiere();
     if (stufe == 0) {
-      return this.raetselStufe0.gibFormeln();
+      // return this.raetselStufe0.gibFormeln();
+      return null;
     }
     else {
       return this.raetsel.gibFormeln();
