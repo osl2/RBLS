@@ -54,10 +54,7 @@ public class Raetsel {
     
     
     this.aussagen = atom;
-    for (String s : atom) {
-      System.out.println(s);
-    }
-   
+    
   }
 
   private void stringToAtomList(List<String> atomS) {

@@ -260,7 +260,6 @@ public class FormelAnsicht {
   private void pruefeErlaubteZeichen() {
     int j = 0;
     for (Iterator<Schaltflaeche> iter = zeichen.iterator(); iter.hasNext();) {
-      System.out.println("j= " + j);
       Schaltflaeche element = iter.next();
       if (strg.zeichenErlaubt(symbole.get(j))) {
         element.setEnabled(true);

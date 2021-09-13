@@ -84,23 +84,6 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     init();
   }
   
-//  /**
-//   * Erstellt eine Wahrheitstabelle mit den Daten aus der Praesentationsfassade
-//   * und initialisiert die Schaltflaechen und die JTable.
-//   * 
-//   * @param modell Praesentationsfassade mit den Daten
-//   * @param strg   Wahrheitstabellensteuerung fuer Weitergabe der Befehle
-//   */
-//  public KonkreteTabellenAnsicht(Fassade modell, WahrheitstabellenSteuerungen strg, Fensterverwaltung fw) {
-//    this.fw = fw;
-//    ausfuellen = new Schaltflaeche("<html>&nbsp Fülle<br />Tabelle</html>", this.fw);
-//    mehrSpalten = new Schaltflaeche("+", 6, this.fw);
-//    wenigerSpalten = new Schaltflaeche("-", 6, this.fw);
-//    zeileMarkieren = new Schaltflaeche("Markieren", 6, this.fw);
-//    this.modell = modell;
-//    this.strg = strg;
-//    init();
-//  }
 
   private void init() {
     zeilenzahl = modell.gibZeilenAnz();
@@ -117,7 +100,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     
     // schaltflaechenPanel.setLayout(new BoxLayout(schaltflaechenPanel, BoxLayout.Y_AXIS));
     
-    if (stufe == 2 || stufe == 4) {
+    if (stufe == 2 || stufe == 4 || stufe == -1) {
       schaltflaechenPanel.setLayout(new GridLayout(5, 1, 20, 20));
     }
     else {
@@ -144,7 +127,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     });
     
     
-    if (stufe == 2 || stufe == 4) {
+    if (stufe == 2 || stufe == 4 || stufe == -1) {
       JPanel plusMinusPanel = new JPanel();
       plusMinusPanel.setLayout(new GridLayout(1, 2, 20, 20));
       plusMinusPanel.setBackground(Color.WHITE);
@@ -196,14 +179,27 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
         }
       });
     
+    if (stufe != -1) {
+      schaltflaechenPanel.add(tippButton);
+    }
+  
     
-    schaltflaechenPanel.add(tippButton);
+    if (stufe != -1) {
+      zumMenu.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          geheZuRaetselwahlMenue();
+        }
+      });
+    }
     
-    zumMenu.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        geheZuRaetselwahlMenue();
-      }
-    });
+    else {
+      zumMenu.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          fw.oeffneMenue();
+        }
+      });
+    }
+   
     
     zumMenu.setzeFarbe(new Color(220, 220, 220));
     
@@ -225,6 +221,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     tabellenRahmen.setBackground(Color.GRAY);
     // tabellenRahmen.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));            /* Rahmen der Tabelle */
     tabellenRahmen.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    
     
     JScrollPane scrollPane = new JScrollPane(tabellenRahmen);
     

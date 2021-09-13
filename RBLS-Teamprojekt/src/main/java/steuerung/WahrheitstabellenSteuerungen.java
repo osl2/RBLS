@@ -46,6 +46,7 @@ public class WahrheitstabellenSteuerungen {
             break;
           case 2:
           case 4:
+          case -1:
             new AufbauTabelle24(model);
             break;
           case 3:
@@ -57,12 +58,12 @@ public class WahrheitstabellenSteuerungen {
         break;
       case "FormelEingeben":
         if (Integer.parseInt(parameter[0]) >= model.gibAtomareAussage().size()
-            && (stufe == 2 || stufe == 4)) {
+            && (stufe == 2 || stufe == 4 || stufe == -1)) {
           new FormelEingeben(model, Integer.parseInt(parameter[0]), fv);
         }
         break;
       case "FuelleTabelle":
-        if ((stufe == 1 || stufe == 2 || stufe == 4) && tabellenPruefer.tabelleFuellenErlaubt()) {
+        if ((stufe == 1 || stufe == 2 || stufe == 4 || stufe == -1) && tabellenPruefer.tabelleFuellenErlaubt()) {
           new FuelleTabelle(model);
           tabelleVoll = true;
         }

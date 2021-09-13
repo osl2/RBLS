@@ -173,7 +173,7 @@ public class Raetselinterpret {
   public Raetsel erstelleFrRa(List<String> atomA) {
     return new Raetsel(
         FREIES_RAETSEL_NAME,
-        4,
+        -1,
         atomA, 
         null, 
         null, 

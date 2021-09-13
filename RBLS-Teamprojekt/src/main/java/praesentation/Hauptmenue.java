@@ -224,6 +224,7 @@ public class Hauptmenue extends ImagePanel {
    * stoesst Starten des freien Modus an.
    */
   private void klickeFreienModus() {
+    fw.gibFassade().setzeStufe(-1);
     fw.starteFreienModus();
   }
   

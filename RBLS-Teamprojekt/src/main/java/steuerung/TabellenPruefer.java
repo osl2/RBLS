@@ -161,7 +161,7 @@ public class TabellenPruefer {
     if (stufe == 1) {
       return ueberpuefeFaelle();
     }
-    if (stufe == 2 || stufe == 4) {
+    if (stufe == 2 || stufe == 4 || stufe == -1) {
       return ueberpuefeFormeln();
     }
     return false;
