@@ -62,6 +62,7 @@ public class FreiesRaetselFenster extends RaetselFenster {
     
     //Dialogfenster//
     atomareAussagen = new JDialog();
+    // atomareAussagen.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     atomareAussagen.getContentPane().setLayout(
         new BoxLayout(atomareAussagen.getContentPane(), BoxLayout.Y_AXIS));
     atomareAussagen.getContentPane().setBackground(Color.BLACK);
@@ -89,6 +90,8 @@ public class FreiesRaetselFenster extends RaetselFenster {
       atomareAussagen.getContentPane().add(aussagen[j], j + 3);
     }
     Schaltflaeche okButton = new Schaltflaeche("OK", Schaltflaeche.WEISS, fv);
+    
+    
     okButton.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
           
@@ -99,14 +102,80 @@ public class FreiesRaetselFenster extends RaetselFenster {
           }
           if (!aussagenListe.isEmpty()) {
             atomareAussagen.dispose();
-            initTabelle();
+            
           } else {
             atomareAussagen.dispose();
             aussagenListe.add("A");
             aussagenListe.add("B");
             aussagenListe.add("C");
-            initTabelle();
+           
           }
+          
+          initTabelle();
+          
+          ansicht = new JPanel();
+          ansicht.setLayout(new BoxLayout(ansicht, BoxLayout.Y_AXIS));
+          ansicht.setBackground(Color.WHITE);
+          
+          
+          
+          //oberes Panel//
+          JPanel oben = new JPanel();
+          oben.setLayout(new BorderLayout());
+          oben.setBackground(Color.WHITE);
+          
+          
+
+          JPanel menuePanel = new JPanel();
+          menuePanel.setLayout(new FlowLayout());
+          // menuePanel.add(menueKnopf);
+          
+          menuePanel.setBackground(Color.WHITE);
+          
+          JLabel text = new JLabel("Freier Modus      ", SwingConstants.CENTER);
+          
+          oben.add(menuePanel, BorderLayout.WEST);
+          oben.add(text, BorderLayout.CENTER);
+          
+          // AussagenPanel
+          JPanel aussagenPanel = new JPanel();
+          aussagenPanel.setLayout(new BorderLayout());
+          
+          aussagenPanel.setBackground(Color.WHITE);
+
+          JEditorPane aussageFeld = new JEditorPane("text/html", modell.gibTextImAussagenfeld());
+          
+          aussageFeld.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, Boolean.TRUE);
+        
+          Font font = new javax.swing.plaf.FontUIResource("Courier", Font.PLAIN, 20);
+          aussageFeld.setFont(font);
+       
+          aussageFeld.setEditable(false);
+          aussageFeld.setHighlighter(null);
+          
+          JPanel panel1 = new JPanel();
+          panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
+          Border border1 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+          panel1.setBorder(border1);
+          panel1.add(aussageFeld);
+          // panel1.setBackground(FarbenEinstellungen.getStufenRaetselPanel1Background());
+          panel1.setBackground(Color.WHITE);
+          
+             
+
+          //WahrheitstabellenPanel//
+          JPanel tabellenPanel = new JPanel();
+          tabellenPanel.setLayout(new BorderLayout());
+          tabellenPanel.add(tabelle.gibAnsicht());
+          tabellenPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 1000));
+          tabellenPanel.setBackground(Color.WHITE);
+          
+          
+          
+          //Ansicht zusammenfuegen//
+          ansicht.add(oben, 0);
+          ansicht.add(panel1, 1);
+          ansicht.add(tabellenPanel, 2);
         }
       }
         );
@@ -127,72 +196,6 @@ public class FreiesRaetselFenster extends RaetselFenster {
     ImageIcon img = new ImageIcon(getClass().getResource("/Icon/icon.png"));
     atomareAussagen.setIconImage(img.getImage());
     atomareAussagen.setVisible(true);
-    
-    
-    
-    ansicht = new JPanel();
-    ansicht.setLayout(new BoxLayout(ansicht, BoxLayout.Y_AXIS));
-    ansicht.setBackground(Color.WHITE);
-    
-    
-    
-    //oberes Panel//
-    JPanel oben = new JPanel();
-    oben.setLayout(new BorderLayout());
-    oben.setBackground(Color.WHITE);
-    
-    
-
-    JPanel menuePanel = new JPanel();
-    menuePanel.setLayout(new FlowLayout());
-    // menuePanel.add(menueKnopf);
-    
-    menuePanel.setBackground(Color.WHITE);
-    
-    JLabel text = new JLabel("Freier Modus      ", SwingConstants.CENTER);
-    
-    oben.add(menuePanel, BorderLayout.WEST);
-    oben.add(text, BorderLayout.CENTER);
-    
-    // AussagenPanel
-    JPanel aussagenPanel = new JPanel();
-    aussagenPanel.setLayout(new BorderLayout());
-    
-    aussagenPanel.setBackground(Color.WHITE);
-
-    JEditorPane aussageFeld = new JEditorPane("text/html", modell.gibTextImAussagenfeld());
-    
-    aussageFeld.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, Boolean.TRUE);
-  
-    Font font = new javax.swing.plaf.FontUIResource("Courier", Font.PLAIN, 20);
-    aussageFeld.setFont(font);
- 
-    aussageFeld.setEditable(false);
-    aussageFeld.setHighlighter(null);
-    
-    JPanel panel1 = new JPanel();
-    panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
-    Border border1 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
-    panel1.setBorder(border1);
-    panel1.add(aussageFeld);
-    // panel1.setBackground(FarbenEinstellungen.getStufenRaetselPanel1Background());
-    panel1.setBackground(Color.WHITE);
-    
-       
-
-    //WahrheitstabellenPanel//
-    JPanel tabellenPanel = new JPanel();
-    tabellenPanel.setLayout(new BorderLayout());
-    tabellenPanel.add(tabelle.gibAnsicht());
-    tabellenPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 1000));
-    tabellenPanel.setBackground(Color.WHITE);
-    
-    atomareAussagen.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-    
-    //Ansicht zusammenfuegen//
-    ansicht.add(oben, 0);
-    ansicht.add(panel1, 1);
-    ansicht.add(tabellenPanel, 2);
   }
 
   private void initTabelle() {

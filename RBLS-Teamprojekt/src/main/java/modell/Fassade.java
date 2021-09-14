@@ -20,7 +20,6 @@ import stufe0.RaetselinterpretStufe0;
  */
 public class Fassade {
 
-  // private static Fassade fa = null;
   private Raetselinterpret interpret;
   private RaetselinterpretStufe0 interpretStufe0;
   private Raetsel raetsel;
@@ -35,26 +34,8 @@ public class Fassade {
   }
 
   /**
-   * Einzelstueckmethode, die dafuer sorgt, dass die Klasse nur einmal erstellt,
-   * aber jederzeit von allen Klassen genutzt werden kann.
-
-   * @return Objekt der Klasse SteuerungFassade.
-   */
-//  public static Fassade gibFa() {
-//    if (fa == null) {
-//      fa = new Fassade();
-//      System.out.println("fa ist null");
-//    }
-//    return fa;
-//  }
-
-  private void aktualisiere() { // Präs aktuallisieren.
-
-  }
-
-  /**
    * Initialisiert die Erstellung aller Modell-Objekte zu Beginn des Programms,
-   * die ohne weitere Eingaben des Benutzers erstellt werden können Diese sind der
+   * die ohne weitere Eingaben des Benutzers erstellt werden können. Diese sind der
    * Raetselinterpret, Memento und die Praesentationsfassade.
    * 
    */
@@ -71,7 +52,6 @@ public class Fassade {
    * @return Liste der Atomobjekte.
    */
   public List<String> gibAtomareAussage() {
-    this.aktualisiere();
     if (stufe == 0) {
       return this.raetselStufe0.gibAtomareAussage();
     }
@@ -82,7 +62,6 @@ public class Fassade {
 
   //zum Testen benoetigt
   public String gibRaetselString() {
-    aktualisiere();
     if (stufe == 0) {
       return this.raetselStufe0.gibName();
     }
@@ -100,7 +79,6 @@ public class Fassade {
    * @param raetselname Name des neuen Raetsels
    */
   public void setzeRaetsel(String raetselname) {
-    aktualisiere();
     if (stufe == 0) {
       this.raetselStufe0 = this.interpretStufe0.liesRaetsel(raetselname);
       this.tabelle = new Tabelle(raetselStufe0.gibAtome());
@@ -119,7 +97,6 @@ public class Fassade {
    * @return Liste der Raetselnamen der entsprechenden Stufe.
    */
   public List<String> gibRaetselListe(int i) {
-    aktualisiere();
     if (stufe == 0) {
       return interpretStufe0.liesOrdner(i);
     }
@@ -130,7 +107,6 @@ public class Fassade {
   }
 
   public String gibAktivenRaetselnamen() {
-    aktualisiere();
     if (stufe == 0) {
       return raetselStufe0.gibName();
     }
@@ -141,7 +117,6 @@ public class Fassade {
   }
 
   public String gibFragestellung() {
-    aktualisiere();
     if (stufe == 0) {
       return raetselStufe0.gibRaetselText();
     }
@@ -152,9 +127,7 @@ public class Fassade {
   }
 
   public String gibAntwortText() {
-    aktualisiere();
     if (stufe == 0) {
-      // return raetselStufe0.gibAntworttext();
       return null;
     }
     else {
@@ -164,7 +137,6 @@ public class Fassade {
   }
 
   public String[] gibAntwortmoeglichkeiten() {
-    aktualisiere();
     if (stufe == 0) {
       // return raetselStufe0.gibAntwort();
       return null;
@@ -175,7 +147,6 @@ public class Fassade {
   }
 
   public String gibLoesung() {
-    aktualisiere();
     if (stufe == 0) {
       return raetselStufe0.gibLoesung();
     }
@@ -191,7 +162,6 @@ public class Fassade {
    * @return Die String-Repraesentation der Zelle.
    */
   public String gibZelle(int[] zelle) {
-    aktualisiere();
     return tabelle.gibZelle(zelle);
   }
   
@@ -203,7 +173,6 @@ public class Fassade {
    * @param atome Namen der verwendeten Atome.
    */
   public void erstelleRaetsel(List<String> atome) {
-    aktualisiere();
     if (stufe == 0) {
       this.raetselStufe0 = this.interpretStufe0.erstelleFrRa(atome);
       this.tabelle = new Tabelle(raetselStufe0.gibAtome());
@@ -221,7 +190,6 @@ public class Fassade {
    * @return Liste der Formeln.
    */
   public List<String> gibNoetigeFormel() {
-    this.aktualisiere();
     if (stufe == 0) {
       // return this.raetselStufe0.gibFormeln();
       return null;
@@ -251,14 +219,12 @@ public class Fassade {
    * @param ww Der Wert, der in die Zelle uebergeben werden soll.
    */
   public void setzeZelleWaWe(int[] i, boolean ww) {
-    this.aktualisiere();
     if (tabelle != null) {
       tabelle.setzeZelle(i, ww);
     }
   }
 
   public int gibZeilenAnz() {
-    this.aktualisiere();
     if (stufe == 0) {
       return raetselStufe0.gibAnzahlAussagen() + 1;
     }
@@ -269,7 +235,6 @@ public class Fassade {
   }
 
   public int gibSpaltenAnz() {
-    this.aktualisiere();
     if (stufe == 0) {
       return 2;
     }
@@ -284,17 +249,14 @@ public class Fassade {
   }
 
   public void spalteHinzufuegen() {
-    this.aktualisiere();
     tabelle.spalteHinzufuegen();
   }
 
   public void spalteEntfernen(int spalte) {
-    this.aktualisiere();
     tabelle.spalteEntfernen(spalte);
   }
 
   public Formel gibFormel(int spalte) {
-    this.aktualisiere();
     return tabelle.gibFormel(spalte);
   }
 
@@ -305,22 +267,18 @@ public class Fassade {
    * @param spalte Die Position der Formel (Zelle).
    */
   public void setzeFormel(Formel formel, int spalte) {
-    this.aktualisiere();
     tabelle.setzeFormel(formel, spalte);
   }
 
   public String gibFormelText(int spalte) {
-    this.aktualisiere();
     return tabelle.gibFormelText(spalte);
   }
   
   public String gibFormelParsabel(int spalte) {
-    this.aktualisiere();
     return tabelle.gibFormelParsabel(spalte);
   }
 
   public int gibStufe() {
-    this.aktualisiere();
     return stufe;
      // return this.raetsel.gibStufe();
   }
@@ -347,8 +305,6 @@ public class Fassade {
    * @return Die Stufe.
    */
   public int gibAbgeschlosseneStufe() {
-    aktualisiere();
-    // this.memento = new Memento();
     return memento.gibStufenSicherung();
   }
   
@@ -357,7 +313,6 @@ public class Fassade {
    * Memento.
    */
   public void fuehreSicherungAus() {
-    this.aktualisiere();
     if (stufe == 0) {
       memento.erstelleMementoDateiStufe0(raetselStufe0);
     }
@@ -419,10 +374,7 @@ public class Fassade {
     
   }
   
-//  public boolean pruefeLoesungStufe0() {
-//    raetselStufe0.
-//  }
-  
+
   public RaetselStufe0 gibRaetselStufe0() {
     return raetselStufe0;
   }

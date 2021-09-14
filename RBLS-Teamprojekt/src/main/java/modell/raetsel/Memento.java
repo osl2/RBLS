@@ -74,7 +74,6 @@ public class Memento {
    */
   public boolean erstelleMementoDatei(Raetsel raetsel) {
     Writer fw = null;
-    // liesMementoDatei();
     if (istNeu(raetsel.gibName())) {
       memento.add(raetsel.gibName());
     }
@@ -109,7 +108,6 @@ public class Memento {
   
   public boolean erstelleMementoDateiStufe0(RaetselStufe0 raetsel) {
     Writer fw = null;
-    // liesMementoDatei();
     if (istNeu(raetsel.gibName())) {
       memento.add(raetsel.gibName());
     }
@@ -227,12 +225,10 @@ public class Memento {
     /* Hier wird die Abschlussstufe vermerkt. */
     if (memento != null && !memento.isEmpty()) {
       String abschlussStufeZeile = memento.get(0);
-      // System.out.println(abschlussStufeZeile);
       abschlussStufeZeile = abschlussStufeZeile.split(" ")[1];
       this.abschlussStufe = Integer.parseInt(abschlussStufeZeile);
       
       String farbenRGB = memento.get(1);
-      // System.out.println(farbenRGB);
       String[] farbenZahlen = farbenRGB.split(" ");
       
       String wahrFalschString = memento.get(2);

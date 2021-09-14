@@ -53,18 +53,16 @@ public class Abschlussfenster extends ImagePanel {
       }
     });
     JPanel buttons = new JPanel(new java.awt.BorderLayout());
-    // buttons.setBackground(FarbenEinstellungen.getButtonBackgroundColor());
     buttons.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getButtonBackgroundColor());
-    naechstesRaetsel.setPreferredSize(new Dimension(200, 100));
+    naechstesRaetsel.setPreferredSize(new Dimension(300, 100));
     buttons.add(naechstesRaetsel, java.awt.BorderLayout.EAST);
-    menue.setPreferredSize(new Dimension(200, 100));
+    menue.setPreferredSize(new Dimension(300, 100));
     buttons.add(menue, java.awt.BorderLayout.WEST);
         
     textLabel = new JLabel(texte[new Random().nextInt(texte.length)], SwingConstants.CENTER);
     textLabel.setForeground(Color.BLACK);
     
     this.setLayout(new java.awt.BorderLayout());
-    // this.setBackground(FarbenEinstellungen.getAbschlussfensterBackground());
     this.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getAbschlussfensterBackground());
     this.setBackground(Color.WHITE);
     this.add(buttons, java.awt.BorderLayout.SOUTH);

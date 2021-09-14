@@ -90,7 +90,7 @@ public class Fensterverwaltung {
    * Wechselt zum Abschlussfenster.
    */
   public void oeffneAbschlussFenster() {
-    wechseleFenster(new Abschlussfenster(img.getImage(), this), "Abschlussfenster");
+    wechseleFenster(new Abschlussfenster(img.getImage(), this), "RBLS  –   Stufe " + modell.gibStufe() + "  –   Abschlussfenster");
   }
 
   /**
@@ -125,7 +125,15 @@ public class Fensterverwaltung {
    * Startet den Freien Modus.
    */
   public void starteFreienModus() {
-    wechseleFenster(new FreiesRaetselFenster(this, modell, strg).ansicht, "RBLS");
+    try { 
+      wechseleFenster(new FreiesRaetselFenster(this, modell, strg).ansicht, "RBLS");
+    }
+    catch (Exception e) {
+      e.printStackTrace();
+    }
+    finally {
+      
+    }
   }
 
   /**
@@ -146,11 +154,15 @@ public class Fensterverwaltung {
   
   private void wechseleFenster(JPanel fenster, String titel) {
     aktivesFenster.getContentPane().removeAll();
-    fenster.setPreferredSize(new Dimension(fensterMass[0], fensterMass[1]));
-    aktivesFenster.setContentPane(fenster);
-    aktivesFenster.getContentPane().revalidate(); 
-    aktivesFenster.getContentPane().repaint();
-    aktivesFenster.setTitle(titel);
+    try {
+      fenster.setPreferredSize(new Dimension(fensterMass[0], fensterMass[1]));
+      aktivesFenster.setContentPane(fenster);
+      aktivesFenster.getContentPane().revalidate(); 
+      aktivesFenster.getContentPane().repaint();
+      aktivesFenster.setTitle(titel);
+    } catch (Exception e) {
+      oeffneMenue();
+    }
   }
 
   public void oeffneEinstellungen(String status) {
