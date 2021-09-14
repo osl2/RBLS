@@ -1,7 +1,13 @@
 Raetselname
 ##
-Raetseltext: --> in html
-<span style="color:#0404B4";><i>Farbe</i></span>
+Raetseltext in html
+<h2>Überschrift</h2>
+
+Farbe für Aussagen<span style="color:#0404B4";> Text </span>
+
+<h3>Aufgabenstellung:</h3>
+<i> Text </i>
+
 ##
 Antworttext
 ##

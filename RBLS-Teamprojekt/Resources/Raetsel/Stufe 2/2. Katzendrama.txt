@@ -5,10 +5,12 @@ Die Katzen Ada, Bastet und Celly haben Hunger.<br><br>
 
 Die drei fressen jeweils entweder das Futter „Katzentraum“ oder „Fettes-Fell“ und zeigen folgendes Fressverhalten:<br><br>
 
+<b>
 <span style="color:#0404B4";>
 (1) Wenn Ada „Katzentraum“ bekommt, möchte Bastet das auch.<br>
 (2) Celly frisst nur „Fettes-Fell“-Futter.<br>
 (3) Ada und Celly fressen nie dasselbe Futter.
+</b>
 </span><br><br>
 
 

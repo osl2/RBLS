@@ -85,7 +85,7 @@ public class RaetselinterpretStufe0 {
   
   private File findeRaetsel(String titel) {
     
-    for (int i = 0; i < 5; i++) {                       // Hier muss die Anzahl der Level angepasst werden!!!!!!!!!!!!
+    for (int i = 0; i < 10; i++) {                       // Hier muss die Anzahl der Level angepasst werden!!!!!!!!!!!!
       List<File> ordner = gibRaetselausOrdner(i);
       for (File raetsel : ordner) {
         if (raetsel.getName().equals(titel)) {

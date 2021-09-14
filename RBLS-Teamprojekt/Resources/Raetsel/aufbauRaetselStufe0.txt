@@ -13,6 +13,6 @@ Aussage 1 § Aussage 2
 ##
 0
 ##
-ja/wahr/richtig $ nein/falsch/falsch (was soll verwendet werden?)
+ja/wahr/richtig § nein/falsch/falsch (was soll verwendet werden?)
 ##
 0 (Stufe)

@@ -4,23 +4,25 @@
 
 Der „Honigtopf“ wurde ausgeraubt, sämtliche Butterbierfässer sind verschwunden. Dumbledore verdächtigt die drei schwarzen Magier Sauron, Voldemort und Borbarad des Diebstahls.<br><br>
 
-Dumbledore möchte die drei verhören und geht davon aus, dass jeder Dieb lügt und jeder, der kein Dieb ist, die Wahrheit sagt. Außerdem bezeichnet er folgende Aussagen jeweils als A, B und C:<br><br>
+Dumbledore möchte die drei verhören und geht von Folgendem aus: Wenn jemand ein <b>Dieb</b> ist, dann ist seine Aussage auf jeden Fall <b>falsch</b> und wenn jemand <b>kein Dieb</b> ist, dann ist seine Aussage <b>wahr</b>. Außerdem bezeichnet er folgende Aussagen jeweils als A, B und C:<br><br>
 
+<b>
 Aussage A: Sauron ist der Dieb.<br>
 Aussage B: Voldermort ist der Dieb.<br>
 Aussage C: Borbarad ist der Dieb.<br><br>
+</b>
 
 Beim Verhör geben die drei schwarzen Magier Folgendes zu Protokoll:<br><br>
 
-Sauron behauptet: <span style="color:#0404B4";>„Ich bin nicht der Dieb. Voldemort und Borbarad sind die Diebe.“</span><br>
-Voldemort behauptet: <span style="color:#0404B4";>„Ich bin nicht der Dieb. Borbarad ist auch nicht der Dieb. Sauron ist der Dieb.“</span><br>
-Borbarad behauptet: <span style="color:#0404B4";>„Ich bin nicht der Dieb. Sauron und Voldemort sind die Diebe.“</span><br><br>
+Sauron behauptet: <b><span style="color:#0404B4";>„Ich bin nicht der Dieb. Voldemort und Borbarad sind die Diebe.“</span</b><br>
+Voldemort behauptet: <b><span style="color:#0404B4";>„Ich bin nicht der Dieb. Borbarad ist auch nicht der Dieb. Sauron ist der Dieb.“</span></b><br>
+Borbarad behauptet: <b><span style="color:#0404B4";>„Ich bin nicht der Dieb. Sauron und Voldemort sind die Diebe.“</span></b><br><br>
 
 Nach sorgfältiger Überlegung konnte Dumbeldore einen schwarzen Magier auf jeden Fall als Dieb ausmachen.<br><br>
 
 <h3>Aufgabenstellung</h3>
-<i>1. Füge für jede Aussage der drei schwarzen Magier eine Spalte in der Wahrheitstafel hinzu, indem du auf den „+“-Button klickst. Öffne anschließend den Formeleditor, indem du  kannst du mit Hilfe des Formeleditors die die Aussagen A,B und C der schwarzen Magier in eine aussagenlogische Formel überführen.<br>
-2. Lass dir die Wahrheitswerte der aufgestellten Formeln ausgeben (klicke dafür auf „Fülle Tabelle“), um festzustellen, wen Dumbledore als Dieb überführt hat.</i>
+<i>1. Stelle die Felder in den ersten drei Spalten der Tabelle so ein, dass du alle Kombinationen der Belegungen von A, B und C abdeckst. Klicke anschließend auf „Fülle Tabelle“, um herauszufinden für welche Belegung(en) die entsprechenden Formeln wahr sind.<br><br>
+2. Für welche Belegungen sind die Aussagen der Zauberer wahr? Um herauszufinden, wer nun auf jeden Fall ein Dieb ist, prüfe, ob sich im Falle einer wahren Aussage ein Widerspruch mit dem Wahrheitswert einer anderen Aussage ergibt.</i>
 ##
 ist auf jeden Fall schuldig.
 ##

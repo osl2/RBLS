@@ -5,6 +5,8 @@
 Auf Frau Salfelds Bemerkung: „Für heute Abend habe ich die Abbels eingeladen“ entgegnet ihr Mann bestürzt: „Kommen alle fünf, also die Eltern und die drei Söhne?“<br><br>
 
 Frau Salfeld liebt logische Spielereien und gibt mit Freude folgende Tipps:<br><br>
+
+<b>
 <span style="color:#0404B4";>
 (1) Wenn Herr Abbels kommt, dann bringt er seine Frau mit.<br>
 (2) Es kommt mindestens einer der Söhne Danno und Carlo.<br>
@@ -12,6 +14,7 @@ Frau Salfeld liebt logische Spielereien und gibt mit Freude folgende Tipps:<br><
 (4) Chris und Carlo kommen entweder beide oder aber beide nicht.<br>
 (5) Wenn Danno kommt, dann kommen auch Carlo und Herr Abbels.
 </span><br><br>
+</b>
 
 <h3>Aufgabenstellung</h3>
 <i>Wandle zunächst die gegebenen Aussagen in aussagenlogische Formeln um, indem du zusätzliche Spalten in die Wahrheitstabelle einfügst. Klicke anschließend auf „Fülle Tabelle“, um zu die Wahrheitswerte der Formeln für unterschiedlichen Belegungen ausgeben zu lassen. Das soll dir helfen herauszufinden, wer nun zu Besuch kommt. <br><br>

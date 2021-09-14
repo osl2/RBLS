@@ -166,19 +166,14 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
       }
       @Override
       public void mouseEntered(java.awt.event.MouseEvent evt) {
-        int i = tabelle.rowAtPoint(evt.getPoint());
-        int j = tabelle.columnAtPoint(evt.getPoint());
-        System.out.println("Ändern: row=" + i + " col=" + j);
-        if (i > 0 && i < 3 && j == 1) {
-          evt.getComponent().setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
+       
         
       }
       
       @Override
       public void mouseExited(java.awt.event.MouseEvent e)
       {
-        e.getComponent().setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+       
       }
     });
     

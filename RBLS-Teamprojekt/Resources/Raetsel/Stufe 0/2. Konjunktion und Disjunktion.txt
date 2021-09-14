@@ -18,11 +18,11 @@ Z<sub>2</sub>: X ∨ Y <br><br>
 
 Aussage Z<sub>1</sub> ist somit nur dann wahr, wenn sowohl die Aussage X als auch die Aussage Y wahr ist, d.h. wenn sowohl Beth Schach spielt als auch Luca ein Pro-Gamer ist. <br><br>
 
-Aussage Z<sub>2</sub> ist dann wahr, wenn die Aussage X oder die Aussage Y wahr ist, d.h. wenn Beth Schach spielt oder Luca ein Pro-Gamer ist. Beachte, dass die Aussage Z<sub>2</sub> auch dann wahr ist, wenn <u>beide</u> Aussagen X und Y wahr sind. Das Symbol ∨ bezeichnet also keine <i>exklusive</i> Oder-Verknüfpung. Das Symbol für ein exklusives Oder ist ⊕.<br><br>
+Aussage Z<sub>2</sub> ist dann wahr, wenn die Aussage X oder die Aussage Y wahr ist, d.h. wenn Beth Schach spielt oder Luca ein Pro-Gamer ist. Beachte, dass die Aussage Z<sub>2</sub> auch dann wahr ist, wenn <u>beide</u> Aussagen X und Y wahr sind. Das Symbol ∨ bezeichnet also keine <i>exklusive</i> Oder-Verknüpfung. Das Symbol für ein exklusives Oder ist ⊕.<br><br>
 
-Eine Aussage bezeichnet man also als <b>Konjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Und-Verknüpfung verknüpft sind. <br><br>
+Eine Aussage bezeichnet man als <b>Konjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Und-Verknüpfung verknüpft sind. <br><br>
 
-Eine Aussage bezeichnet man also als <b>Disjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Oder-Verknüpfung verknüpft sind. <br><br>
+Eine Aussage bezeichnet man als <b>Disjunktion</b>, wenn sie aus zwei Aussagen besteht, die durch eine Oder-Verknüpfung verknüpft sind. <br><br>
 
 <h3>Aufgabenstellung:</h3>
 <i>Entscheide, ob folgende Aussagen richtig oder falsch sind.</i>

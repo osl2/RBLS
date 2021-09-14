@@ -4,12 +4,14 @@
 
 Anna, Bea und Carla gehen zusammen in die Disco. Beim Tanzen haben sie aber folgendende Prinzipien: <br><br>
 
+<b>
 <span style="color:#0404B4";>
 (1) Wenn Anna tanzt, dann tanzt auch Bea. <br>
 (2) Anna oder Carla tanzen auf jeden Fall. <br>
 (3) Wenn Carla tanzt, dann auch Anna. <br>
 (4) Bea und Carla tanzen beide sehr gerne, aber nie gleichzeitig. 
 </span><br><br>
+</b>
 
 <h3>Aufgabenstellung</h3>
 <i>Die Aussagen 1-4 wurden schon in aussagenlogische Formeln umgewandelt. Gebe für jede Belegung der Variablen den Wahrheitswert der entsprechenden Formel an, indem du gegebenenfalls den Wahrheitswert durch Klicken auf die entsprechende Zelle änderst.<br>

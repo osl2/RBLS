@@ -4,11 +4,14 @@
 Frau Abbels sagt zu ihrem Sohn Robin: "Du chattest mit deinen Freunden oder du surfst den ganzen Tag nur im Internet. Lies doch mal wieder ein Buch." <br><br>
 
 Robin schaut von seinem Logik-Blog auf und antwortet: „Okay, ich verspreche dir für morgen, dass ich...<br><br>
+
+<b>
 <span style="color:#0404B4";>
 (1) entweder <i>surfe oder chatte</i> oder <i>nicht surfe oder nicht lese</i>,<br>
 (2) entweder <i>chatte oder nicht lese</i> oder <i>lese oder nicht surfe</i>,<br>
 (3) entweder <i>nicht chatte oder lese</i> oder <i>chatte oder surfe</i>.“<br>
 </span><br><br>
+</b>
 
 <h3>Aufgabenstellung</h3>
 <i>Kann Robin seine drei Versprechen halten? Stelle hierfür zunächst die benötigten aussagenlogischen Formeln auf. </i>

@@ -4,6 +4,7 @@
 
 Die 7a stellt ein Volleyballteam fürs Schulturnier zusammen, aber keiner ist sich so ganz sicher, wer mitspielen wird: <br><br>
 
+<b>
 <span style="color:#0404B4";>
 (1) Wenn Anja im Team spielt, dann spielt Beate auch mit.<br>
 (2) Clara macht das Gleiche wie Dori.<br>
@@ -11,6 +12,7 @@ Die 7a stellt ein Volleyballteam fürs Schulturnier zusammen, aber keiner ist si
 (4) Wenn Elli nicht spielt, spielt Beate nicht mit.<br>
 (5) Anja und Dori wollen zusammen ins Team.<br>
 </span><br>
+</b>
 
 <h3>Aufgabenstellung</h3>
 <i>Füge wieder Spalten hinzu und trage die passenden aussagenlogischen Formeln in die oberste Tabellenzeile ein, um herauszufinden, wer im Team spielt.</i>

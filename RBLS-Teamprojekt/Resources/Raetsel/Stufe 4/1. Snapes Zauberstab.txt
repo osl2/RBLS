@@ -6,11 +6,13 @@ Snapes Zauberstab wurde zerbrochen. Wütend stürmt er in die große Halle und z
  
 Ihre vier Aussagen sind daher alle wahr: <br><br>
 
+<b>
 <span style="color:#0404B4";>
 (1) Wenn Cori schuldig ist, dann auch Aaron.<br>
 (2) Aaron und Bari waren es nicht gemeinsam.<br>
 (3) Wenn Aaron schuldig ist, dann auch Bari.<br>
 (4) Wenn es Bari war, dann auch Cori oder Aaron.<br><br>
+</b>
 
 <h3>Aufgabenstellung</h3>
 <i>Wandle die gegebenen Ausssagen in aussagenlogischen Formeln um und füge sie in die Tabelle ein. Nutze anschließend die ausgefüllte Tabelle, um herauszufinden, wer schuldig ist.</i>

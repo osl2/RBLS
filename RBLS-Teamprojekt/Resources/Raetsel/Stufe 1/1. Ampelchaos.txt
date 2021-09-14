@@ -6,7 +6,7 @@ Stell dir einen Fußgängerüberweg mit zwei Ampeln vor – eine Ampel für die 
 
 Wir möchten nun mit Hilfe einer Wahrheitstafel herausfinden, wann es zu Unfällen kommen kann, d.h. wann die Kreuzung unsicher ist. <br><br>
 
-Dafür legen wir die Aussage  <span style="color:#0404B4";><i>Die erste Ampel ist grün</i></span> als Aussage A und die Aussage <span style="color:#0404B4";><i>Die zweite Ampel ist grün.</span> als Aussage B fest. <br><br>
+Dafür legen wir die Aussage  <b><i>Die erste Ampel ist grün</i></b> als Aussage A und die Aussage <b><i>Die zweite Ampel ist grün.</b> als Aussage B fest. <br><br>
 
 In der Tabelle kannst du durch das Klicken auf die jeweiligen Felder in den ersten beiden Spalten die Belegung der entsprechenden Aussage in der entsprechenden Zeile ändern.<br><br>
 

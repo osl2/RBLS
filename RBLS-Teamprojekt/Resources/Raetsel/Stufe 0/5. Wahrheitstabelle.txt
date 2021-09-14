@@ -1,0 +1,236 @@
+Wahrheitstabelle
+##
+<h2>Wahrheitstabelle</h2>
+
+
+Angenommen du möchtest herausfinden, für welche Kombinationen der Wahrheitswerte von X, Y und Z die Aussage
+
+ <br><br> (¬X∧Y)∨(X→Z) <br><br> 
+ 
+ wahr ist. Zu diesem Zweck kannst du eine <b>Wahrheitstabelle</b> verwenden. <br><br>
+
+Schreibe hierfür in die erste Zeile zunächst deine Aussagen X, Y und Z in jeweils eigene Spalten. Da unsere Formel aus zwei Aussagen besteht, die durch ein Oder verknüpft sind, bietet es sich an, die Aussagen zunächst einzeln auszuwerten, um den Wahrheitswert der gesamten Formel einfacher zu bestimmen. In der ersten Zeile stehen also noch zusätzlich die Aussagen ¬X∧Y und X→Z in jeweils getrennten Spalten. Der letzte Eintrag der ersten Zeile ist immer die vollständige Formel (¬X∧Y)∨(X→Z). <br><br>
+
+ <table border="0" style="width: 80%">
+ <colgroup>
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+    </colgroup>
+  <tr>
+    <th bgcolor="#DCDCDC"> X </th>
+    <th bgcolor="#DCDCDC"> Y </th>
+    <th bgcolor="#DCDCDC"> Z </th>
+    <th bgcolor="#DCDCDC"> ¬X∧Y </th>
+    <th bgcolor="#DCDCDC"> X→Z </th>
+    <th bgcolor="#DCDCDC"> (¬X∧Y)∨(X→Z) </th>
+  </tr>
+</table> 
+
+<br><br>
+
+Nun musst du herausfinden, wie viele Zeilen die Wahrheitstabelle hat. Die Aussagen X, Y und Z können entweder den Wert <i>1 (auch: wahr, w, richtig )</i> oder <i>0 (auch: falsch, f)</i> annehmen, d.h. es gibt zwei mögliche Werte, die die Aussagen annehmen können und drei Aussagen, also 2&sup3 = 8 Möglichkeiten. Die Tabelle besitzt also zusätzlich zur ersten Zeile noch acht weitere Zeilen. <br><br>
+
+Befolge nun die folgenden Schritte, um die Wahrheitstabelle auszufüllen. <br><br>
+
+Wie bereits oben erläutert gibt es acht Möglichkeiten die Wahrheitswerte der Aussagen A, B und C zu kombinieren. Eine konkrete Zuweisung von Werten für die Aussagen bezeichnet man als <b>Belegung</b>. Überlicherweise belegt man in der zweiten Zeile der Tabelle alle Variablen mit dem Wert 0, sodass A = 0, B = 0 und C = 0. Interpretiert man diese Belegung 000 als Dualzahl und addiert 1 dazu, erhält man 001, also A = 0, B = 0, C = 1. Addiert man zu 001 wieder 1, so erhält man 010, also die nächste Belegung A = 0, B = 1, C = 0. So wird jede weitere Zeile gefüllt, sodass alle möglichen Belegungen in der Wahrheitstabelle abgedeckt werden. (Diese Reihenfolge der Belegungen ist in der Wahrheitstabelle zwar nicht vorgegeben, aber sehr empfehlenswert, um nicht durcheinanderzukommen.)
+
+<br><br>
+
+ <table border="0" style="width: 80%">
+ <colgroup>
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+    </colgroup>
+  <tr>
+    <th bgcolor="#DCDCDC"> X </th>
+    <th bgcolor="#DCDCDC"> Y </th>
+    <th bgcolor="#DCDCDC"> Z </th>
+    <th bgcolor="#DCDCDC"> ¬X∧Y </th>
+    <th bgcolor="#DCDCDC"> X→Z </th>
+    <th bgcolor="#DCDCDC"> (¬X∧Y)∨(X→Z) </th>
+  </tr>
+  <tr>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+  </tr>
+  <tr>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+  </tr>
+   <tr>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+  </tr>
+   <tr>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+  </tr>
+   <tr>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+  </tr>
+   <tr>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+  </tr>
+   <tr>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+  </tr>
+   <tr>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+    <th bgcolor="white">  </th>
+  </tr>
+  
+</table> 
+
+<br><br>
+
+Nachdem du alle möglichen Belegungen hingeschrieben hast, wertest du für jede Belegung die Formeln aus. ¬X∧Y ist für die Belegung der zweiten Zeile falsch, X→Z ist dagegen wahr. Die Verorderung einer falschen und wahren Aussage ergibt eine wahre Aussage. Jetzt verstehst du, warum wir die Formel in zwei Teile aufgeteilt haben. So arbeitest du dich Zeile für Zeile durch, um für jede Belegung den Wahrheitswert der Formel zu bestimmen.
+
+<br><br>
+
+ <table border="0" style="width: 80%">
+ <colgroup>
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+       <col span="1" style="width: 16.66%;">
+    </colgroup>
+  <tr>
+    <th bgcolor="#DCDCDC"> X </th>
+    <th bgcolor="#DCDCDC"> Y </th>
+    <th bgcolor="#DCDCDC"> Z </th>
+    <th bgcolor="#DCDCDC"> ¬X∧Y </th>
+    <th bgcolor="#DCDCDC"> X→Z </th>
+    <th bgcolor="#DCDCDC"> (¬X∧Y)∨(X→Z) </th>
+  </tr>
+  <tr>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+  </tr>
+  <tr>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+  </tr>
+   <tr>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+  </tr>
+   <tr>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+  </tr>
+   <tr>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+  </tr>
+   <tr>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+  </tr>
+   <tr>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+  </tr>
+   <tr>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#FA8072"> 0 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+    <th bgcolor="#CCFFCC"> 1 </th>
+  </tr>
+  
+</table> 
+
+<br><br>
+
+
+
+
+
+<h3>Aufgabenstellung</h3>
+<i>Entscheide, ob folgende Aussagen wahr oder falsch sind.</i>
+##
+Aussage § Wahrheitswert
+##
+falsch § falsch
+##
+Wenn p eine gerade Zahl ist, die durch 3 teilbar ist, so folgt daraus, dass p + 1 eine Primzahl ist. § Aussage 2
+##
+0
+##
+wahr § falsch
+##
+0

@@ -18,18 +18,23 @@ Y: <i>Till hat mindestens 15 Euro im Geldbeutel.</i>
 
 da die Bankknote mit dem kleinsten Wert die 5-Euro-Banknote ist. <br><br>
 
-Folgt aus einer Aussage X die Aussage Y, so bedeutet es, dass die Aussage X die Aussage Y <b>impliziert</b>. Die Formelschreibeweise X → Y bezeichnet man also als <b>Implikation</b>. Du kannst die Formel entweder als <i>X impliziert Y</i> oder <i>Wenn X gilt, dann gilt auch Y</i> vorlesen.
+Folgt aus einer Aussage X die Aussage Y, so bedeutet es, dass die Aussage X die Aussage Y <b>impliziert</b>. Die Formelschreibeweise X → Y bezeichnet man als <b>Implikation</b>. Du kannst die Formel entweder als <i>X impliziert Y</i> oder <i>Wenn X gilt, dann gilt auch Y</i> (vor)lesen. <br><br>
+
+Die Implikation ist nur dann <i>falsch</i>, wenn X wahr ist und Y falsch ist, für alle anderen Kombinationen der Wahrheitswerte X und Y ist die Implikation wahr. <br><br>
+
+Folgt aus der Aussage X die Aussage Y und aus der Aussage Y die Aussage X, so bezeichnet man die beiden Aussagen X und Y als <b>äquivalent</b>. Die Formelschreibweise für die <b>Äquivalenz</b> ist folgende: X ↔ Y. <br> <br>
 
 <h3>Aufgabenstellung</h3>
+<i>Entscheide, ob folgende Aussagen wahr oder falsch sind.</i>
 ##
-Spaltenüberschrift 1 § Spaltenüberschrift 2
+Aussage § Wahrheitswert
 ##
-ja/nein § ja/nein (Loesungen)
+falsch § wahr § wahr § wahr § falsch § wahr
 ##
-Aussage 1 § Aussage 2
+Wenn p eine gerade Zahl ist, die durch 3 teilbar ist, so folgt daraus, dass p + 1 eine Primzahl ist. § Wenn eine Aussage X wahr ist und aus X die Aussage Y folgt, so muss auch Y wahr sein. § Wenn aus X Y folgt und aus Y Z folgt, dann folgt aus X Z. § Wenn X → Y nur dann falsch ist, wenn X wahr ist und Y falsch ist, so ist X → Y äquivalent zu ¬X ∨ Y. § Wenn die Aussage <span style="color:#0404B4";><i>Es regnet</i></span> die Aussage <span style="color:#0404B4";><i>Die Straße ist nass</i></span> impliziert, so impliziert auch <span style="color:#0404B4";><i>Die Straße ist nass</i></span> die Aussage <span style="color:#0404B4";><i>Es regnet</i></span>. § Wenn die Aussage X äquivalent zur Aussage Y ist, so kann ich X in jeder Formel durch Y ersetzen.
 ##
 0
 ##
-ja/wahr/richtig $ nein/falsch/falsch (was soll verwendet werden?)
+wahr § falsch
 ##
 0

@@ -1,12 +1,10 @@
-Stufe: 4
-Farbe: 224 248 224
-Belegungen: wahr falsch
+Stufe: 2
+Farbe: 204 255 204
+Belegungen: 1 0
 ##
-
-Einleitung
-1. Ampelchaos
 1. Einleitung
+2. Konjunktion und Disjunktion
 3. Negation
-2. Butterbierdiebe
-4. Abbels zu Gast
-4. Volleyball
+1. Ampelchaos
+1. Im Kino
+4. Implikation und Äquivalenz

@@ -3,10 +3,12 @@
 <h2>Im Kino</h2>
 
 Anton, Bella und Chris verabreden sich fürs Kino und halten sich an folgende Regeln: <br><br>
+<b>
 <span style="color:#0404B4";>(1) Wenn Anton kommt, dann auch Chris.</span><br>
 <span style="color:#0404B4";>(2) Es kommt Anton oder Bella.</span><br>
 <span style="color:#0404B4";>(3) Wenn Bella kommt, dann kommt auch Anton.</span><br>
 <span style="color:#0404B4";>(4) Sie gehen nicht alle drei gemeinsam.</span><br><br>
+</b>
 
 <h3>Aufgabenstellung</h3>
 <i>1. Wandle die Aussagen 1-4 in aussagenlogische Formeln um und füge sie in die Tabelle ein. Mit dem „+“-Button auf der rechten Seite kannst eine Spalte hinzufügen. Klicke anschließend auf „Formel einfügen“, um die gewünschte aussagenlogischen Formeln einzugeben. Um eine Formel abzuändern, kannst du einfach wieder auf die Formel klicken.<br><br>

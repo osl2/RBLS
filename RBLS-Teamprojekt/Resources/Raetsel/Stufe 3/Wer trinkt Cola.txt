@@ -5,12 +5,14 @@
 Alina, Birgit und Conny bestellen nach dem Kino Getränke streng nach folgenden Regeln:
 <br><br>
 
+<b>
 <span style="color:#0404B4";>
 (1) Wenn Alina eine Cola bestellt, dann tut Birgit das auch.<br>
 (2) Birgit oder Conny bestellen sich eine Cola, aber nie gleichzeitig.<br>
 (3) Alina oder Conny holt sich auf jeden Fall eine Cola.<br>
 (4) Wenn Conny eine Cola bestellt, dann auch Alina.
 </span><br><br>
+</b>
 
 <h3>Aufgabenstellung</h3>
 <i>Die Aussagen wurden schon in Formeln umgewandelt, du musst sie jetzt nur noch auswerten. Die Zellen kannst du wieder durch Klicken verändern.<br>
