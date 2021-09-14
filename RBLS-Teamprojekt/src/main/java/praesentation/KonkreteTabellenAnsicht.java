@@ -59,9 +59,6 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private int stufe = 4;
   private JPanel panel;
   private JPanel tabellenRahmen = new JPanel();
-  // private Schaltflaeche tipp_schaltflaeche;
-  
-  // private double zeilenHoehe = 1.5;
   private double zeilenHoehe = 24;
 
   /**
@@ -80,7 +77,6 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     zumMenu = new Schaltflaeche("zum Menü", 6, this.fw);
     this.modell = modell;
     this.strg = strg;
-    // this.tipp_schaltflaeche = tipp_schaltflaeche;
     init();
   }
   
@@ -98,8 +94,6 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     
     JPanel schaltflaechenPanel = new JPanel();
     
-    // schaltflaechenPanel.setLayout(new BoxLayout(schaltflaechenPanel, BoxLayout.Y_AXIS));
-    
     if (stufe == 2 || stufe == 4 || stufe == -1) {
       schaltflaechenPanel.setLayout(new GridLayout(5, 1, 20, 20));
     }
@@ -108,11 +102,7 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     }
     schaltflaechenPanel.setBackground(Color.WHITE);
     schaltflaechenPanel.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 0));
-    
-    
-//    schaltflaechenPanel.setLayout(new BoxLayout(schaltflaechenPanel, BoxLayout.Y_AXIS));
 
-//    schaltflaechenPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
    
     mehrSpalten.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -147,22 +137,9 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     schaltflaechenPanel.add(zeileMarkieren);
     
     
-    
-//    schaltflaechenPanel.add(
-//        Box.createRigidArea(new Dimension(0, (int) (mehrSpalten.getMaximumSize().height * 1))));
-//    ausfuellen.addActionListener(new ActionListener() {
-//      public void actionPerformed(ActionEvent e) {
-//        fuelleAus();
-//      }
-//    });
-    
     if (stufe != 3) {
       schaltflaechenPanel.add(ausfuellen);
     }
-   
-    // schaltflaechenPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-    
-    // schaltflaechenPanel.add(tipp_schaltflaeche);
     
     ausfuellen.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -237,7 +214,6 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
     /* Horizontale Scrollbar der Tabelle */
     scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-        // this.thumbColor = new Color(255, 102, 0);
         this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
         this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack(); 
       }
@@ -328,8 +304,6 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
       }
     });
     
-    // this.zeilenHoehe *= tabelle.getRowHeight();
-    // this.zeilenHoehe = 24;
     tabelle.setRowHeight((int) (this.zeilenHoehe));
     tabelle.setFocusable(false);
     tabelle.setRowSelectionAllowed(false);
@@ -338,7 +312,6 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
         aktualisiere(new int[] { i, j });
       }
     }
-    // tabelle.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     tabelle.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
     
     tabelle.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));

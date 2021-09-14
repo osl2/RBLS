@@ -210,7 +210,6 @@ public class FormelAnsicht {
     formelRegler.setBorder(BorderFactory.createEmptyBorder());
     formelRegler.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-        // this.thumbColor = new Color(255, 102, 0);
         this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtScrollBarThumb();
         this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getFormelAnsichtScrollBarTrack();
       }

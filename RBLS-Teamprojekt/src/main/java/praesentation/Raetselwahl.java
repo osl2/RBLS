@@ -67,18 +67,15 @@ public class Raetselwahl extends javax.swing.JPanel {
    */
   private void init() {
     buttons = new Schaltflaeche[raetsel.size()];
-    // JPanel buttonPanel = new JPanel();
     ImageIcon img = new ImageIcon(getClass().getResource("/Icon/hintergrund.png"));
     ImagePanel buttonPanel = new ImagePanel(img.getImage());
     buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-    // buttonPanel.setBackground(FarbenEinstellungen.getRaetselwahlButtonPanel());
     buttonPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getRaetselwahlButtonPanel());
     buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     
     JLabel hinweis = new JLabel(hinweise[stufe]);
     
     hinweis.setFont(new javax.swing.plaf.FontUIResource("Arial", Font.BOLD, 18));
-    // hinweis.setForeground(FarbenEinstellungen.getRaetselwahlHinweisForeground());
     hinweis.setForeground(fw.getEinstellungen().getFarbenEinstellungen().getRaetselwahlHinweisForeground());
     buttonPanel.add(hinweis, 0);
     buttonPanel.add(Box.createRigidArea(new Dimension(0, 5)));
@@ -96,9 +93,7 @@ public class Raetselwahl extends javax.swing.JPanel {
       buttons[j].setMaximumSize(new Dimension(Integer.MAX_VALUE, 
           buttons[j].getMinimumSize().height * 2));
       buttonPanel.add(buttons[j], j + 2);
-      // buttonPanel.setBackground(FarbenEinstellungen.getRaetselwahlButtonPanelBackground());
       buttonPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getRaetselwahlButtonPanelBackground());
-      // buttonPanel.setBackground(Color.BLUE);
     }
     
     this.setLayout(new BorderLayout());

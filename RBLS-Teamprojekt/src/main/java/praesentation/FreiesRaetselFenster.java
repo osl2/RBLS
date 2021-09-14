@@ -62,7 +62,6 @@ public class FreiesRaetselFenster extends RaetselFenster {
     
     //Dialogfenster//
     atomareAussagen = new JDialog();
-    // atomareAussagen.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     atomareAussagen.getContentPane().setLayout(
         new BoxLayout(atomareAussagen.getContentPane(), BoxLayout.Y_AXIS));
     atomareAussagen.getContentPane().setBackground(Color.BLACK);
@@ -158,7 +157,6 @@ public class FreiesRaetselFenster extends RaetselFenster {
           Border border1 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
           panel1.setBorder(border1);
           panel1.add(aussageFeld);
-          // panel1.setBackground(FarbenEinstellungen.getStufenRaetselPanel1Background());
           panel1.setBackground(Color.WHITE);
           
              
@@ -181,9 +179,7 @@ public class FreiesRaetselFenster extends RaetselFenster {
         );
     atomareAussagen.add(okButton);
     atomareAussagen.setTitle("Atomare Aussagen");
-    // atomareAussagen.setSize(600, 440);
     atomareAussagen.setSize(1100, 440);
-    // atomareAussagen.setMinimumSize(new Dimension(1000, 480));
     atomareAussagen.setMinimumSize(new Dimension(1100, 440));
     atomareAussagen.setResizable(true);
     atomareAussagen.setLocationRelativeTo(null);
@@ -191,7 +187,6 @@ public class FreiesRaetselFenster extends RaetselFenster {
     atomareAussagen.setModal(true);
     atomareAussagen.setModalityType(ModalityType.APPLICATION_MODAL);
     atomareAussagen.getContentPane().setBackground(Color.WHITE);
-    // atomareAussagen.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); Warum??
     
     ImageIcon img = new ImageIcon(getClass().getResource("/Icon/icon.png"));
     atomareAussagen.setIconImage(img.getImage());
@@ -202,13 +197,7 @@ public class FreiesRaetselFenster extends RaetselFenster {
     modell.erstelleRaetsel(aussagenListe);
     WahrheitstabellenSteuerungen wstrg;
     wstrg = strg.raetselFensterInit();
-    // Schaltflaeche tipp = new Schaltflaeche("Tipp", 2, fv);
-    // tipp.setEnabled(false);
     tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fv);
-  }
-
-  private void geheZuMenue() {
-    fv.oeffneMenue();
   }
   
 }

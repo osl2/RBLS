@@ -35,11 +35,9 @@ public class StufenRaetselFenster extends RaetselFenster {
 
   private String name = "[Platzhalterrätsel]";
   private String frage = "[Platzhalterfragetext]";
-  
-  // private JTextArea frageFeld;
+
   private JEditorPane frageFeld;
   private JPanel antwortAnsicht;
-  // private Schaltflaeche tipp;
   private Schaltflaeche weiter;
   
   private Fensterverwaltung fw;
@@ -57,18 +55,15 @@ public class StufenRaetselFenster extends RaetselFenster {
     this.fw = fensterverwaltung;
     this.modell = modell;
     this.name = modell.gibAktivenRaetselnamen();
-    // Ersetzt alle Vorkommnisse von § durch eine neue Zeile 
     this.frage = modell.gibFragestellung();
     
     ansicht = new JPanel();
     ansicht.setLayout(new BoxLayout(ansicht, BoxLayout.Y_AXIS));
-    // ansicht.setBackground(FarbenEinstellungen.getStufenRaetselAnsichtBackground());
     ansicht.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselAnsichtBackground());
     
     //FragePanel//
     JPanel fragePanel = new JPanel();
     fragePanel.setLayout(new BorderLayout());
-    // fragePanel.setBackground(FarbenEinstellungen.getStufenRaetselFensterFragePanelBackground());
     fragePanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselFensterFragePanelBackground());
     
 
@@ -78,15 +73,12 @@ public class StufenRaetselFenster extends RaetselFenster {
     if (modell.gibStufe() == 0) {
       this.tabelle = new TabellenAnsichtStufe0(modell, wstrg, fw);
       modell.setzeStufe(0);
-      // this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fw);
     }
     
     else {
       this.tabelle = new KonkreteTabellenAnsicht(modell, wstrg, fw); 
     }
 
-    
-    // frageFeld = new JTextArea(frage);
     JEditorPane frageFeld = new JEditorPane("text/html", "");
     
     frageFeld.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, Boolean.TRUE);
@@ -98,8 +90,6 @@ public class StufenRaetselFenster extends RaetselFenster {
     
     frageFeld.setEditable(false);
     frageFeld.setHighlighter(null);
-    // frageFeld.setLineWrap(true);
-    // frageFeld.setWrapStyleWord(true);
     
     JPanel frageFeldPanel = new JPanel();
     frageFeldPanel.setLayout(new BorderLayout());
@@ -109,18 +99,11 @@ public class StufenRaetselFenster extends RaetselFenster {
     schiebeRegler.setBorder(BorderFactory.createEmptyBorder());
     schiebeRegler.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-          // this.thumbColor = new Color(255, 102, 0);
-          // this.thumbColor = FarbenEinstellungen.getStufenRaetselScrollBarThumb();
           this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
-          // this.trackColor = FarbenEinstellungen.getStufenRaetselScrollBarTrack();
           this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack();
           
       }
     });
-    
-    
-//    JScrollBar vertical = schiebeRegler.getVerticalScrollBar();
-//    vertical.setValue( vertical.getMinimum() );
     
     frageFeldPanel.add(schiebeRegler, BorderLayout.CENTER);
     JPanel frageRahmen = erzeugeRahmenPanel(frageFeldPanel, this.name);
@@ -132,9 +115,7 @@ public class StufenRaetselFenster extends RaetselFenster {
       frageRahmen.setPreferredSize(new Dimension(1, (int) (frage.length() * 0.8)));
     }
     
-    // fragePanel.add(menuePanel, BorderLayout.WEST);
     fragePanel.add(frageRahmen, BorderLayout.CENTER);
-    // fragePanel.add(tippPanel, BorderLayout.EAST);
     
     //WahrheitstabellenPanel//
     
@@ -145,12 +126,10 @@ public class StufenRaetselFenster extends RaetselFenster {
     
     JPanel tabellenPanel = new JPanel();
     tabellenPanel = tabelle.gibAnsicht();
-    // tabellenPanel.setBackground(FarbenEinstellungen.getStufenRaetselTabellenPanelBackground());
     tabellenPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselTabellenPanelBackground());
     
     
     tabellenPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 500));          /* Groesse des Panels */
-    // tabellenPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 5 * (int) tabelle.getZeilenHoehe()));
     
     /*
      * Tabellen-Panel (ENDE)
@@ -175,7 +154,6 @@ public class StufenRaetselFenster extends RaetselFenster {
     antwortPanel.setLayout(new BorderLayout());
     Border antwortBorder = BorderFactory.createEmptyBorder(10, 50, 10, 50);
     antwortPanel.setBorder(antwortBorder);
-    // antwortPanel.setBackground(FarbenEinstellungen.getStufenRaetselAntwortPanelBackground());
     antwortPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselAntwortPanelBackground());
     antwortPanel.add(antwortRahmen, BorderLayout.CENTER);
     
@@ -197,10 +175,6 @@ public class StufenRaetselFenster extends RaetselFenster {
     JPanel aussagenPanel = new JPanel();
     aussagenPanel.setLayout(new BorderLayout());
     
-//    Border border = BorderFactory.createEmptyBorder(5,5,5,5);
-//    // aussagenPanel.setBorder(border);
-//    aussagenPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-    
     aussagenPanel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselFensterFragePanelBackground());
 
     JEditorPane aussageFeld = new JEditorPane("text/html", modell.gibTextImAussagenfeld());
@@ -217,7 +191,6 @@ public class StufenRaetselFenster extends RaetselFenster {
     Border border1 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
     panel1.setBorder(border1);
     panel1.add(aussageFeld);
-    // panel1.setBackground(FarbenEinstellungen.getStufenRaetselPanel1Background());
     panel1.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselAntwortPanelBackground());
     
     aussagenPanel.add(panel1);
@@ -245,24 +218,17 @@ public class StufenRaetselFenster extends RaetselFenster {
     Border border1 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
     panel1.setBorder(border1);
     panel1.add(innen);
-    // panel1.setBackground(FarbenEinstellungen.getStufenRaetselPanel1Background());
     panel1.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselAntwortPanelBackground());
     
     JPanel panel2 = new JPanel();
     panel2.setLayout(new BoxLayout(panel2, BoxLayout.X_AXIS));
-    // Border border2 = BorderFactory.createEmptyBorder(1, 1, 1, 1);
-    // border2 = BorderFactory.createTitledBorder(border2, titel);              Kein Titel im Panel
-    // panel2.setBorder(border2);
     panel2.add(panel1);
-    // panel2.setBackground(new Color(255, 102, 0));
-    // panel2.setBackground(FarbenEinstellungen.getStufenRaetselPanel2Background());
     panel2.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselPanel2Background());
     JPanel panel3 = new JPanel();
     panel3.setLayout(new BoxLayout(panel3, BoxLayout.X_AXIS));
     Border border3 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
     panel3.setBorder(border3);
     panel3.add(panel2, BorderLayout.CENTER);
-    // panel3.setBackground(FarbenEinstellungen.getStufenRaetselPanel3Background());
     panel3.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselPanel3Background());
     
     return panel3;

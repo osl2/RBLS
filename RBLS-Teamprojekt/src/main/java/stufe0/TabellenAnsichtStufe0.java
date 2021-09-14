@@ -101,14 +101,12 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     JScrollPane scrollPane = new JScrollPane(tabellenRahmen);
     scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-        // this.thumbColor = new Color(255, 102, 0);
         this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
         this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack(); 
       }
     });
     scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
       protected void configureScrollBarColors() {
-        // this.thumbColor = new Color(255, 102, 0);
         this.thumbColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarThumb();
         this.trackColor = fw.getEinstellungen().getFarbenEinstellungen().getStufenRaetselScrollBarTrack(); 
       }
@@ -147,8 +145,6 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
     }
    
     tabelle = new JTable(inhalt, inhalt[0]);
-    
-    // tabelle = new JTable()
     FarbModellStufe0 tm = new FarbModellStufe0(inhalt, inhalt[0]);
     tabelle.setModel((FarbModellStufe0) tm);
     
@@ -206,9 +202,7 @@ public class TabellenAnsichtStufe0 extends TabellenAnsicht {
   
   private void klickeZelle(int i, int j) {
     if (i > 0 && j > 0) {
-      // strg.befehl("ZelleAendern(" + i + "," + j + ")");
       aktualisiere(new int[] { i, j });
-      // tabelle.getCellRenderer(i, j);
     } 
     
   }

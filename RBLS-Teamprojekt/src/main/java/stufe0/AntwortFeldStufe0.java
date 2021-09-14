@@ -55,13 +55,11 @@ public class AntwortFeldStufe0 {
 
     JPanel p2 = new JPanel();
     p2.setLayout(new FlowLayout());
-    // p2.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getAntwortFeldBackground());
     p2.setBackground(Color.WHITE);
     p2.add(pruefeKnopf);
 
     ansicht = new JPanel();
     ansicht.setLayout(new BorderLayout());
-    // ansicht.add(p, BorderLayout.CENTER);
     ansicht.add(p2, BorderLayout.CENTER);
   }
 
@@ -71,14 +69,10 @@ public class AntwortFeldStufe0 {
 
   private void pruefeAntwort() {
       
-      boolean korrekt = fenster.pruefeLoesungStufe0();
+    boolean korrekt = fenster.pruefeLoesungStufe0();
     
-//    if (!fenster.pruefeTabelle()) {
-//      return;
-//    }
     if (korrekt) {
       fenster.schliesseRaetselAb();
-      // antwortWahl.setEnabled(false);
     } else {
       new FehlerDialog("Falsche Antwort");
     }

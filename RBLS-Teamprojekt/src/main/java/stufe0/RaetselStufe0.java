@@ -64,7 +64,6 @@ public class RaetselStufe0 {
     atom = new ArrayList<Atom>();
     for (int i = 0; i < atomS.size(); i++) {
       atom.add(new Atom(atomS.get(i), i));
-      //  aussagen.add(atomS.get(i));
     }
   }
 

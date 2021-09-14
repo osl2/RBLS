@@ -1,5 +1,5 @@
 Stufe: 4
-Farbe: 224 236 248
+Farbe: 224 248 224
 Belegungen: wahr falsch
 ##
 

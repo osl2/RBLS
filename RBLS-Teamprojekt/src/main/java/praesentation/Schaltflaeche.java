@@ -26,11 +26,8 @@ public class Schaltflaeche extends javax.swing.JButton {
 
   public Schaltflaeche(Fensterverwaltung fw) {
     this.setBorderPainted(false);
-    // this.setBackground(new Color(255, 102, 0));
     this.fw = fw;
-    // this.setBackground(FarbenEinstellungen.getSchaltflaeceBackground());
     this.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getSchaltflaeceBackground());
-    // this.setForeground(FarbenEinstellungen.getSchaltflaecheForeground());
     this.setForeground(fw.getEinstellungen().getFarbenEinstellungen().getSchaltflaecheForeground());
     
   }
@@ -42,12 +39,8 @@ public class Schaltflaeche extends javax.swing.JButton {
   }
   
   public Schaltflaeche(String text, Fensterverwaltung fw) {
-    // this.setBorderPainted(false);
     this.fw = fw;
-    // this.setBackground(new Color(255, 102, 0));
- // this.setBackground(FarbenEinstellungen.getSchaltflaeceBackground());
     this.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getSchaltflaeceBackground());
-    // this.setForeground(FarbenEinstellungen.getSchaltflaecheForeground());
     this.setForeground(fw.getEinstellungen().getFarbenEinstellungen().getSchaltflaecheForeground());
     this.setText(text);
    
@@ -77,7 +70,6 @@ public class Schaltflaeche extends javax.swing.JButton {
   
     switch (farbe) {
       case 1:
-        // this.setBackground(new Color(255, 102, 0));
         this.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getSchaltflaecheColor1Background());
         this.setForeground(fw.getEinstellungen().getFarbenEinstellungen().getSchaltflaecheColor1Foreground());
         break;

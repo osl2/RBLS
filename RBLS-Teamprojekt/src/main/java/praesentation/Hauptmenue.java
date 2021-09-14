@@ -2,6 +2,7 @@ package praesentation;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -24,9 +25,6 @@ import modell.Fassade;
 
  * @author Nick
  */
-
-// public class Hauptmenue extends javax.swing.JPanel {
-
   
 public class Hauptmenue extends ImagePanel {
   /**
@@ -66,17 +64,14 @@ public class Hauptmenue extends ImagePanel {
     einstellungen = new Schaltflaeche(3, fw);
     
     JPanel startFeld = new JPanel(new java.awt.FlowLayout());
-    // startFeld.setBackground(FarbenEinstellungen.getHauptmenuStartFeldBackground());
     startFeld.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getHauptmenuStartFeldBackground());
     JPanel mitte = new JPanel(new java.awt.BorderLayout());
-    // mitte.setBackground(FarbenEinstellungen.getHauptmenuJPanelBackground());
     mitte.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getHauptmenuJPanelBackground());
     mitte.add(startFeld, java.awt.BorderLayout.SOUTH);
     JLabel starttext = new javax.swing.JLabel("Start", SwingConstants.CENTER);
     mitte.add(starttext, java.awt.BorderLayout.NORTH);
 
     this.setLayout(new java.awt.GridBagLayout());
-    // this.setBackground(FarbenEinstellungen.getHauptmenuBackground());
     this.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getHauptmenuBackground());
         
     //Stufenbuttons//
@@ -178,15 +173,11 @@ public class Hauptmenue extends ImagePanel {
     titel2.setFont(new javax.swing.plaf.FontUIResource("Arial Unicode MS", Font.BOLD, 48));
     titel.add(titel1, 0);
     titel.add(titel2, 1);
-    // titel.setBackground(FarbenEinstellungen.getHauptmenuTitleBackground());
     titel.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getHauptmenuTitleBackground());
     this.add(titel, c);
 
     einstellungen.setText("Einstellungen");
     einstellungen.setFont(new javax.swing.plaf.FontUIResource("Arial Unicode MS", Font.BOLD, 30));
-//    JPanel leer = new JPanel();
-//    leer.setLayout(new BoxLayout(leer, BoxLayout.Y_AXIS));
-//    leer.setBackground(new Color(255, 255, 255, 0));
     c.gridy = 3;
     c.ipady = 40;
     einstellungen.addActionListener(new ActionListener() {

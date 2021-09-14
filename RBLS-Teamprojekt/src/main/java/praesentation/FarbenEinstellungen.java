@@ -125,7 +125,7 @@ public class FarbenEinstellungen {
   
   private  Color farbRendererWahr = hauptFarbe;
   
-  private  Color farbRendererFalsch = new Color(250,128,114);
+  private  static Color farbRendererFalsch = new Color(250,128,114);
   
   private  Color farbRendererMarkiertWahr = farbeGruen;
   
@@ -260,11 +260,13 @@ public class FarbenEinstellungen {
   }
   
   public static Color getFehlerDialogBackground() {
-    return fehlerDialogBackground;
+    return farbRendererFalsch;
+    // return fehlerDialogBackground;
   }
   
   public static Color getFehlerDialogButtonBackground () {
-    return fehlerDialogButtonBackground;
+    return farbRendererFalsch;
+    // return fehlerDialogButtonBackground;
   }
   
   public  Color getFormelAnsichtPanel() {

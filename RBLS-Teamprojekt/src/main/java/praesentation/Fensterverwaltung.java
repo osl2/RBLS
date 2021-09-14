@@ -65,8 +65,6 @@ public class Fensterverwaltung {
     aktivesFenster.setVisible(true);
     aktivesFenster.setIconImage(img.getImage());
 
-    // modell.init();
-    // System.out.println("Fensterverwaltung: modell.init()");
   }
 
   /**
