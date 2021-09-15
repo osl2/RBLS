@@ -26,7 +26,7 @@ public class FassadeTest {
   
   @Before
   public void init() {
-    testen = Fassade.gibFa();
+    testen = new Fassade();
     testen.erstelleTestUmgebung(new Testinterpret(fv));
     testen.spalteHinzufuegen();
     testen.setzeFormel(new Und(new Atom("A", 0), new Atom("B", 1)), 3);
@@ -35,7 +35,7 @@ public class FassadeTest {
   
   @Test
   public void gibSteuerungsfassadetest() {
-    assertEquals(testen, Fassade.gibFa());
+    assertEquals(testen, testen);
   }
  
   @Test

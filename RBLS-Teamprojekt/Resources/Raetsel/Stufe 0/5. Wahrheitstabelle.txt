@@ -216,18 +216,28 @@ Nachdem du alle möglichen Belegungen hingeschrieben hast, wertest du für jede 
 
 <br><br>
 
+Nachdem die Wahrheitstabelle fertig ausgefüllt ist, kannst du ablesen für welche Belegungen die Formel wahr bzw. falsch ist. 
 
+<br><br> 
 
+Wenn eine aussagenlogische Formel für alle Belegungen in der Warheitstabelle wahr ist, so spricht man von einer <b>Tautologie</b>. 
 
+<br><br> 
+
+Wenn eine aussagenlogische Formel für alle Belegungen in der Warheitstabelle falsch ist, so spricht man von einer <b>Kontradiktion</b>. 
+
+<br><br> 
 
 <h3>Aufgabenstellung</h3>
-<i>Entscheide, ob folgende Aussagen wahr oder falsch sind.</i>
+<i>Entscheide, ob folgende Aussagen wahr oder falsch sind. Um das Ausfüllen von Wahrheitstabellen zu üben, bearbeite anschließend die Level 1 bis 4.</i>
+
+
 ##
-Aussage § Wahrheitswert
+Aussage § Wahrheitswert 
 ##
-falsch § falsch
+wahr § falsch § wahr § wahr § falsch § wahr
 ##
-Wenn p eine gerade Zahl ist, die durch 3 teilbar ist, so folgt daraus, dass p + 1 eine Primzahl ist. § Aussage 2
+Eine Belegung ist die Zuweisung von Werten einer Variablen bzw. mehrerer Variablen. § Wenn eine aussagenlogische Formel vier Variablen enthält, so hat eine vollständige Wahrheitstabelle 9 (8 + 1) Zeilen. § Eine Wahrheitstabelle dient dem Zweck herauszufinden, für welche Belegungen eine aussagenlogische Formel wahr bzw. falsch ist. § Die Aussage (X→Y)∨X ist eine Tautologie. § Ist die Aussage X eine Kontradiktion, so ist ¬X weder Tautologie noch Kontradiktion. § Die Aussage X∧¬X ist eine Kontradiktion.
 ##
 0
 ##

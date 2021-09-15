@@ -16,9 +16,9 @@ Y: <i>Till hat mindestens 15 Euro im Geldbeutel.</i>
 
 <br><br>
 
-da die Bankknote mit dem kleinsten Wert die 5-Euro-Banknote ist. <br><br>
+da die Banknote mit dem kleinsten Wert die 5-Euro-Banknote ist. <br><br>
 
-Folgt aus einer Aussage X die Aussage Y, so bedeutet es, dass die Aussage X die Aussage Y <b>impliziert</b>. Die Formelschreibeweise X → Y bezeichnet man als <b>Implikation</b>. Du kannst die Formel entweder als <i>X impliziert Y</i> oder <i>Wenn X gilt, dann gilt auch Y</i> (vor)lesen. <br><br>
+Folgt aus einer Aussage X die Aussage Y, so bedeutet es, dass die Aussage X die Aussage Y <b>impliziert</b>. Die Formelschreibweise X → Y bezeichnet man als <b>Implikation</b>. Du kannst die Formel entweder als <i>X impliziert Y</i> oder <i>Wenn X gilt, dann gilt auch Y</i> (vor)lesen. <br><br>
 
 Die Implikation ist nur dann <i>falsch</i>, wenn X wahr ist und Y falsch ist, für alle anderen Kombinationen der Wahrheitswerte X und Y ist die Implikation wahr. <br><br>
 

@@ -386,12 +386,11 @@ public class KonkreteTabellenAnsicht extends TabellenAnsicht {
   private void wechseleModus(Schaltflaeche s, Modus m) {
     if (modus == Modus.standard) {
       modus = m;
-      s.setBackground(Color.DARK_GRAY);
-      s.setForeground(new Color(186, 185, 219));
+      
+      s.setBackground(s.getBackground().darker());
     } else if (modus == m) {
       modus = Modus.standard;
-      s.setBackground(new Color(186, 185, 219));
-      s.setForeground(Color.DARK_GRAY);
+      s.setBackground(fw.getEinstellungen().getFarbenEinstellungen().getSchaltflaeceBackground());
     }
   }
 

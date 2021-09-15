@@ -2,7 +2,7 @@
 ##
 <h2>﻿Snapes Zauberstab</h2>
 
-Snapes Zauberstab wurde zerbrochen. Wütend stürmt er in die große Halle und zerrt Aaron, Bari und Cori in seine Hexenküche. Bevor er die drei Weasleys befragt, gibt er ihnen Verita-Serum, ein Wahrheitselixir.<br><br>
+Snapes Zauberstab wurde zerbrochen. Wütend stürmt er in die große Halle und zerrt Aaron, Bari und Cori in seine Hexenküche. Bevor er die drei Weasleys befragt, gibt er ihnen Verita-Serum, ein Wahrheitselixier.<br><br>
  
 Ihre vier Aussagen sind daher alle wahr: <br><br>
 
@@ -15,7 +15,7 @@ Ihre vier Aussagen sind daher alle wahr: <br><br>
 </b>
 
 <h3>Aufgabenstellung</h3>
-<i>Wandle die gegebenen Ausssagen in aussagenlogischen Formeln um und füge sie in die Tabelle ein. Nutze anschließend die ausgefüllte Tabelle, um herauszufinden, wer schuldig ist.</i>
+<i>Wandle die gegebenen Aussagen in aussagenlogischen Formeln um und füge sie in die Tabelle ein. Nutze anschließend die ausgefüllte Tabelle, um herauszufinden, wer schuldig ist.</i>
 ##
 ist/sind schuldig.
 ##

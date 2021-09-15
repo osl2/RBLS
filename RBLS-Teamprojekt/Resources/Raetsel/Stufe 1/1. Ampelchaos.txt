@@ -12,7 +12,7 @@ In der Tabelle kannst du durch das Klicken auf die jeweiligen Felder in den erst
 
 <h3>Aufgabenstellung:</h3>
 <i>Stelle die Felder in der linken und mittleren Spalte der Tabelle so ein, dass du alle Kombinationen der Belegungen von A und B abdeckst. Klicke anschließend auf „Fülle Tabelle“, um herauszufinden für welche Belegung(en) von A und B die Formel auf der rechten Seite nicht erfüllt ist. <br>
-Was bedeutet das Ergbenis in der Wahrheitstabelle für das Problem? Wann ist der Fußgängerübergang unsicher? </i>
+Was bedeutet das Ergebnis in der Wahrheitstabelle für das Problem? Wann ist der Fußgängerübergang unsicher? </i>
 ##
 
 ##

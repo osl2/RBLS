@@ -109,11 +109,20 @@ public class StufenRaetselFenster extends RaetselFenster {
     JPanel frageRahmen = erzeugeRahmenPanel(frageFeldPanel, this.name);
     String leerzeilen = frage.trim();
     if (! leerzeilen.isEmpty()) {
+      int limit = 1300;
+      int size = (int) (frage.length() * 0.8 + leerzeilen.split("\n").length * 70);
+      if (size < limit) {
       frageRahmen.setPreferredSize(new Dimension(1, 
           (int) (frage.length() * 0.8 + leerzeilen.split("\n").length * 70)));
+      }
+      else {
+        frageRahmen.setPreferredSize(new Dimension(1, limit));
+      }
+      
     } else {
       frageRahmen.setPreferredSize(new Dimension(1, (int) (frage.length() * 0.8)));
     }
+    
     
     fragePanel.add(frageRahmen, BorderLayout.CENTER);
     
